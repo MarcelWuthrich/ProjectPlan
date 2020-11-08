@@ -1,0 +1,4 @@
+D:\Users\Marcel\OneDrive\ProjectPlan\ProjectPlan\ProjectPlan\obj\Debug\ProjectPlan.frmMain.resources
+D:\Users\Marcel\OneDrive\ProjectPlan\ProjectPlan\ProjectPlan\obj\Debug\ProjectPlan.Resources.resources
+D:\Users\Marcel\OneDrive\ProjectPlan\ProjectPlan\ProjectPlan\obj\Debug\ProjectPlan.vbproj.GenerateResource.cache
+D:\Users\Marcel\OneDrive\ProjectPlan\ProjectPlan\ProjectPlan\obj\Debug\ProjectPlan.vbproj.CoreCompileInputs.cache
