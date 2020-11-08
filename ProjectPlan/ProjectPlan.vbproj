@@ -79,6 +79,12 @@
     <Compile Include="frmMain.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="frmProjectDetails.designer.vb">
+      <DependentUpon>frmProjectDetails.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmProjectDetails.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frmProjectMemberDetails.Designer.vb">
       <DependentUpon>frmProjectMemberDetails.vb</DependentUpon>
     </Compile>
@@ -89,6 +95,12 @@
       <DependentUpon>frmProjectMembers.vb</DependentUpon>
     </Compile>
     <Compile Include="frmProjectMembers.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmProjectsList.Designer.vb">
+      <DependentUpon>frmProjectsList.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmProjectsList.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="GlobalProjectPlan.vb" />
@@ -108,18 +120,33 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="myExecuteResource.vb" />
+    <Compile Include="myPlanResource.vb" />
+    <Compile Include="myPriority.vb" />
+    <Compile Include="myProject.vb" />
+    <Compile Include="myProjectCategory.vb" />
+    <Compile Include="myProjectHistory.vb" />
+    <Compile Include="myProjectManager.vb" />
     <Compile Include="myProjectMember.vb" />
+    <Compile Include="myStatus.vb" />
     <Compile Include="myTask.vb" />
+    <Compile Include="myUrgency.vb" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmProjectDetails.resx">
+      <DependentUpon>frmProjectDetails.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmProjectMemberDetails.resx">
       <DependentUpon>frmProjectMemberDetails.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmProjectMembers.resx">
       <DependentUpon>frmProjectMembers.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmProjectsList.resx">
+      <DependentUpon>frmProjectsList.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>

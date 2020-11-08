@@ -156,4 +156,18 @@ Public Class frmMain
             If DebugFlag = True Then MessageBox.Show(ex.ToString)
         End Try
     End Sub
+
+    Private Sub ListeDesProjetsToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ListeDesProjetsToolStripMenuItem.Click
+        Try
+
+            ID_Project = 0
+
+            Dim myForm As Form = frmProjectsList
+            myForm.MdiParent = Me
+            myForm.Show()
+
+        Catch ex As Exception
+            If DebugFlag = True Then MessageBox.Show(ex.ToString)
+        End Try
+    End Sub
 End Class

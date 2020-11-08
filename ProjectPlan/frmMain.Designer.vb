@@ -38,10 +38,6 @@ Partial Class frmMain
         Me.PrintSetupToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator5 = New System.Windows.Forms.ToolStripSeparator()
         Me.ExitToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.PersonMenu = New System.Windows.Forms.ToolStripMenuItem()
-        Me.CommanditairesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ChefsDeProjetToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ProjectsMembersToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.EditMenu = New System.Windows.Forms.ToolStripMenuItem()
         Me.UndoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.RedoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -51,6 +47,12 @@ Partial Class frmMain
         Me.PasteToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator7 = New System.Windows.Forms.ToolStripSeparator()
         Me.SelectAllToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.PersonMenu = New System.Windows.Forms.ToolStripMenuItem()
+        Me.CommanditairesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ChefsDeProjetToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ProjectsMembersToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ProjetsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ListeDesProjetsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ViewMenu = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolBarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.StatusBarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -79,11 +81,11 @@ Partial Class frmMain
         Me.PrintPreviewToolStripButton = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripSeparator2 = New System.Windows.Forms.ToolStripSeparator()
         Me.HelpToolStripButton = New System.Windows.Forms.ToolStripButton()
+        Me.ToolStripSeparator9 = New System.Windows.Forms.ToolStripSeparator()
+        Me.CreateDBToolStripButton = New System.Windows.Forms.ToolStripButton()
         Me.StatusStrip = New System.Windows.Forms.StatusStrip()
         Me.ToolStripStatusLabel = New System.Windows.Forms.ToolStripStatusLabel()
         Me.ToolTip = New System.Windows.Forms.ToolTip(Me.components)
-        Me.ToolStripSeparator9 = New System.Windows.Forms.ToolStripSeparator()
-        Me.CreateDBToolStripButton = New System.Windows.Forms.ToolStripButton()
         Me.MenuStrip.SuspendLayout()
         Me.ToolStrip.SuspendLayout()
         Me.StatusStrip.SuspendLayout()
@@ -91,7 +93,7 @@ Partial Class frmMain
         '
         'MenuStrip
         '
-        Me.MenuStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FileMenu, Me.PersonMenu, Me.EditMenu, Me.ViewMenu, Me.ToolsMenu, Me.WindowsMenu, Me.HelpMenu, Me.ToolStripComboBox1})
+        Me.MenuStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FileMenu, Me.EditMenu, Me.PersonMenu, Me.ProjetsToolStripMenuItem, Me.ViewMenu, Me.ToolsMenu, Me.WindowsMenu, Me.HelpMenu, Me.ToolStripComboBox1})
         Me.MenuStrip.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip.MdiWindowListItem = Me.WindowsMenu
         Me.MenuStrip.Name = "MenuStrip"
@@ -184,31 +186,6 @@ Partial Class frmMain
         Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(231, 22)
         Me.ExitToolStripMenuItem.Text = "&Quitter"
         '
-        'PersonMenu
-        '
-        Me.PersonMenu.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.CommanditairesToolStripMenuItem, Me.ChefsDeProjetToolStripMenuItem, Me.ProjectsMembersToolStripMenuItem})
-        Me.PersonMenu.Name = "PersonMenu"
-        Me.PersonMenu.Size = New System.Drawing.Size(73, 23)
-        Me.PersonMenu.Text = "Personnes"
-        '
-        'CommanditairesToolStripMenuItem
-        '
-        Me.CommanditairesToolStripMenuItem.Name = "CommanditairesToolStripMenuItem"
-        Me.CommanditairesToolStripMenuItem.Size = New System.Drawing.Size(179, 22)
-        Me.CommanditairesToolStripMenuItem.Text = "Commanditaires"
-        '
-        'ChefsDeProjetToolStripMenuItem
-        '
-        Me.ChefsDeProjetToolStripMenuItem.Name = "ChefsDeProjetToolStripMenuItem"
-        Me.ChefsDeProjetToolStripMenuItem.Size = New System.Drawing.Size(179, 22)
-        Me.ChefsDeProjetToolStripMenuItem.Text = "Chefs de projet"
-        '
-        'ProjectsMembersToolStripMenuItem
-        '
-        Me.ProjectsMembersToolStripMenuItem.Name = "ProjectsMembersToolStripMenuItem"
-        Me.ProjectsMembersToolStripMenuItem.Size = New System.Drawing.Size(179, 22)
-        Me.ProjectsMembersToolStripMenuItem.Text = "Membres de projets"
-        '
         'EditMenu
         '
         Me.EditMenu.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.UndoToolStripMenuItem, Me.RedoToolStripMenuItem, Me.ToolStripSeparator6, Me.CutToolStripMenuItem, Me.CopyToolStripMenuItem, Me.PasteToolStripMenuItem, Me.ToolStripSeparator7, Me.SelectAllToolStripMenuItem})
@@ -277,6 +254,44 @@ Partial Class frmMain
         Me.SelectAllToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.A), System.Windows.Forms.Keys)
         Me.SelectAllToolStripMenuItem.Size = New System.Drawing.Size(206, 22)
         Me.SelectAllToolStripMenuItem.Text = "Sélectionner &tout"
+        '
+        'PersonMenu
+        '
+        Me.PersonMenu.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.CommanditairesToolStripMenuItem, Me.ChefsDeProjetToolStripMenuItem, Me.ProjectsMembersToolStripMenuItem})
+        Me.PersonMenu.Name = "PersonMenu"
+        Me.PersonMenu.Size = New System.Drawing.Size(73, 23)
+        Me.PersonMenu.Text = "Personnes"
+        '
+        'CommanditairesToolStripMenuItem
+        '
+        Me.CommanditairesToolStripMenuItem.Name = "CommanditairesToolStripMenuItem"
+        Me.CommanditairesToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.CommanditairesToolStripMenuItem.Text = "Commanditaires"
+        '
+        'ChefsDeProjetToolStripMenuItem
+        '
+        Me.ChefsDeProjetToolStripMenuItem.Name = "ChefsDeProjetToolStripMenuItem"
+        Me.ChefsDeProjetToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.ChefsDeProjetToolStripMenuItem.Text = "Chefs de projet"
+        '
+        'ProjectsMembersToolStripMenuItem
+        '
+        Me.ProjectsMembersToolStripMenuItem.Name = "ProjectsMembersToolStripMenuItem"
+        Me.ProjectsMembersToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.ProjectsMembersToolStripMenuItem.Text = "Membres de projets"
+        '
+        'ProjetsToolStripMenuItem
+        '
+        Me.ProjetsToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ListeDesProjetsToolStripMenuItem})
+        Me.ProjetsToolStripMenuItem.Name = "ProjetsToolStripMenuItem"
+        Me.ProjetsToolStripMenuItem.Size = New System.Drawing.Size(55, 23)
+        Me.ProjetsToolStripMenuItem.Text = "Projets"
+        '
+        'ListeDesProjetsToolStripMenuItem
+        '
+        Me.ListeDesProjetsToolStripMenuItem.Name = "ListeDesProjetsToolStripMenuItem"
+        Me.ListeDesProjetsToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.ListeDesProjetsToolStripMenuItem.Text = "Liste des projets"
         '
         'ViewMenu
         '
@@ -478,6 +493,20 @@ Partial Class frmMain
         Me.HelpToolStripButton.Size = New System.Drawing.Size(23, 22)
         Me.HelpToolStripButton.Text = "Aide"
         '
+        'ToolStripSeparator9
+        '
+        Me.ToolStripSeparator9.Name = "ToolStripSeparator9"
+        Me.ToolStripSeparator9.Size = New System.Drawing.Size(6, 25)
+        '
+        'CreateDBToolStripButton
+        '
+        Me.CreateDBToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.CreateDBToolStripButton.Image = CType(resources.GetObject("CreateDBToolStripButton.Image"), System.Drawing.Image)
+        Me.CreateDBToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.CreateDBToolStripButton.Name = "CreateDBToolStripButton"
+        Me.CreateDBToolStripButton.Size = New System.Drawing.Size(23, 22)
+        Me.CreateDBToolStripButton.Text = "ToolStripButton1"
+        '
         'StatusStrip
         '
         Me.StatusStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripStatusLabel})
@@ -493,20 +522,6 @@ Partial Class frmMain
         Me.ToolStripStatusLabel.Size = New System.Drawing.Size(27, 17)
         Me.ToolStripStatusLabel.Text = "État"
         '
-        'ToolStripSeparator9
-        '
-        Me.ToolStripSeparator9.Name = "ToolStripSeparator9"
-        Me.ToolStripSeparator9.Size = New System.Drawing.Size(6, 25)
-        '
-        'CreateDBToolStripButton
-        '
-        Me.CreateDBToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.CreateDBToolStripButton.Image = CType(resources.GetObject("CreateDBToolStripButton.Image"), System.Drawing.Image)
-        Me.CreateDBToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.CreateDBToolStripButton.Name = "CreateDBToolStripButton"
-        Me.CreateDBToolStripButton.Size = New System.Drawing.Size(23, 22)
-        Me.CreateDBToolStripButton.Text = "ToolStripButton1"
-        '
         'frmMain
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -520,6 +535,7 @@ Partial Class frmMain
         Me.MainMenuStrip = Me.MenuStrip
         Me.Name = "frmMain"
         Me.Text = "ProjectPlan"
+        Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.MenuStrip.ResumeLayout(False)
         Me.MenuStrip.PerformLayout()
         Me.ToolStrip.ResumeLayout(False)
@@ -589,4 +605,6 @@ Partial Class frmMain
     Friend WithEvents ProjectsMembersToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ToolStripSeparator9 As ToolStripSeparator
     Friend WithEvents CreateDBToolStripButton As ToolStripButton
+    Friend WithEvents ProjetsToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ListeDesProjetsToolStripMenuItem As ToolStripMenuItem
 End Class
