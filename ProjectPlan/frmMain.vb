@@ -117,5 +117,43 @@ Public Class frmMain
 
     End Sub
 
+    Private Sub CreateDBToolStripButton_Click(sender As Object, e As EventArgs) Handles CreateDBToolStripButton.Click
 
+        Try
+
+            'Création de la base de données
+            Dim DBName As String = "ProjectPlan_DMY2"
+            Dim SQL As String = ""
+            Dim mySQLConn As New SqlConnection
+
+            mySQLConn.ConnectionString = "Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=Master;Integrated Security=True;"
+            mySQLConn.Open()
+            SQL = "CREATE DATABASE " & DBName
+            Dim mySQLCommand As SqlCommand = New SqlCommand(SQL, mySQLConn)
+            mySQLCommand.ExecuteNonQuery()
+            mySQLCommand = Nothing
+            mySQLConn.Close()
+
+
+            'Créeation des tables
+            SQL = " CREATE TABLE ProjectsMembers ("
+            SQL &= "ID_ProjectMember Int  Not NULL,"
+            SQL &= "CE_ID_Task       Int  NULL,"
+            SQL &= "FirstName        Text NULL,"
+            SQL &= "LastName         Text NULL,"
+            SQL &= "Enable           BIT  NULL,"
+            SQL &= "IsDeleted        BIT NULL);"
+
+            mySQLConn.ConnectionString = "Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=" & DBName & ";Integrated Security=True;"
+            mySQLConn.Open()
+            mySQLCommand = New SqlCommand(SQL, mySQLConn)
+            mySQLCommand.ExecuteNonQuery()
+            mySQLCommand = Nothing
+            mySQLConn.Close()
+
+
+        Catch ex As Exception
+            If DebugFlag = True Then MessageBox.Show(ex.ToString)
+        End Try
+    End Sub
 End Class

@@ -82,6 +82,8 @@ Partial Class frmMain
         Me.StatusStrip = New System.Windows.Forms.StatusStrip()
         Me.ToolStripStatusLabel = New System.Windows.Forms.ToolStripStatusLabel()
         Me.ToolTip = New System.Windows.Forms.ToolTip(Me.components)
+        Me.ToolStripSeparator9 = New System.Windows.Forms.ToolStripSeparator()
+        Me.CreateDBToolStripButton = New System.Windows.Forms.ToolStripButton()
         Me.MenuStrip.SuspendLayout()
         Me.ToolStrip.SuspendLayout()
         Me.StatusStrip.SuspendLayout()
@@ -405,7 +407,7 @@ Partial Class frmMain
         '
         'ToolStrip
         '
-        Me.ToolStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NewToolStripButton, Me.OpenToolStripButton, Me.SaveToolStripButton, Me.ToolStripSeparator1, Me.PrintToolStripButton, Me.PrintPreviewToolStripButton, Me.ToolStripSeparator2, Me.HelpToolStripButton})
+        Me.ToolStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NewToolStripButton, Me.OpenToolStripButton, Me.SaveToolStripButton, Me.ToolStripSeparator1, Me.PrintToolStripButton, Me.PrintPreviewToolStripButton, Me.ToolStripSeparator2, Me.HelpToolStripButton, Me.ToolStripSeparator9, Me.CreateDBToolStripButton})
         Me.ToolStrip.Location = New System.Drawing.Point(0, 27)
         Me.ToolStrip.Name = "ToolStrip"
         Me.ToolStrip.Size = New System.Drawing.Size(817, 25)
@@ -491,6 +493,20 @@ Partial Class frmMain
         Me.ToolStripStatusLabel.Size = New System.Drawing.Size(27, 17)
         Me.ToolStripStatusLabel.Text = "État"
         '
+        'ToolStripSeparator9
+        '
+        Me.ToolStripSeparator9.Name = "ToolStripSeparator9"
+        Me.ToolStripSeparator9.Size = New System.Drawing.Size(6, 25)
+        '
+        'CreateDBToolStripButton
+        '
+        Me.CreateDBToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.CreateDBToolStripButton.Image = CType(resources.GetObject("CreateDBToolStripButton.Image"), System.Drawing.Image)
+        Me.CreateDBToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.CreateDBToolStripButton.Name = "CreateDBToolStripButton"
+        Me.CreateDBToolStripButton.Size = New System.Drawing.Size(23, 22)
+        Me.CreateDBToolStripButton.Text = "ToolStripButton1"
+        '
         'frmMain
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -571,4 +587,6 @@ Partial Class frmMain
     Friend WithEvents CommanditairesToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ChefsDeProjetToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ProjectsMembersToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ToolStripSeparator9 As ToolStripSeparator
+    Friend WithEvents CreateDBToolStripButton As ToolStripButton
 End Class

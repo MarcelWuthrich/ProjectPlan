@@ -27,6 +27,7 @@ Public Class frmProjectMemberDetails
             Else
                 thisProjectMember.Enable = False
             End If
+            thisProjectMember.IsDeleted = False
 
             'On lit la tâche
             Dim ID_Task As String = DirectCast(lovTasks.SelectedItem, KeyValuePair(Of String, String)).Key

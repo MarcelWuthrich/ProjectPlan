@@ -85,7 +85,7 @@ Partial Class frmProjectMemberDetails
         Me.texID_ProjectMember.Location = New System.Drawing.Point(94, 28)
         Me.texID_ProjectMember.Name = "texID_ProjectMember"
         Me.texID_ProjectMember.ReadOnly = True
-        Me.texID_ProjectMember.Size = New System.Drawing.Size(56, 20)
+        Me.texID_ProjectMember.Size = New System.Drawing.Size(213, 20)
         Me.texID_ProjectMember.TabIndex = 54
         '
         'chkActive

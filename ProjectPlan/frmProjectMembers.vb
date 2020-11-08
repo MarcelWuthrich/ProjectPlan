@@ -24,8 +24,7 @@ Public Class frmProjectMembers
             Dim MySQLConnection As New SqlConnection
 
             Dim mySQLDataReader As SqlDataReader
-            Dim Sql As String = "SELECT ID_ProjectMember FROM ProjectsMembers"
-
+            Dim Sql As String = "SELECT ID_ProjectMember FROM ProjectsMembers WHERE Enable = 1 AND IsDeleted=0"
 
 
             'On vide le DataGridView
@@ -148,6 +147,27 @@ Public Class frmProjectMembers
             Dim myForm As Form = frmProjectMemberDetails
             myForm.ShowDialog()
             myForm.Dispose()
+
+            pDisplayProjectMembers()
+
+        Catch ex As Exception
+            If DebugFlag = True Then MessageBox.Show(ex.ToString)
+        End Try
+    End Sub
+
+    Private Sub dgvProjectsMembers_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvProjectsMembers.CellContentClick
+
+    End Sub
+
+    Private Sub btcDelete_Click(sender As Object, e As EventArgs) Handles btcDelete.Click
+        Try
+
+            Dim myProjectMember As New myProjectMember
+
+            myProjectMember.ID_ProjectMember = ID_ProjectMember
+            myProjectMember.Read()
+            myProjectMember.IsDeleted = 1
+            myProjectMember.Save()
 
             pDisplayProjectMembers()
 

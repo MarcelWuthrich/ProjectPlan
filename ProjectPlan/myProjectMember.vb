@@ -9,6 +9,7 @@ Public Class myProjectMember
     Private _FirstName As String
     Private _Lastname As String
     Private _Enable As Boolean
+    Private _IsDeleted As Boolean
     Private _FullName As String
 
     'Défnition des proprétés publiques
@@ -40,6 +41,15 @@ Public Class myProjectMember
 
         Set(ByVal value As String)
             _FirstName = value
+        End Set
+    End Property
+
+    Public Property IsDeleted As Boolean
+        Get
+            Return _IsDeleted
+        End Get
+        Set(value As Boolean)
+            _IsDeleted = value
         End Set
     End Property
 
@@ -81,7 +91,7 @@ Public Class myProjectMember
             Dim MySQLConnection As New SqlConnection
 
             Dim mySQLDataReader As SqlDataReader
-            Dim Sql As String = "SELECT ID_ProjectMember, CE_ID_Task, FirstName, LastName, Enable from ProjectsMembers where ID_ProjectMember =" & Me.ID_ProjectMember
+            Dim Sql As String = "SELECT ID_ProjectMember, CE_ID_Task, FirstName, LastName, Enable, IsDeleted from ProjectsMembers where ID_ProjectMember =" & Me.ID_ProjectMember
 
             'Remise à zéro des variables
             ID_ProjectMember = Nothing
@@ -89,6 +99,7 @@ Public Class myProjectMember
             FirstName = Nothing
             Lastname = Nothing
             Enable = Nothing
+            IsDeleted = Nothing
             FullName = Nothing
 
 
@@ -130,6 +141,12 @@ Public Class myProjectMember
                 'Lecture du 5e paramètre
                 Try
                     Me.Enable = mySQLDataReader.GetValue(4)
+                Catch ex As Exception
+                End Try
+
+                'Lecture du 6e paramètre
+                Try
+                    Me.IsDeleted = mySQLDataReader.GetValue(5)
                 Catch ex As Exception
                 End Try
 
@@ -252,9 +269,14 @@ Public Class myProjectMember
                 SQL &= "FirstName ='" & Replace(Me.FirstName, "'", "''") & "',"
                 SQL &= "LastName ='" & Replace(Me.Lastname, "'", "''") & "', "
                 If Me.Enable = True Then
-                    SQL &= "Enable = 1 "
+                    SQL &= "Enable = 1, "
                 Else
-                    SQL &= "Enable = 0 "
+                    SQL &= "Enable = 0, "
+                End If
+                If Me.IsDeleted = True Then
+                    SQL &= "IsDeleted = 1 "
+                Else
+                    SQL &= "IsDeleted = 0 "
                 End If
 
                 SQL &= "WHERE ID_ProjectMember=" & Me.ID_ProjectMember & ";"
@@ -266,12 +288,17 @@ Public Class myProjectMember
 
                 'L'enregistrement n'existe pas encore, il faut faire un insert
                 SQL = "INSERT INTO ProjectsMembers "
-                SQL &= "(ID_ProjectMember, CE_ID_Task, FirstName, LastName, Enable ) VALUES ("
+                SQL &= "(ID_ProjectMember, CE_ID_Task, FirstName, LastName, Enable, IsDeleted ) VALUES ("
                 SQL &= Me.ID_ProjectMember & ","
                 SQL &= Me.CE_ID_Task & ","
                 SQL &= "'" & Replace(Me._FirstName, "'", "''") & "',"
                 SQL &= "'" & Replace(Me.Lastname, "'", "''") & "',"
                 If Me.Enable = True Then
+                    SQL &= "1,"
+                Else
+                    SQL &= "0,"
+                End If
+                If Me.IsDeleted = True Then
                     SQL &= "1)"
                 Else
                     SQL &= "0)"
