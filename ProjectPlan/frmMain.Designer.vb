@@ -38,6 +38,10 @@ Partial Class frmMain
         Me.PrintSetupToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator5 = New System.Windows.Forms.ToolStripSeparator()
         Me.ExitToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.PersonMenu = New System.Windows.Forms.ToolStripMenuItem()
+        Me.CommanditairesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ChefsDeProjetToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ProjectsMembersToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.EditMenu = New System.Windows.Forms.ToolStripMenuItem()
         Me.UndoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.RedoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -65,6 +69,7 @@ Partial Class frmMain
         Me.SearchToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator8 = New System.Windows.Forms.ToolStripSeparator()
         Me.AboutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripComboBox1 = New System.Windows.Forms.ToolStripComboBox()
         Me.ToolStrip = New System.Windows.Forms.ToolStrip()
         Me.NewToolStripButton = New System.Windows.Forms.ToolStripButton()
         Me.OpenToolStripButton = New System.Windows.Forms.ToolStripButton()
@@ -77,11 +82,6 @@ Partial Class frmMain
         Me.StatusStrip = New System.Windows.Forms.StatusStrip()
         Me.ToolStripStatusLabel = New System.Windows.Forms.ToolStripStatusLabel()
         Me.ToolTip = New System.Windows.Forms.ToolTip(Me.components)
-        Me.ToolStripComboBox1 = New System.Windows.Forms.ToolStripComboBox()
-        Me.PersonMenu = New System.Windows.Forms.ToolStripMenuItem()
-        Me.CommanditairesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ChefsDeProjetToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.MembresDeProjetsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip.SuspendLayout()
         Me.ToolStrip.SuspendLayout()
         Me.StatusStrip.SuspendLayout()
@@ -182,6 +182,31 @@ Partial Class frmMain
         Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(231, 22)
         Me.ExitToolStripMenuItem.Text = "&Quitter"
         '
+        'PersonMenu
+        '
+        Me.PersonMenu.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.CommanditairesToolStripMenuItem, Me.ChefsDeProjetToolStripMenuItem, Me.ProjectsMembersToolStripMenuItem})
+        Me.PersonMenu.Name = "PersonMenu"
+        Me.PersonMenu.Size = New System.Drawing.Size(73, 23)
+        Me.PersonMenu.Text = "Personnes"
+        '
+        'CommanditairesToolStripMenuItem
+        '
+        Me.CommanditairesToolStripMenuItem.Name = "CommanditairesToolStripMenuItem"
+        Me.CommanditairesToolStripMenuItem.Size = New System.Drawing.Size(179, 22)
+        Me.CommanditairesToolStripMenuItem.Text = "Commanditaires"
+        '
+        'ChefsDeProjetToolStripMenuItem
+        '
+        Me.ChefsDeProjetToolStripMenuItem.Name = "ChefsDeProjetToolStripMenuItem"
+        Me.ChefsDeProjetToolStripMenuItem.Size = New System.Drawing.Size(179, 22)
+        Me.ChefsDeProjetToolStripMenuItem.Text = "Chefs de projet"
+        '
+        'ProjectsMembersToolStripMenuItem
+        '
+        Me.ProjectsMembersToolStripMenuItem.Name = "ProjectsMembersToolStripMenuItem"
+        Me.ProjectsMembersToolStripMenuItem.Size = New System.Drawing.Size(179, 22)
+        Me.ProjectsMembersToolStripMenuItem.Text = "Membres de projets"
+        '
         'EditMenu
         '
         Me.EditMenu.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.UndoToolStripMenuItem, Me.RedoToolStripMenuItem, Me.ToolStripSeparator6, Me.CutToolStripMenuItem, Me.CopyToolStripMenuItem, Me.PasteToolStripMenuItem, Me.ToolStripSeparator7, Me.SelectAllToolStripMenuItem})
@@ -264,7 +289,7 @@ Partial Class frmMain
         Me.ToolBarToolStripMenuItem.CheckOnClick = True
         Me.ToolBarToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked
         Me.ToolBarToolStripMenuItem.Name = "ToolBarToolStripMenuItem"
-        Me.ToolBarToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.ToolBarToolStripMenuItem.Size = New System.Drawing.Size(143, 22)
         Me.ToolBarToolStripMenuItem.Text = "&Barre d'outils"
         '
         'StatusBarToolStripMenuItem
@@ -273,7 +298,7 @@ Partial Class frmMain
         Me.StatusBarToolStripMenuItem.CheckOnClick = True
         Me.StatusBarToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked
         Me.StatusBarToolStripMenuItem.Name = "StatusBarToolStripMenuItem"
-        Me.StatusBarToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.StatusBarToolStripMenuItem.Size = New System.Drawing.Size(143, 22)
         Me.StatusBarToolStripMenuItem.Text = "&Barre d'état"
         '
         'ToolsMenu
@@ -286,7 +311,7 @@ Partial Class frmMain
         'OptionsToolStripMenuItem
         '
         Me.OptionsToolStripMenuItem.Name = "OptionsToolStripMenuItem"
-        Me.OptionsToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.OptionsToolStripMenuItem.Size = New System.Drawing.Size(116, 22)
         Me.OptionsToolStripMenuItem.Text = "&Options"
         '
         'WindowsMenu
@@ -343,7 +368,7 @@ Partial Class frmMain
         '
         Me.ContentsToolStripMenuItem.Name = "ContentsToolStripMenuItem"
         Me.ContentsToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.F1), System.Windows.Forms.Keys)
-        Me.ContentsToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.ContentsToolStripMenuItem.Size = New System.Drawing.Size(166, 22)
         Me.ContentsToolStripMenuItem.Text = "&Contenu"
         '
         'IndexToolStripMenuItem
@@ -351,7 +376,7 @@ Partial Class frmMain
         Me.IndexToolStripMenuItem.Image = CType(resources.GetObject("IndexToolStripMenuItem.Image"), System.Drawing.Image)
         Me.IndexToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Black
         Me.IndexToolStripMenuItem.Name = "IndexToolStripMenuItem"
-        Me.IndexToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.IndexToolStripMenuItem.Size = New System.Drawing.Size(166, 22)
         Me.IndexToolStripMenuItem.Text = "&Index"
         '
         'SearchToolStripMenuItem
@@ -359,19 +384,24 @@ Partial Class frmMain
         Me.SearchToolStripMenuItem.Image = CType(resources.GetObject("SearchToolStripMenuItem.Image"), System.Drawing.Image)
         Me.SearchToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Black
         Me.SearchToolStripMenuItem.Name = "SearchToolStripMenuItem"
-        Me.SearchToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.SearchToolStripMenuItem.Size = New System.Drawing.Size(166, 22)
         Me.SearchToolStripMenuItem.Text = "&Rechercher"
         '
         'ToolStripSeparator8
         '
         Me.ToolStripSeparator8.Name = "ToolStripSeparator8"
-        Me.ToolStripSeparator8.Size = New System.Drawing.Size(177, 6)
+        Me.ToolStripSeparator8.Size = New System.Drawing.Size(163, 6)
         '
         'AboutToolStripMenuItem
         '
         Me.AboutToolStripMenuItem.Name = "AboutToolStripMenuItem"
-        Me.AboutToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.AboutToolStripMenuItem.Size = New System.Drawing.Size(166, 22)
         Me.AboutToolStripMenuItem.Text = "&À propos de ..."
+        '
+        'ToolStripComboBox1
+        '
+        Me.ToolStripComboBox1.Name = "ToolStripComboBox1"
+        Me.ToolStripComboBox1.Size = New System.Drawing.Size(121, 23)
         '
         'ToolStrip
         '
@@ -461,36 +491,6 @@ Partial Class frmMain
         Me.ToolStripStatusLabel.Size = New System.Drawing.Size(27, 17)
         Me.ToolStripStatusLabel.Text = "État"
         '
-        'ToolStripComboBox1
-        '
-        Me.ToolStripComboBox1.Name = "ToolStripComboBox1"
-        Me.ToolStripComboBox1.Size = New System.Drawing.Size(121, 23)
-        '
-        'PersonMenu
-        '
-        Me.PersonMenu.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.CommanditairesToolStripMenuItem, Me.ChefsDeProjetToolStripMenuItem, Me.MembresDeProjetsToolStripMenuItem})
-        Me.PersonMenu.Name = "PersonMenu"
-        Me.PersonMenu.Size = New System.Drawing.Size(73, 23)
-        Me.PersonMenu.Text = "Personnes"
-        '
-        'CommanditairesToolStripMenuItem
-        '
-        Me.CommanditairesToolStripMenuItem.Name = "CommanditairesToolStripMenuItem"
-        Me.CommanditairesToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
-        Me.CommanditairesToolStripMenuItem.Text = "Commanditaires"
-        '
-        'ChefsDeProjetToolStripMenuItem
-        '
-        Me.ChefsDeProjetToolStripMenuItem.Name = "ChefsDeProjetToolStripMenuItem"
-        Me.ChefsDeProjetToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
-        Me.ChefsDeProjetToolStripMenuItem.Text = "Chefs de projet"
-        '
-        'MembresDeProjetsToolStripMenuItem
-        '
-        Me.MembresDeProjetsToolStripMenuItem.Name = "MembresDeProjetsToolStripMenuItem"
-        Me.MembresDeProjetsToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
-        Me.MembresDeProjetsToolStripMenuItem.Text = "Membres de projets"
-        '
         'frmMain
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -503,7 +503,7 @@ Partial Class frmMain
         Me.IsMdiContainer = True
         Me.MainMenuStrip = Me.MenuStrip
         Me.Name = "frmMain"
-        Me.Text = "frmMain"
+        Me.Text = "ProjectPlan"
         Me.MenuStrip.ResumeLayout(False)
         Me.MenuStrip.PerformLayout()
         Me.ToolStrip.ResumeLayout(False)
@@ -570,5 +570,5 @@ Partial Class frmMain
     Friend WithEvents PersonMenu As ToolStripMenuItem
     Friend WithEvents CommanditairesToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ChefsDeProjetToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents MembresDeProjetsToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ProjectsMembersToolStripMenuItem As ToolStripMenuItem
 End Class

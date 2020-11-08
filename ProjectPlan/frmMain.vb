@@ -1,4 +1,5 @@
-﻿Imports System.Windows.Forms
+﻿Imports System.Data.SqlClient
+Imports System.Windows.Forms
 
 Public Class frmMain
 
@@ -88,4 +89,34 @@ Public Class frmMain
     Private Sub PersonMenu_Click(sender As Object, e As EventArgs) Handles PersonMenu.Click
 
     End Sub
+
+    Private Sub ProjectsMembersToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ProjectsMembersToolStripMenuItem.Click
+
+        Try
+
+            ID_ProjectMember = 0
+
+            Dim myForm As Form = frmProjectMembers
+            myForm.MdiParent = Me
+            myForm.Show()
+
+        Catch ex As Exception
+
+        End Try
+    End Sub
+
+    Private Sub frmMain_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+        Try
+
+            cnProjectPlan = "Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=ProjectPlan;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False"
+
+        Catch ex As Exception
+            If DebugFlag = True Then MessageBox.Show(ex.ToString)
+        End Try
+
+
+    End Sub
+
+
 End Class
