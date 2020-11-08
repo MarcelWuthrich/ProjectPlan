@@ -41,22 +41,22 @@ Partial Class frmProjectMembers
         '
         'btcAdd
         '
-        Me.btcAdd.BackColor = System.Drawing.Color.White
-        Me.btcAdd.Image = CType(resources.GetObject("btcAdd.Image"), System.Drawing.Image)
-        Me.btcAdd.Location = New System.Drawing.Point(516, 35)
+        Me.btcAdd.BackColor = System.Drawing.SystemColors.Control
+        Me.btcAdd.Location = New System.Drawing.Point(516, 108)
         Me.btcAdd.Name = "btcAdd"
-        Me.btcAdd.Size = New System.Drawing.Size(50, 50)
+        Me.btcAdd.Size = New System.Drawing.Size(75, 23)
         Me.btcAdd.TabIndex = 1
+        Me.btcAdd.Text = "Ajouter"
         Me.btcAdd.UseVisualStyleBackColor = False
         '
         'btcEdit
         '
-        Me.btcEdit.BackColor = System.Drawing.Color.White
-        Me.btcEdit.Image = CType(resources.GetObject("btcEdit.Image"), System.Drawing.Image)
-        Me.btcEdit.Location = New System.Drawing.Point(516, 91)
+        Me.btcEdit.BackColor = System.Drawing.SystemColors.Control
+        Me.btcEdit.Location = New System.Drawing.Point(516, 137)
         Me.btcEdit.Name = "btcEdit"
-        Me.btcEdit.Size = New System.Drawing.Size(50, 50)
+        Me.btcEdit.Size = New System.Drawing.Size(75, 23)
         Me.btcEdit.TabIndex = 2
+        Me.btcEdit.Text = "Modifier"
         Me.btcEdit.UseVisualStyleBackColor = False
         '
         'btcClose
@@ -70,28 +70,29 @@ Partial Class frmProjectMembers
         '
         'btcDelete
         '
-        Me.btcDelete.BackColor = System.Drawing.Color.White
-        Me.btcDelete.Image = CType(resources.GetObject("btcDelete.Image"), System.Drawing.Image)
-        Me.btcDelete.Location = New System.Drawing.Point(516, 147)
+        Me.btcDelete.BackColor = System.Drawing.SystemColors.Control
+        Me.btcDelete.Location = New System.Drawing.Point(516, 166)
         Me.btcDelete.Name = "btcDelete"
-        Me.btcDelete.Size = New System.Drawing.Size(50, 50)
+        Me.btcDelete.Size = New System.Drawing.Size(75, 23)
         Me.btcDelete.TabIndex = 5
+        Me.btcDelete.Text = "Supprimer"
         Me.btcDelete.UseVisualStyleBackColor = False
         '
         'frmProjectMembers
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.ClientSize = New System.Drawing.Size(634, 360)
         Me.Controls.Add(Me.btcDelete)
         Me.Controls.Add(Me.btcClose)
         Me.Controls.Add(Me.btcEdit)
         Me.Controls.Add(Me.btcAdd)
         Me.Controls.Add(Me.dgvProjectsMembers)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "frmProjectMembers"
         Me.ShowInTaskbar = False
         Me.Text = "Membres de projets"
-        Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         CType(Me.dgvProjectsMembers, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
@@ -101,5 +102,5 @@ Partial Class frmProjectMembers
     Friend WithEvents btcAdd As Button
     Friend WithEvents btcEdit As Button
     Friend WithEvents btcClose As Button
-    Friend WithEvents btcDelete As Button
+    Protected Friend WithEvents btcDelete As Button
 End Class

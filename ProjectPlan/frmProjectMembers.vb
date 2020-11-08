@@ -2,6 +2,7 @@
 
 Public Class frmProjectMembers
 
+
     Private Sub frmProjectMembers_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
         Try
@@ -113,4 +114,45 @@ Public Class frmProjectMembers
 
     End Sub
 
+    Private Sub btcClose_Click(sender As Object, e As EventArgs) Handles btcClose.Click
+        Try
+            Me.Close()
+        Catch ex As Exception
+            If DebugFlag = True Then MessageBox.Show(ex.ToString)
+        End Try
+    End Sub
+
+    Private Sub btcAdd_Click(sender As Object, e As EventArgs) Handles btcAdd.Click
+
+        Try
+
+            ID_ProjectMember = 0
+
+            Dim myForm As Form = frmProjectMemberDetails
+
+            myForm.ShowDialog()
+            myForm.Dispose()
+
+            pDisplayProjectMembers()
+
+        Catch ex As Exception
+            If DebugFlag = True Then MessageBox.Show(ex.ToString)
+        End Try
+
+
+    End Sub
+
+    Private Sub btcEdit_Click(sender As Object, e As EventArgs) Handles btcEdit.Click
+        Try
+
+            Dim myForm As Form = frmProjectMemberDetails
+            myForm.ShowDialog()
+            myForm.Dispose()
+
+            pDisplayProjectMembers()
+
+        Catch ex As Exception
+            If DebugFlag = True Then MessageBox.Show(ex.ToString)
+        End Try
+    End Sub
 End Class

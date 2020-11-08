@@ -109,7 +109,6 @@ Public Class frmMain
 
         Try
 
-            cnProjectPlan = "Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=ProjectPlan;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False"
 
         Catch ex As Exception
             If DebugFlag = True Then MessageBox.Show(ex.ToString)

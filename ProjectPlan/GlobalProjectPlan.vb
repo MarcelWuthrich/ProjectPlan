@@ -12,12 +12,15 @@ Module GlobalProjectPlan
     Public DebugFlag As Boolean = True
     Public G_ID_ResourceAdmin As Integer = 0
     Public G_ID_ResourceProject As Integer = 0
-    Public cnProjectPlan As String = ""
     Public Logon As String = ""
 
     'Variables pour frmProjectAddEstimateRessource.vb
     Public G_Add_ID_Task As Integer = 0
     Public G_Add_NumberDays As Integer = 0
+
+    'Variable de connexion à la db
+    Public cnProjectPlan As String = "Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=ProjectPlan;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False"
+
 
 
 

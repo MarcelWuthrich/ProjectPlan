@@ -79,12 +79,16 @@
     <Compile Include="frmMain.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmProjectMembers.Designer.vb" />
-    <Compile Include="frmProjectMembers.vb">
+    <Compile Include="frmProjectMemberDetails.Designer.vb">
+      <DependentUpon>frmProjectMemberDetails.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmProjectMemberDetails.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmSelectDB.Designer.vb" />
-    <Compile Include="frmSelectDB.vb">
+    <Compile Include="frmProjectMembers.Designer.vb">
+      <DependentUpon>frmProjectMembers.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmProjectMembers.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="GlobalProjectPlan.vb" />
@@ -111,8 +115,12 @@
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmProjectMembers.resx" />
-    <EmbeddedResource Include="frmSelectDB.resx" />
+    <EmbeddedResource Include="frmProjectMemberDetails.resx">
+      <DependentUpon>frmProjectMemberDetails.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmProjectMembers.resx">
+      <DependentUpon>frmProjectMembers.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
