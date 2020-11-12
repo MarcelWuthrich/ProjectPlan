@@ -46,15 +46,10 @@ Public Class frmProjectDetails
             thisProject.DeadLine = Me.dtpDeadline.Value
             'thisProject.ImplementationRate = Me.texImplementationRate.Text
             thisProject.EstimatedResources = Me.texEstimatedResources.Text
-            thisProject.EstimatedResourcesInfra = Me.texEstimatedResourcesInfra.Text
-            thisProject.EstimatedResourcesSAP = Me.texEstimatedResourcesSAP.Text
-            thisProject.EstimatedResourcesHelpdesk = Me.texEstimatedResourcesHelpdesk.Text
-            thisProject.EstimatedResourcesPlaning = Me.texEstimatedResourcesPlaning.Text
             thisProject.CE_ID_Priority = ID_Priority
             thisProject.CE_ID_Category = ID_Category
             thisProject.CE_ID_Customer = ID_Customer
             thisProject.CE_ID_Urgency = ID_Urgency
-            thisProject.Text_IT_Board = Me.texITBoard.Text
 
 
             'On recherche l'ID_Status qui correspond au texte de lovStatus
@@ -141,14 +136,9 @@ Public Class frmProjectDetails
             Me.dtpDeadline.Text = thisProject.DeadLine
             Me.texDescription.Text = thisProject.Description
             Me.texEstimatedResources.Text = thisProject.EstimatedResources
-            Me.texEstimatedResourcesInfra.Text = thisProject.EstimatedResourcesInfra
-            Me.texEstimatedResourcesSAP.Text = thisProject.EstimatedResourcesSAP
-            Me.texEstimatedResourcesHelpdesk.Text = thisProject.EstimatedResourcesHelpdesk
-            Me.texEstimatedResourcesPlaning.Text = thisProject.EstimatedResourcesPlaning
             Me.texImplementationRate.Text = thisProject.ImplementationRate
             Me.texExecutedResources.Text = Format(thisProject.EffectiveResources, "0.0")
             Me.texPlanResources.Text = Format(thisResource.CountPlanResource, "0.0")
-            Me.texITBoard.Text = thisProject.Text_IT_Board
 
             'Chefs de projets
             For I = 0 To lovProjectManager.Items.Count - 1
@@ -434,7 +424,7 @@ Public Class frmProjectDetails
 
     End Sub
 
-    Private Sub texEstimatedResources_LostFocus(sender As Object, e As EventArgs) Handles texEstimatedResources.LostFocus
+    Private Sub texEstimatedResources_LostFocus(sender As Object, e As EventArgs)
 
         Try
 
@@ -728,76 +718,6 @@ Public Class frmProjectDetails
 
     'End Sub
 
-    Private Sub texEstimatedResourcesInfra_TextChanged(sender As Object, e As EventArgs) Handles texEstimatedResourcesInfra.TextChanged
-        Try
-            pCalculateTotalEstimated()
-        Catch ex As Exception
-            If DebugFlag = True Then MessageBox.Show(ex.ToString)
-        End Try
-    End Sub
-
-    Private Sub pCalculateTotalEstimated()
-        Try
-
-            Dim myInfra As Integer = 0
-            Dim mySAP As Integer = 0
-            Dim myHelpdesk As Integer = 0
-            Dim myPlaning As Integer = 0
-
-            Try
-                myInfra = CInt(Me.texEstimatedResourcesInfra.Text)
-            Catch ex As Exception
-                myInfra = 0
-            End Try
-
-            Try
-                mySAP = CInt(Me.texEstimatedResourcesSAP.Text)
-            Catch ex As Exception
-                mySAP = 0
-            End Try
-
-            Try
-                myHelpdesk = CInt(Me.texEstimatedResourcesHelpdesk.Text)
-            Catch ex As Exception
-                myHelpdesk = 0
-            End Try
-
-            Try
-                myPlaning = CInt(Me.texEstimatedResourcesPlaning.Text)
-            Catch ex As Exception
-                myPlaning = 0
-            End Try
-
-            Me.texEstimatedResources.Text = myInfra + mySAP + myHelpdesk + myPlaning
-
-        Catch ex As Exception
-            If DebugFlag = True Then MessageBox.Show(ex.ToString)
-        End Try
-    End Sub
-
-    Private Sub texEstimatedResourcesSAP_TextChanged(sender As Object, e As EventArgs) Handles texEstimatedResourcesSAP.TextChanged
-        Try
-            pCalculateTotalEstimated()
-        Catch ex As Exception
-            If DebugFlag = True Then MessageBox.Show(ex.ToString)
-        End Try
-    End Sub
-
-    Private Sub texEstimatedResourcesHelpdesk_TextChanged(sender As Object, e As EventArgs) Handles texEstimatedResourcesHelpdesk.TextChanged
-        Try
-            pCalculateTotalEstimated()
-        Catch ex As Exception
-            If DebugFlag = True Then MessageBox.Show(ex.ToString)
-        End Try
-    End Sub
-
-    Private Sub texEstimatedResourcesPlaning_TextChanged(sender As Object, e As EventArgs) Handles texEstimatedResourcesPlaning.TextChanged
-        Try
-            pCalculateTotalEstimated()
-        Catch ex As Exception
-            If DebugFlag = True Then MessageBox.Show(ex.ToString)
-        End Try
-    End Sub
 
 
     Private Sub pDisplayRemarks()
@@ -1008,4 +928,6 @@ Public Class frmProjectDetails
             If DebugFlag = True Then MessageBox.Show(ex.ToString)
         End Try
     End Sub
+
+
 End Class

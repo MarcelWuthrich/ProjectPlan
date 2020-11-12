@@ -15,25 +15,10 @@ Public Class myProject
     Private _BeginDate As Date
     Private _Deadline As Date
     Private _EstimatedResources As Single
-    Private _EstimatedResourcesInfra As Single
-    Private _EstimatedResourcesSAP As Single
-    Private _EstimatedResourcesHelpdesk As Single
-    Private _EstimatedResourcesPlaning As Single
     Private _EffectiveResources As Single
     Private _ImplementationRate As Single
     Private _PlanRessources As Single
-    Private _Text_IT_Board As String
 
-
-    Public Property Text_IT_Board As String
-        Get
-            Return _Text_IT_Board
-        End Get
-
-        Set(ByVal value As String)
-            _Text_IT_Board = value
-        End Set
-    End Property
 
     Public Property PlanRessources As Single
         Get
@@ -62,44 +47,6 @@ Public Class myProject
         End Set
     End Property
 
-
-    Public Property EstimatedResourcesInfra As Single
-        Get
-            Return _EstimatedResourcesInfra
-        End Get
-        Set(ByVal value As Single)
-            _EstimatedResourcesInfra = value
-        End Set
-    End Property
-
-
-    Public Property EstimatedResourcesSAP As Single
-        Get
-            Return _EstimatedResourcesSAP
-        End Get
-        Set(ByVal value As Single)
-            _EstimatedResourcesSAP = value
-        End Set
-    End Property
-
-
-    Public Property EstimatedResourcesHelpdesk As Integer
-        Get
-            Return _EstimatedResourcesHelpdesk
-        End Get
-        Set(ByVal value As Integer)
-            _EstimatedResourcesHelpdesk = value
-        End Set
-    End Property
-
-    Public Property EstimatedResourcesPlaning As Single
-        Get
-            Return _EstimatedResourcesPlaning
-        End Get
-        Set(ByVal value As Single)
-            _EstimatedResourcesPlaning = value
-        End Set
-    End Property
 
 
 
@@ -230,7 +177,7 @@ Public Class myProject
             Dim MySQLConnection As New SqlConnection
 
             Dim mySQLDataReader As SqlDataReader
-            Dim Sql As String = "SELECT ID_Project, Title, BeginDate, Deadline, Description, EstimatedResources, EstimatedResourcesInfra, EstimatedResourcesSAP, EstimatedResourcesHelpdesk, EstimatedResourcesPlaning, EffectiveResources, ImplementationRate, CE_ID_ProjectManager, CE_ID_Status, CE_ID_Priority, CE_ID_Category, CE_ID_Customer, CE_ID_Urgency, Text_IT_Board FROM Projects WHERE ID_Project=" & Me.ID_Project
+            Dim Sql As String = "SELECT ID_Project, Title, BeginDate, Deadline, Description, EstimatedResources, EffectiveResources, ImplementationRate, CE_ID_ProjectManager, CE_ID_Status, CE_ID_Priority, CE_ID_Category, CE_ID_Customer, CE_ID_Urgency FROM Projects WHERE ID_Project=" & Me.ID_Project
 
             'Réinitialisation des variables
             ID_Project = Nothing
@@ -296,80 +243,52 @@ Public Class myProject
                 Catch ex As Exception
                 End Try
 
-                'Lecture du paramètre ESTIMATEDRESOURCESINFRA
-                Try
-                    Me.EstimatedResourcesInfra = mySQLDataReader.GetValue(6)
-                Catch ex As Exception
-                End Try
 
-                'Lecture du paramètre ESTIMATEDRESOURCESSAP
+                'Lecture du paramètre EffectiveResources
                 Try
-                    Me.EstimatedResourcesSAP = mySQLDataReader.GetValue(7)
-                Catch ex As Exception
-                End Try
-
-                'Lecture du paramètre ESTIMATEDRESOURCESHELPDESK
-                Try
-                    Me.EstimatedResourcesHelpdesk = mySQLDataReader.GetValue(8)
-                Catch ex As Exception
-                End Try
-
-                'Lecture du paramètre ESTIMATEDRESOURCESPLANING
-                Try
-                    Me.EstimatedResourcesPlaning = mySQLDataReader.GetValue(9)
-                Catch ex As Exception
-                End Try
-
-                'Lecture du paramètre IMPLEMENTATIONRATE
-                Try
-                    Me.EffectiveResources = mySQLDataReader.GetValue(10)
+                    Me.EffectiveResources = mySQLDataReader.GetValue(6)
                 Catch ex As Exception
                 End Try
 
                 'Lecture du paramètre ImplementationRate
                 Try
-                    Me.ImplementationRate = mySQLDataReader.GetValue(11)
+                    Me.ImplementationRate = mySQLDataReader.GetValue(7)
                 Catch ex As Exception
                 End Try
 
                 'Lecture du paramètre CE_ID_ProjectManager
                 Try
-                    Me.CE_ID_ProjectManager = mySQLDataReader.GetValue(12)
+                    Me.CE_ID_ProjectManager = mySQLDataReader.GetValue(8)
                 Catch ex As Exception
                 End Try
 
                 'Lecture du paramètre CE_ID_Status
                 Try
-                    Me.CE_ID_Status = mySQLDataReader.GetValue(13)
+                    Me.CE_ID_Status = mySQLDataReader.GetValue(9)
                 Catch ex As Exception
                 End Try
 
                 'Lecture du paramètre CE_ID_Priority
                 Try
-                    Me.CE_ID_Priority = mySQLDataReader.GetValue(14)
+                    Me.CE_ID_Priority = mySQLDataReader.GetValue(10)
                 Catch ex As Exception
                 End Try
 
                 'Lecture du paramètre CE_ID_Category
                 Try
-                    Me.CE_ID_Category = mySQLDataReader.GetValue(15)
+                    Me.CE_ID_Category = mySQLDataReader.GetValue(11)
                 Catch ex As Exception
                 End Try
 
                 'Lecture du paramètre CE_ID_Customer
                 Try
-                    Me.CE_ID_Customer = mySQLDataReader.GetValue(16)
+                    Me.CE_ID_Customer = mySQLDataReader.GetValue(12)
                 Catch ex As Exception
                 End Try
 
                 'Lecture du paramètre CE_ID_Urgency
                 Try
-                    Me.CE_ID_Urgency = mySQLDataReader.GetValue(17)
-                Catch ex As Exception
-                End Try
-                'Lecture du paramètre Text_IT_Board
-                Try
-                    Me.Text_IT_Board = mySQLDataReader.GetValue(18)
+                    Me.CE_ID_Urgency = mySQLDataReader.GetValue(13)
                 Catch ex As Exception
                 End Try
 
@@ -546,13 +465,8 @@ Public Class myProject
                 SQL &= "BeginDate ='" & fConvertDateOnlySQL(Me.BeginDate) & "', "
                 SQL &= "Deadline ='" & fConvertDateOnlySQL(Me.DeadLine) & "', "
                 SQL &= "EstimatedResources = " & Me.EstimatedResources & ", "
-                SQL &= "EstimatedResourcesInfra = " & Me.EstimatedResourcesInfra & ", "
-                SQL &= "EstimatedResourcesSAP = " & Me.EstimatedResourcesSAP & ", "
-                SQL &= "EstimatedResourcesHelpdesk = " & Me.EstimatedResourcesHelpdesk & ", "
-                SQL &= "EstimatedResourcesPlaning = " & Me.EstimatedResourcesPlaning & ", "
                 SQL &= "EffectiveResources = " & Me.EffectiveResources & ", "
-                SQL &= "ImplementationRate = " & Me.ImplementationRate & ", "
-                SQL &= "Text_IT_Board = '" & Replace(Me.Text_IT_Board, "'", "''") & "' "
+                SQL &= "ImplementationRate = " & Me.ImplementationRate & " "
                 SQL &= "WHERE ID_Project=" & Me.ID_Project & ";"
 
                 Dim myHistory As New myProjectHistory
@@ -564,11 +478,6 @@ Public Class myProject
                 If myProjectDB.BeginDate <> Me.BeginDate Then myHistory.Modification &= "old BeginDate <" & myProjectDB.BeginDate & "> new BeginDate <" & Me.BeginDate & "> ; "
                 If myProjectDB.DeadLine <> Me.DeadLine Then myHistory.Modification &= "old deadline <" & myProjectDB.DeadLine & "> new deadline <" & Me.DeadLine & "> ; "
                 If myProjectDB.EstimatedResources <> Me.EstimatedResources Then myHistory.Modification &= "old estimated resources <" & myProjectDB.EstimatedResources & "> new estimated resources <" & Me.EstimatedResources & "> ; "
-                If myProjectDB.EstimatedResourcesInfra <> Me.EstimatedResourcesInfra Then myHistory.Modification &= "old estimated resources <" & myProjectDB.EstimatedResources & "> new estimated resources Infra <" & Me.EstimatedResourcesInfra & "> ; "
-                If myProjectDB.EstimatedResourcesSAP <> Me.EstimatedResourcesSAP Then myHistory.Modification &= "old estimated resources Infra <" & myProjectDB.EstimatedResourcesInfra & "> new estimated resources SAP <" & Me.EstimatedResourcesSAP & "> ; "
-                If myProjectDB.EstimatedResourcesHelpdesk <> Me.EstimatedResourcesHelpdesk Then myHistory.Modification &= "old estimated resources SAP <" & myProjectDB.EstimatedResourcesSAP & "> new estimated resources Helpdesk <" & Me.EstimatedResourcesHelpdesk & "> ; "
-                If myProjectDB.EstimatedResourcesPlaning <> Me.EstimatedResourcesPlaning Then myHistory.Modification &= "old estimated resources Helpdesk <" & myProjectDB.EstimatedResourcesHelpdesk & "> new estimated resources Planing <" & Me.EstimatedResourcesPlaning & "> ; "
-                If myProjectDB.EffectiveResources <> Me.EffectiveResources Then myHistory.Modification &= "old effective resources Planing <" & myProjectDB.EstimatedResourcesPlaning & "> new effective resources <" & Me.EffectiveResources & "> ; "
                 If myProjectDB.ImplementationRate <> Me.ImplementationRate Then myHistory.Modification &= "old implementationrate <" & myProjectDB.ImplementationRate & "> new implementation rate <" & Me.ImplementationRate & "> ; "
                 If myProjectDB.CE_ID_Status <> Me.CE_ID_Status Then myHistory.Modification &= "old CE_ID_Status <" & myProjectDB.CE_ID_Status & "> new CE_ID_Status <" & Me.CE_ID_Status & "> ; "
                 If myProjectDB.CE_ID_Priority <> Me.CE_ID_Priority Then myHistory.Modification &= "old CE_ID_Priority <" & myProjectDB.CE_ID_Priority & "> new CE_ID_Priority <" & Me.CE_ID_Priority & "> ; "
@@ -576,7 +485,6 @@ Public Class myProject
                 If myProjectDB.CE_ID_Customer <> Me.CE_ID_Customer Then myHistory.Modification &= "old CE_ID_Customer <" & myProjectDB.CE_ID_Customer & "> new CE_ID_Customer <" & Me.CE_ID_Customer & "> ; "
                 If myProjectDB.CE_ID_Urgency <> Me.CE_ID_Urgency Then myHistory.Modification &= "old CE_ID_Urgency <" & myProjectDB.CE_ID_Urgency & "> new CE_ID_Urgency <" & Me.CE_ID_Urgency & "> ; "
                 If myProjectDB.CE_ID_Category <> Me.CE_ID_Category Then myHistory.Modification &= "old CE_ID_Category <" & myProjectDB.CE_ID_Category & "> new CE_ID_Category <" & Me.CE_ID_Category & "> ; "
-                If myProjectDB.Text_IT_Board <> Me.Text_IT_Board Then myHistory.Modification &= "old Text_IT_Board <" & myProjectDB.Text_IT_Board & "> new Text_IT_Board <" & Me.Text_IT_Board & "> ; "
 
                 myHistory.ModifyDate = Now
                 myHistory.Save()
@@ -588,7 +496,7 @@ Public Class myProject
 
                 'L'enregistrement n'existe pas encore, il faut faire un insert
                 SQL = "INSERT INTO Projects "
-                SQL &= "(ID_Project, Title, Description, CE_ID_Status, CE_ID_Priority, CE_ID_ProjectManager, CE_ID_Category, CE_ID_Customer, CE_ID_Urgency, BeginDate, Deadline, EstimatedResources, EstimatedResourcesInfra, EstimatedResourcesSAP, EstimatedResourcesHelpdesk, EstimatedResourcesPlaning, EffectiveResources, ImplementationRate, Text_IT_Board ) VALUES ("
+                SQL &= "(ID_Project, Title, Description, CE_ID_Status, CE_ID_Priority, CE_ID_ProjectManager, CE_ID_Category, CE_ID_Customer, CE_ID_Urgency, BeginDate, Deadline, EstimatedResources, EffectiveResources, ImplementationRate ) VALUES ("
                 SQL &= Me.ID_Project & ","
                 SQL &= "'" & Replace(Me.Title, "'", "''") & "',"
                 SQL &= "'" & Replace(Me.Description, "'", "''") & "',"
@@ -601,13 +509,8 @@ Public Class myProject
                 SQL &= "'" & fConvertDateOnlySQL(Me.BeginDate) & "', "
                 SQL &= "'" & fConvertDateOnlySQL(Me.DeadLine) & "', "
                 SQL &= Me.EstimatedResources & ","
-                SQL &= Me.EstimatedResourcesInfra & ","
-                SQL &= Me.EstimatedResourcesSAP & ","
-                SQL &= Me.EstimatedResourcesHelpdesk & ","
-                SQL &= Me.EstimatedResourcesPlaning & ","
                 SQL &= Me.EffectiveResources & ","
-                SQL &= Me.ImplementationRate & ","
-                SQL &= "'" & Replace(Me.Text_IT_Board, "'", "''") & "')"
+                SQL &= Me.ImplementationRate & ")"
 
 
                 Dim myHistory As New myProjectHistory
