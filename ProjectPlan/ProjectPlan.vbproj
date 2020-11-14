@@ -103,6 +103,12 @@
     <Compile Include="frmProjectsList.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="frmTestDGV.Designer.vb">
+      <DependentUpon>frmTestDGV.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmTestDGV.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="GlobalProjectPlan.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
@@ -131,6 +137,22 @@
     <Compile Include="myStatus.vb" />
     <Compile Include="myTask.vb" />
     <Compile Include="myUrgency.vb" />
+    <Compile Include="ProjectPlanDataSet.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ProjectPlanDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ProjectPlanDataSet.vb">
+      <DependentUpon>ProjectPlanDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ProjectPlanDataSet1.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ProjectPlanDataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ProjectPlanDataSet1.vb">
+      <DependentUpon>ProjectPlanDataSet1.xsd</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="frmMain.resx">
@@ -147,6 +169,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmProjectsList.resx">
       <DependentUpon>frmProjectsList.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmTestDGV.resx">
+      <DependentUpon>frmTestDGV.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
@@ -166,6 +191,28 @@
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
     <None Include="App.config" />
+    <None Include="ProjectPlanDataSet.xsc">
+      <DependentUpon>ProjectPlanDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="ProjectPlanDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ProjectPlanDataSet.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ProjectPlanDataSet.xss">
+      <DependentUpon>ProjectPlanDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="ProjectPlanDataSet1.xsc">
+      <DependentUpon>ProjectPlanDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="ProjectPlanDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ProjectPlanDataSet1.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ProjectPlanDataSet1.xss">
+      <DependentUpon>ProjectPlanDataSet1.xsd</DependentUpon>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

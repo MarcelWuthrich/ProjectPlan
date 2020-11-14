@@ -47,12 +47,12 @@ Partial Class frmMain
         Me.PasteToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator7 = New System.Windows.Forms.ToolStripSeparator()
         Me.SelectAllToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.PersonMenu = New System.Windows.Forms.ToolStripMenuItem()
-        Me.CommanditairesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ChefsDeProjetToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ProjectsMembersToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ProjetsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ListeDesProjetsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.mniData = New System.Windows.Forms.ToolStripMenuItem()
+        Me.mniDataCustomer = New System.Windows.Forms.ToolStripMenuItem()
+        Me.mniDataStatus = New System.Windows.Forms.ToolStripMenuItem()
+        Me.mniDataActivityDomain = New System.Windows.Forms.ToolStripMenuItem()
+        Me.mniProjet = New System.Windows.Forms.ToolStripMenuItem()
+        Me.mniProjectList = New System.Windows.Forms.ToolStripMenuItem()
         Me.ViewMenu = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolBarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.StatusBarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -86,6 +86,17 @@ Partial Class frmMain
         Me.StatusStrip = New System.Windows.Forms.StatusStrip()
         Me.ToolStripStatusLabel = New System.Windows.Forms.ToolStripStatusLabel()
         Me.ToolTip = New System.Windows.Forms.ToolTip(Me.components)
+        Me.mniProjectMember = New System.Windows.Forms.ToolStripMenuItem()
+        Me.mniProjectManager = New System.Windows.Forms.ToolStripMenuItem()
+        Me.mniResource = New System.Windows.Forms.ToolStripMenuItem()
+        Me.mniResourcePlaning = New System.Windows.Forms.ToolStripMenuItem()
+        Me.mniResourceVisualization = New System.Windows.Forms.ToolStripMenuItem()
+        Me.mniResourcePlaned = New System.Windows.Forms.ToolStripMenuItem()
+        Me.mniResourceValidate = New System.Windows.Forms.ToolStripMenuItem()
+        Me.mniReporting = New System.Windows.Forms.ToolStripMenuItem()
+        Me.mniReportingDashboard = New System.Windows.Forms.ToolStripMenuItem()
+        Me.mniReportingProjectStatistic = New System.Windows.Forms.ToolStripMenuItem()
+        Me.mniReportingPersonStatistic = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip.SuspendLayout()
         Me.ToolStrip.SuspendLayout()
         Me.StatusStrip.SuspendLayout()
@@ -93,11 +104,11 @@ Partial Class frmMain
         '
         'MenuStrip
         '
-        Me.MenuStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FileMenu, Me.EditMenu, Me.PersonMenu, Me.ProjetsToolStripMenuItem, Me.ViewMenu, Me.ToolsMenu, Me.WindowsMenu, Me.HelpMenu, Me.ToolStripComboBox1})
+        Me.MenuStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FileMenu, Me.EditMenu, Me.mniData, Me.mniProjet, Me.mniResource, Me.mniReporting, Me.ViewMenu, Me.ToolsMenu, Me.WindowsMenu, Me.HelpMenu, Me.ToolStripComboBox1})
         Me.MenuStrip.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip.MdiWindowListItem = Me.WindowsMenu
         Me.MenuStrip.Name = "MenuStrip"
-        Me.MenuStrip.Size = New System.Drawing.Size(817, 27)
+        Me.MenuStrip.Size = New System.Drawing.Size(943, 27)
         Me.MenuStrip.TabIndex = 5
         Me.MenuStrip.Text = "MenuStrip"
         '
@@ -255,43 +266,43 @@ Partial Class frmMain
         Me.SelectAllToolStripMenuItem.Size = New System.Drawing.Size(206, 22)
         Me.SelectAllToolStripMenuItem.Text = "Sélectionner &tout"
         '
-        'PersonMenu
+        'mniData
         '
-        Me.PersonMenu.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.CommanditairesToolStripMenuItem, Me.ChefsDeProjetToolStripMenuItem, Me.ProjectsMembersToolStripMenuItem})
-        Me.PersonMenu.Name = "PersonMenu"
-        Me.PersonMenu.Size = New System.Drawing.Size(73, 23)
-        Me.PersonMenu.Text = "Personnes"
+        Me.mniData.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.mniDataCustomer, Me.mniDataStatus, Me.mniDataActivityDomain})
+        Me.mniData.Name = "mniData"
+        Me.mniData.Size = New System.Drawing.Size(108, 23)
+        Me.mniData.Text = "Données de base"
         '
-        'CommanditairesToolStripMenuItem
+        'mniDataCustomer
         '
-        Me.CommanditairesToolStripMenuItem.Name = "CommanditairesToolStripMenuItem"
-        Me.CommanditairesToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
-        Me.CommanditairesToolStripMenuItem.Text = "Commanditaires"
+        Me.mniDataCustomer.Name = "mniDataCustomer"
+        Me.mniDataCustomer.Size = New System.Drawing.Size(180, 22)
+        Me.mniDataCustomer.Text = "Commanditaires"
         '
-        'ChefsDeProjetToolStripMenuItem
+        'mniDataStatus
         '
-        Me.ChefsDeProjetToolStripMenuItem.Name = "ChefsDeProjetToolStripMenuItem"
-        Me.ChefsDeProjetToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
-        Me.ChefsDeProjetToolStripMenuItem.Text = "Chefs de projet"
+        Me.mniDataStatus.Name = "mniDataStatus"
+        Me.mniDataStatus.Size = New System.Drawing.Size(180, 22)
+        Me.mniDataStatus.Text = "Statuts"
         '
-        'ProjectsMembersToolStripMenuItem
+        'mniDataActivityDomain
         '
-        Me.ProjectsMembersToolStripMenuItem.Name = "ProjectsMembersToolStripMenuItem"
-        Me.ProjectsMembersToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
-        Me.ProjectsMembersToolStripMenuItem.Text = "Membres de projets"
+        Me.mniDataActivityDomain.Name = "mniDataActivityDomain"
+        Me.mniDataActivityDomain.Size = New System.Drawing.Size(180, 22)
+        Me.mniDataActivityDomain.Text = "Domaine d'activité"
         '
-        'ProjetsToolStripMenuItem
+        'mniProjet
         '
-        Me.ProjetsToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ListeDesProjetsToolStripMenuItem})
-        Me.ProjetsToolStripMenuItem.Name = "ProjetsToolStripMenuItem"
-        Me.ProjetsToolStripMenuItem.Size = New System.Drawing.Size(55, 23)
-        Me.ProjetsToolStripMenuItem.Text = "Projets"
+        Me.mniProjet.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.mniProjectList, Me.mniProjectMember, Me.mniProjectManager})
+        Me.mniProjet.Name = "mniProjet"
+        Me.mniProjet.Size = New System.Drawing.Size(55, 23)
+        Me.mniProjet.Text = "Projets"
         '
-        'ListeDesProjetsToolStripMenuItem
+        'mniProjectList
         '
-        Me.ListeDesProjetsToolStripMenuItem.Name = "ListeDesProjetsToolStripMenuItem"
-        Me.ListeDesProjetsToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
-        Me.ListeDesProjetsToolStripMenuItem.Text = "Liste des projets"
+        Me.mniProjectList.Name = "mniProjectList"
+        Me.mniProjectList.Size = New System.Drawing.Size(180, 22)
+        Me.mniProjectList.Text = "Liste des projets"
         '
         'ViewMenu
         '
@@ -306,7 +317,7 @@ Partial Class frmMain
         Me.ToolBarToolStripMenuItem.CheckOnClick = True
         Me.ToolBarToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked
         Me.ToolBarToolStripMenuItem.Name = "ToolBarToolStripMenuItem"
-        Me.ToolBarToolStripMenuItem.Size = New System.Drawing.Size(143, 22)
+        Me.ToolBarToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.ToolBarToolStripMenuItem.Text = "&Barre d'outils"
         '
         'StatusBarToolStripMenuItem
@@ -315,7 +326,7 @@ Partial Class frmMain
         Me.StatusBarToolStripMenuItem.CheckOnClick = True
         Me.StatusBarToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked
         Me.StatusBarToolStripMenuItem.Name = "StatusBarToolStripMenuItem"
-        Me.StatusBarToolStripMenuItem.Size = New System.Drawing.Size(143, 22)
+        Me.StatusBarToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.StatusBarToolStripMenuItem.Text = "&Barre d'état"
         '
         'ToolsMenu
@@ -328,7 +339,7 @@ Partial Class frmMain
         'OptionsToolStripMenuItem
         '
         Me.OptionsToolStripMenuItem.Name = "OptionsToolStripMenuItem"
-        Me.OptionsToolStripMenuItem.Size = New System.Drawing.Size(116, 22)
+        Me.OptionsToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.OptionsToolStripMenuItem.Text = "&Options"
         '
         'WindowsMenu
@@ -425,7 +436,7 @@ Partial Class frmMain
         Me.ToolStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NewToolStripButton, Me.OpenToolStripButton, Me.SaveToolStripButton, Me.ToolStripSeparator1, Me.PrintToolStripButton, Me.PrintPreviewToolStripButton, Me.ToolStripSeparator2, Me.HelpToolStripButton, Me.ToolStripSeparator9, Me.CreateDBToolStripButton})
         Me.ToolStrip.Location = New System.Drawing.Point(0, 27)
         Me.ToolStrip.Name = "ToolStrip"
-        Me.ToolStrip.Size = New System.Drawing.Size(817, 25)
+        Me.ToolStrip.Size = New System.Drawing.Size(943, 25)
         Me.ToolStrip.TabIndex = 6
         Me.ToolStrip.Text = "ToolStrip"
         '
@@ -512,7 +523,7 @@ Partial Class frmMain
         Me.StatusStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripStatusLabel})
         Me.StatusStrip.Location = New System.Drawing.Point(0, 509)
         Me.StatusStrip.Name = "StatusStrip"
-        Me.StatusStrip.Size = New System.Drawing.Size(817, 22)
+        Me.StatusStrip.Size = New System.Drawing.Size(943, 22)
         Me.StatusStrip.TabIndex = 7
         Me.StatusStrip.Text = "StatusStrip"
         '
@@ -522,11 +533,79 @@ Partial Class frmMain
         Me.ToolStripStatusLabel.Size = New System.Drawing.Size(27, 17)
         Me.ToolStripStatusLabel.Text = "État"
         '
+        'mniProjectMember
+        '
+        Me.mniProjectMember.Name = "mniProjectMember"
+        Me.mniProjectMember.Size = New System.Drawing.Size(180, 22)
+        Me.mniProjectMember.Text = "Membres de projets"
+        '
+        'mniProjectManager
+        '
+        Me.mniProjectManager.Name = "mniProjectManager"
+        Me.mniProjectManager.Size = New System.Drawing.Size(180, 22)
+        Me.mniProjectManager.Text = "Chefs de projets"
+        '
+        'mniResource
+        '
+        Me.mniResource.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.mniResourcePlaning, Me.mniResourceVisualization, Me.mniResourcePlaned, Me.mniResourceValidate})
+        Me.mniResource.Name = "mniResource"
+        Me.mniResource.Size = New System.Drawing.Size(77, 23)
+        Me.mniResource.Text = "Ressources"
+        '
+        'mniResourcePlaning
+        '
+        Me.mniResourcePlaning.Name = "mniResourcePlaning"
+        Me.mniResourcePlaning.Size = New System.Drawing.Size(185, 22)
+        Me.mniResourcePlaning.Text = "Planification"
+        '
+        'mniResourceVisualization
+        '
+        Me.mniResourceVisualization.Name = "mniResourceVisualization"
+        Me.mniResourceVisualization.Size = New System.Drawing.Size(185, 22)
+        Me.mniResourceVisualization.Text = "Visualisation"
+        '
+        'mniResourcePlaned
+        '
+        Me.mniResourcePlaned.Name = "mniResourcePlaned"
+        Me.mniResourcePlaned.Size = New System.Drawing.Size(185, 22)
+        Me.mniResourcePlaned.Text = "Ressources planifiées"
+        '
+        'mniResourceValidate
+        '
+        Me.mniResourceValidate.Name = "mniResourceValidate"
+        Me.mniResourceValidate.Size = New System.Drawing.Size(185, 22)
+        Me.mniResourceValidate.Text = "Validation"
+        '
+        'mniReporting
+        '
+        Me.mniReporting.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.mniReportingDashboard, Me.mniReportingProjectStatistic, Me.mniReportingPersonStatistic})
+        Me.mniReporting.Name = "mniReporting"
+        Me.mniReporting.Size = New System.Drawing.Size(71, 23)
+        Me.mniReporting.Text = "Reporting"
+        '
+        'mniReportingDashboard
+        '
+        Me.mniReportingDashboard.Name = "mniReportingDashboard"
+        Me.mniReportingDashboard.Size = New System.Drawing.Size(212, 22)
+        Me.mniReportingDashboard.Text = "Dashboard"
+        '
+        'mniReportingProjectStatistic
+        '
+        Me.mniReportingProjectStatistic.Name = "mniReportingProjectStatistic"
+        Me.mniReportingProjectStatistic.Size = New System.Drawing.Size(212, 22)
+        Me.mniReportingProjectStatistic.Text = "Statistiques des projets"
+        '
+        'mniReportingPersonStatistic
+        '
+        Me.mniReportingPersonStatistic.Name = "mniReportingPersonStatistic"
+        Me.mniReportingPersonStatistic.Size = New System.Drawing.Size(212, 22)
+        Me.mniReportingPersonStatistic.Text = "Statistiques des personnes"
+        '
         'frmMain
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(817, 531)
+        Me.ClientSize = New System.Drawing.Size(943, 531)
         Me.Controls.Add(Me.ToolStrip)
         Me.Controls.Add(Me.MenuStrip)
         Me.Controls.Add(Me.StatusStrip)
@@ -599,12 +678,23 @@ Partial Class frmMain
     Friend WithEvents StatusBarToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ToolsMenu As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ToolStripComboBox1 As ToolStripComboBox
-    Friend WithEvents PersonMenu As ToolStripMenuItem
-    Friend WithEvents CommanditairesToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents ChefsDeProjetToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents ProjectsMembersToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents mniData As ToolStripMenuItem
+    Friend WithEvents mniDataCustomer As ToolStripMenuItem
+    Friend WithEvents mniDataStatus As ToolStripMenuItem
+    Friend WithEvents mniDataActivityDomain As ToolStripMenuItem
     Friend WithEvents ToolStripSeparator9 As ToolStripSeparator
     Friend WithEvents CreateDBToolStripButton As ToolStripButton
-    Friend WithEvents ProjetsToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents ListeDesProjetsToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents mniProjet As ToolStripMenuItem
+    Friend WithEvents mniProjectList As ToolStripMenuItem
+    Friend WithEvents mniProjectMember As ToolStripMenuItem
+    Friend WithEvents mniProjectManager As ToolStripMenuItem
+    Friend WithEvents mniResource As ToolStripMenuItem
+    Friend WithEvents mniResourcePlaning As ToolStripMenuItem
+    Friend WithEvents mniResourceVisualization As ToolStripMenuItem
+    Friend WithEvents mniResourcePlaned As ToolStripMenuItem
+    Friend WithEvents mniResourceValidate As ToolStripMenuItem
+    Friend WithEvents mniReporting As ToolStripMenuItem
+    Friend WithEvents mniReportingDashboard As ToolStripMenuItem
+    Friend WithEvents mniReportingProjectStatistic As ToolStripMenuItem
+    Friend WithEvents mniReportingPersonStatistic As ToolStripMenuItem
 End Class

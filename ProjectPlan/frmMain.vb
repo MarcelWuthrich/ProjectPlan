@@ -86,11 +86,11 @@ Public Class frmMain
 
     Private m_ChildFormNumber As Integer
 
-    Private Sub PersonMenu_Click(sender As Object, e As EventArgs) Handles PersonMenu.Click
+    Private Sub PersonMenu_Click(sender As Object, e As EventArgs) Handles mniData.Click
 
     End Sub
 
-    Private Sub ProjectsMembersToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ProjectsMembersToolStripMenuItem.Click
+    Private Sub ProjectsMembersToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles mniDataActivityDomain.Click
 
         Try
 
@@ -121,43 +121,20 @@ Public Class frmMain
 
         Try
 
-            'Création de la base de données
-            Dim DBName As String = "ProjectPlan_DMY2"
-            Dim SQL As String = ""
-            Dim mySQLConn As New SqlConnection
+            ID_Project = 0
 
-            mySQLConn.ConnectionString = "Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=Master;Integrated Security=True;"
-            mySQLConn.Open()
-            SQL = "CREATE DATABASE " & DBName
-            Dim mySQLCommand As SqlCommand = New SqlCommand(SQL, mySQLConn)
-            mySQLCommand.ExecuteNonQuery()
-            mySQLCommand = Nothing
-            mySQLConn.Close()
+            Dim myForm As Form = frmTestDGV
 
-
-            'Créeation des tables
-            SQL = " CREATE TABLE ProjectsMembers ("
-            SQL &= "ID_ProjectMember Int  Not NULL,"
-            SQL &= "CE_ID_Task       Int  NULL,"
-            SQL &= "FirstName        Text NULL,"
-            SQL &= "LastName         Text NULL,"
-            SQL &= "Enable           BIT  NULL,"
-            SQL &= "IsDeleted        BIT NULL);"
-
-            mySQLConn.ConnectionString = "Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=" & DBName & ";Integrated Security=True;"
-            mySQLConn.Open()
-            mySQLCommand = New SqlCommand(SQL, mySQLConn)
-            mySQLCommand.ExecuteNonQuery()
-            mySQLCommand = Nothing
-            mySQLConn.Close()
-
+            myForm.MdiParent = Me
+            myForm.Show()
 
         Catch ex As Exception
             If DebugFlag = True Then MessageBox.Show(ex.ToString)
         End Try
+
     End Sub
 
-    Private Sub ListeDesProjetsToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ListeDesProjetsToolStripMenuItem.Click
+    Private Sub ListeDesProjetsToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles mniProjectList.Click
         Try
 
             ID_Project = 0

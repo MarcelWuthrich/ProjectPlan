@@ -14,3 +14,4 @@ D:\Users\Marcel\OneDrive\ProjectPlan\ProjectPlan\ProjectPlan\obj\Release\Project
 D:\Users\Marcel\OneDrive\ProjectPlan\ProjectPlan\ProjectPlan\obj\Release\ProjectPlan.exe
 D:\Users\Marcel\OneDrive\ProjectPlan\ProjectPlan\ProjectPlan\obj\Release\ProjectPlan.xml
 D:\Users\Marcel\OneDrive\ProjectPlan\ProjectPlan\ProjectPlan\obj\Release\ProjectPlan.pdb
+D:\Users\Marcel\OneDrive\ProjectPlan\ProjectPlan\ProjectPlan\obj\Release\ProjectPlan.frmTestDGV.resources
