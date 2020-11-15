@@ -2,8 +2,16 @@
 Imports System.Windows.Forms
 
 
+
 Public Class frmProjectsList
+
+    Dim TotalProjectNumber As Integer = 0
+
     Private Sub frmProjectsList_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        'TODO: This line of code loads data into the 'DsProjectList.vProjectList' table. You can move, or remove it, as needed.
+        Me.VProjectListTableAdapter.Fill(Me.DsProjectList.vProjectList)
+
+
 
         Try
 
@@ -13,8 +21,16 @@ Public Class frmProjectsList
             'Polulate des categories
             pPopulateFilterCategory()
 
-            'Affichage de tous les projets
-            pDisplayProjects()
+            'Recherche du nombre total de projets
+            Dim myProject As New myProject
+            TotalProjectNumber = myProject.Count()
+
+            'Défintion des valeurs de filtres par défaut (suppression des filtres)
+            Me.chkAllProjects.Checked = False
+            Call btcFilterClear_Click(sender, e)
+
+
+            Me.WindowState = FormWindowState.Maximized
 
         Catch ex As Exception
             If DebugFlag = True Then MessageBox.Show(ex.ToString)
@@ -25,157 +41,161 @@ Public Class frmProjectsList
     Private Sub pDisplayProjects()
 
         Try
-            Dim ActiveRow As Integer = 0
-            Dim MySQLConnection As New SqlConnection
-
-            Dim mySQLDataReader As SqlDataReader
-            Dim Sql As String = ""
-            If Me.chkAllProjects.Checked = True Then
-                Sql = "SELECT ID_Project FROM Projects;"
-            Else
-                Sql = "SELECT ID_Project FROM Projects WHERE CE_ID_Status in (6,7,8,9);"
-            End If
-
-            Me.Cursor = Cursors.WaitCursor
-
-            'On vide le DataGridView
-            dgvProjets.Rows.Clear()
-            dgvProjets.Columns.Clear()
-
-            'On rend certains éléments invisible durant le chargement des données
-            dgvProjets.Visible = False
 
 
 
-            'Définition du DataGridView
-            dgvProjets.ReadOnly = True
-            dgvProjets.AllowUserToAddRows = False
-            dgvProjets.AllowUserToDeleteRows = False
-            dgvProjets.MultiSelect = False
 
+            'Dim ActiveRow As Integer = 0
+            'Dim MySQLConnection As New SqlConnection
 
-            'Définition des colonnes
-            'dgvProjets.Columns.Add("ID_Project", "ID_Project")
-            dgvProjets.Columns.Add("ID", "ID")
-            dgvProjets.Columns.Add("Titre", "Titre")
-            dgvProjets.Columns.Add("Categorie", "Catégorie")
-            dgvProjets.Columns.Add("Description", "Description")
-            dgvProjets.Columns.Add("Statut", "Statut")
-            dgvProjets.Columns.Add("Deadline", "Deadline")
-            dgvProjets.Columns.Add("Chef de projet", "Chef de projet")
-            dgvProjets.Columns.Add("Ressources", "Ressources estimées")
-            dgvProjets.Columns.Add("Ressources", "Ressources réalisées")
-            dgvProjets.Columns.Add("Taux", "Taux de réalisation")
-            dgvProjets.Columns.Add("Priorité", "Priorité")
-            dgvProjets.Columns.Add("Urgence", "Urgence")
+            'Dim mySQLDataReader As SqlDataReader
+            'Dim Sql As String = ""
+            'If Me.chkAllProjects.Checked = True Then
+            '    Sql = "SELECT ID_Project FROM Projects;"
+            'Else
+            '    Sql = "SELECT ID_Project FROM Projects WHERE CE_ID_Status in (6,7,8,9);"
+            'End If
 
+            'Me.Cursor = Cursors.WaitCursor
 
-            MySQLConnection.ConnectionString = cnProjectPlan
-            MySQLConnection.Open()
+            ''On vide le DataGridView
+            'dgvProjets.Rows.Clear()
+            'dgvProjets.Columns.Clear()
 
-            Dim mySQLCommand As SqlCommand = New SqlCommand(Sql, MySQLConnection)
-
-            mySQLDataReader = mySQLCommand.ExecuteReader()
-
-            While mySQLDataReader.Read
-
-                Dim thisProject As New myProject
-                Dim thisCategory As New myProjectCategory
-                Dim thisPrio As New myPriority
-                Dim thisUrgency As New myUrgency
-
-                'Lecture du premier paramètre COUNT
-                Try
-                    'Lecture du projet
-                    thisProject.ID_Project = mySQLDataReader.GetValue(0)
-                    thisProject.Read()
-
-                    'Lecture de la catégorie
-                    thisCategory.ID_Category = thisProject.CE_ID_Category
-                    thisCategory.Read()
-
-                    'Lecture de la priorité
-                    thisPrio.ID_Priority = thisProject.CE_ID_Priority
-                    thisPrio.Read()
-
-                    'Lecture de l'urgence
-                    thisUrgency.ID_Urgency = thisProject.CE_ID_Urgency
-                    thisUrgency.Read()
-
-                    'On ajoute le projet dans le DataGridView
-                    dgvProjets.Rows.Add()
-                    dgvProjets.Item(0, ActiveRow).Value = thisProject.ID_Project
-                    dgvProjets.Item(1, ActiveRow).Value = thisProject.Title
-                    dgvProjets.Item(2, ActiveRow).Value = thisCategory.Category
-                    dgvProjets.Item(3, ActiveRow).Value = thisProject.Description
-                    Dim _myStatus As New myStatus
-                    _myStatus.ID_Status = thisProject.CE_ID_Status
-                    _myStatus.Read()
-                    dgvProjets.Item(4, ActiveRow).Value = _myStatus.Status
-                    dgvProjets.Item(5, ActiveRow).Value = Format(thisProject.DeadLine, "yyyy-MM-dd")
-                    Dim _myPM As New myProjectManager
-                    _myPM.ID_ProjectManager = thisProject.CE_ID_ProjectManager
-                    _myPM.Read()
-                    dgvProjets.Item(6, ActiveRow).Value = _myPM.FullName
-                    dgvProjets.Item(7, ActiveRow).Value = thisProject.EstimatedResources
-                    dgvProjets.Item(8, ActiveRow).Value = thisProject.EffectiveResources
-                    dgvProjets.Item(9, ActiveRow).Value = thisProject.ImplementationRate
-                    dgvProjets.Item(10, ActiveRow).Value = thisPrio.Priority
-                    dgvProjets.Item(11, ActiveRow).Value = thisUrgency.Urgency
-
-                    'La colonne 0 (ID_Project) n'est pas visible
-                    'dgvProjets.Columns(0).Visible = False
-                    'dgvProjets.Columns(0).Visible = True
-
-                    'On ajuste automatiquement la taille des coloness titre et catégorie
-                    Dim myCol0 As DataGridViewColumn = dgvProjets.Columns(0)
-                    myCol0.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
-                    dgvProjets.AutoResizeColumn(1)
-                    dgvProjets.AutoResizeColumn(2)
-                    dgvProjets.AutoResizeColumn(4)
-                    dgvProjets.AutoResizeColumn(5)
-                    dgvProjets.AutoResizeColumn(6)
-                    dgvProjets.AutoResizeColumn(7)
-                    dgvProjets.AutoResizeColumn(8)
-                    dgvProjets.AutoResizeColumn(9)
-                    dgvProjets.AutoResizeColumn(10)
-                    dgvProjets.AutoResizeColumn(11)
-
-
-                    'Le solde la largeur est attribué à la description
-                    Dim myMinWidth As Integer = 60
-                    Dim myWidth As Integer = dgvProjets.Width - dgvProjets.Columns(1).Width - dgvProjets.Columns(2).Width - dgvProjets.Columns(4).Width - dgvProjets.Columns(5).Width - dgvProjets.Columns(6).Width - dgvProjets.Columns(7).Width - dgvProjets.Columns(8).Width - dgvProjets.Columns(9).Width - dgvProjets.Columns(10).Width - dgvProjets.Columns(11).Width - 70
-                    If myWidth >= myMinWidth Then
-                        dgvProjets.Columns(3).Width = myWidth
-                    Else
-                        dgvProjets.Columns(3).Width = myMinWidth
-                    End If
+            ''On rend certains éléments invisible durant le chargement des données
+            'dgvProjets.Visible = False
 
 
 
-                    ActiveRow = ActiveRow + 1
-                Catch ex As Exception
-                End Try
+            ''Définition du DataGridView
+            'dgvProjets.ReadOnly = True
+            'dgvProjets.AllowUserToAddRows = False
+            'dgvProjets.AllowUserToDeleteRows = False
+            'dgvProjets.MultiSelect = False
 
-            End While
 
-            mySQLDataReader.Close()
-            MySQLConnection.Close()
+            ''Définition des colonnes
+            ''dgvProjets.Columns.Add("ID_Project", "ID_Project")
+            'dgvProjets.Columns.Add("ID", "ID")
+            'dgvProjets.Columns.Add("Titre", "Titre")
+            'dgvProjets.Columns.Add("Categorie", "Catégorie")
+            'dgvProjets.Columns.Add("Description", "Description")
+            'dgvProjets.Columns.Add("Statut", "Statut")
+            'dgvProjets.Columns.Add("Deadline", "Deadline")
+            'dgvProjets.Columns.Add("Chef de projet", "Chef de projet")
+            'dgvProjets.Columns.Add("Ressources", "Ressources estimées")
+            'dgvProjets.Columns.Add("Ressources", "Ressources réalisées")
+            'dgvProjets.Columns.Add("Taux", "Taux de réalisation")
+            'dgvProjets.Columns.Add("Priorité", "Priorité")
+            'dgvProjets.Columns.Add("Urgence", "Urgence")
 
-            dgvProjets.Rows(0).Selected = True
-            ID_Project = dgvProjets.Item(0, dgvProjets.CurrentCell.RowIndex).Value
 
-            'On rend certains éléments visible après le chargement des données
-            dgvProjets.Visible = True
+            'MySQLConnection.ConnectionString = cnProjectPlan
+            'MySQLConnection.Open()
 
-            Me.labProjectsNumber.Text = "Projects : " & dgvProjets.RowCount & "/" & dgvProjets.RowCount
+            'Dim mySQLCommand As SqlCommand = New SqlCommand(Sql, MySQLConnection)
 
-            'Si le filtre contient une valeur, on filtre
-            If Me.texFilter.Text <> "" Or Me.lovFilterStatus.SelectedIndex <> 0 Or Me.lovFilterCategory.SelectedIndex <> 0 Then
-                pFilterDGV()
-            End If
+            'mySQLDataReader = mySQLCommand.ExecuteReader()
 
-            Me.Cursor = Cursors.Default
+            'While mySQLDataReader.Read
+
+            '    Dim thisProject As New myProject
+            '    Dim thisCategory As New myProjectCategory
+            '    Dim thisPrio As New myPriority
+            '    Dim thisUrgency As New myUrgency
+
+            '    'Lecture du premier paramètre COUNT
+            '    Try
+            '        'Lecture du projet
+            '        thisProject.ID_Project = mySQLDataReader.GetValue(0)
+            '        thisProject.Read()
+
+            '        'Lecture de la catégorie
+            '        thisCategory.ID_Category = thisProject.CE_ID_Category
+            '        thisCategory.Read()
+
+            '        'Lecture de la priorité
+            '        thisPrio.ID_Priority = thisProject.CE_ID_Priority
+            '        thisPrio.Read()
+
+            '        'Lecture de l'urgence
+            '        thisUrgency.ID_Urgency = thisProject.CE_ID_Urgency
+            '        thisUrgency.Read()
+
+            '        'On ajoute le projet dans le DataGridView
+            '        dgvProjets.Rows.Add()
+            '        dgvProjets.Item(0, ActiveRow).Value = thisProject.ID_Project
+            '        dgvProjets.Item(1, ActiveRow).Value = thisProject.Title
+            '        dgvProjets.Item(2, ActiveRow).Value = thisCategory.Category
+            '        dgvProjets.Item(3, ActiveRow).Value = thisProject.Description
+            '        Dim _myStatus As New myStatus
+            '        _myStatus.ID_Status = thisProject.CE_ID_Status
+            '        _myStatus.Read()
+            '        dgvProjets.Item(4, ActiveRow).Value = _myStatus.Status
+            '        dgvProjets.Item(5, ActiveRow).Value = Format(thisProject.DeadLine, "yyyy-MM-dd")
+            '        Dim _myPM As New myProjectManager
+            '        _myPM.ID_ProjectManager = thisProject.CE_ID_ProjectManager
+            '        _myPM.Read()
+            '        dgvProjets.Item(6, ActiveRow).Value = _myPM.FullName
+            '        dgvProjets.Item(7, ActiveRow).Value = thisProject.EstimatedResources
+            '        dgvProjets.Item(8, ActiveRow).Value = thisProject.EffectiveResources
+            '        dgvProjets.Item(9, ActiveRow).Value = thisProject.ImplementationRate
+            '        dgvProjets.Item(10, ActiveRow).Value = thisPrio.Priority
+            '        dgvProjets.Item(11, ActiveRow).Value = thisUrgency.Urgency
+
+            '        'La colonne 0 (ID_Project) n'est pas visible
+            '        'dgvProjets.Columns(0).Visible = False
+            '        'dgvProjets.Columns(0).Visible = True
+
+            '        'On ajuste automatiquement la taille des coloness titre et catégorie
+            '        Dim myCol0 As DataGridViewColumn = dgvProjets.Columns(0)
+            '        myCol0.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
+            '        dgvProjets.AutoResizeColumn(1)
+            '        dgvProjets.AutoResizeColumn(2)
+            '        dgvProjets.AutoResizeColumn(4)
+            '        dgvProjets.AutoResizeColumn(5)
+            '        dgvProjets.AutoResizeColumn(6)
+            '        dgvProjets.AutoResizeColumn(7)
+            '        dgvProjets.AutoResizeColumn(8)
+            '        dgvProjets.AutoResizeColumn(9)
+            '        dgvProjets.AutoResizeColumn(10)
+            '        dgvProjets.AutoResizeColumn(11)
+
+
+            '        'Le solde la largeur est attribué à la description
+            '        Dim myMinWidth As Integer = 60
+            '        Dim myWidth As Integer = dgvProjets.Width - dgvProjets.Columns(1).Width - dgvProjets.Columns(2).Width - dgvProjets.Columns(4).Width - dgvProjets.Columns(5).Width - dgvProjets.Columns(6).Width - dgvProjets.Columns(7).Width - dgvProjets.Columns(8).Width - dgvProjets.Columns(9).Width - dgvProjets.Columns(10).Width - dgvProjets.Columns(11).Width - 70
+            '        If myWidth >= myMinWidth Then
+            '            dgvProjets.Columns(3).Width = myWidth
+            '        Else
+            '            dgvProjets.Columns(3).Width = myMinWidth
+            '        End If
+
+
+
+            '        ActiveRow = ActiveRow + 1
+            '    Catch ex As Exception
+            '    End Try
+
+            'End While
+
+            'mySQLDataReader.Close()
+            'MySQLConnection.Close()
+
+            'dgvProjets.Rows(0).Selected = True
+            'ID_Project = dgvProjets.Item(0, dgvProjets.CurrentCell.RowIndex).Value
+
+            ''On rend certains éléments visible après le chargement des données
+            'dgvProjets.Visible = True
+
+            'Me.labProjectsNumber.Text = "Projects : " & dgvProjets.RowCount & "/" & dgvProjets.RowCount
+
+            ''Si le filtre contient une valeur, on filtre
+            'If Me.texFilter.Text <> "" Or Me.lovFilterStatus.SelectedIndex <> 0 Or Me.lovFilterCategory.SelectedIndex <> 0 Then
+            '    pFilterDGV()
+            'End If
+
+            'Me.Cursor = Cursors.Default
 
         Catch ex As Exception
 
@@ -193,56 +213,72 @@ Public Class frmProjectsList
 
             'On lit le status
             Dim ID_Status As Integer = Val(DirectCast(lovFilterStatus.SelectedItem, KeyValuePair(Of String, String)).Key)
-            Dim myStatus As New myStatus
-            If ID_Status <> 0 Then
-                myStatus.ID_Status = Val(ID_Status)
-                myStatus.Read()
-            End If
 
             'On lit la catégorie
             Dim ID_Category As Integer = Val(DirectCast(lovFilterCategory.SelectedItem, KeyValuePair(Of String, String)).Key)
-            Dim myCategory As New myProjectCategory
-            If ID_Category <> 0 Then
-                myCategory.ID_Category = Val(ID_Category)
-                myCategory.Read()
+
+            Dim myFilter As String = ""
+            Dim bs As New BindingSource
+            bs = VProjectListBindingSource
+
+            'Filtre selon le texte
+            myFilter = "(title like '%" & Me.texFilter.Text & "%' OR description like '%" & Me.texFilter.Text & "%') "
+
+            'On regarde s'il faut afficher les projets actifs (ID_Status < 10) ou tous les projets
+            If chkAllProjects.Checked = False Then
+                myFilter &= " AND CE_ID_Status < 10 "
             End If
 
+            'On regarde s'il faut filtrer les statuts (<>0)
+            If ID_Status <> 0 Then
+                myFilter &= " AND CE_ID_Status = " & ID_Status & " "
+            End If
 
-            Dim I = 0
+            'On regarde s'il faut filtrer les catégories (<>0)
+            If ID_Category <> 0 Then
+                myFilter &= " AND CE_ID_Category = " & ID_Category & " "
+            End If
 
-            For I = 0 To dgvProjets.RowCount - 1
+            bs.Filter = myFilter
 
-                Dim StrFound As Integer = 0
-                Dim StatusFound As Integer = 0
-                Dim CategoryFound As Integer = 0
-
-                'On recherche le texte à filtrer dans les champs 0, 1 ou 3 (ID, titre, description)
-                StrFound &= InStr(UCase(dgvProjets.Item(0, I).Value), UCase(Me.texFilter.Text))
-                StrFound &= InStr(UCase(dgvProjets.Item(1, I).Value), UCase(Me.texFilter.Text))
-                StrFound &= InStr(UCase(dgvProjets.Item(3, I).Value), UCase(Me.texFilter.Text))
-
-                'On recherche le status
-                StatusFound = InStr(dgvProjets.Item(4, I).Value, myStatus.Status)
+            dgvProjets.DataSource = bs
 
 
+            'Dim I = 0
 
-                'On recherche la catégorie
-                CategoryFound = InStr(dgvProjets.Item(2, I).Value, myCategory.Category)
+            'For I = 0 To dgvProjets.RowCount - 1
 
-                'On recherche la catégorie
-                CategoryFound = InStr(dgvProjets.Item(2, I).Value, myCategory.Category)
+            '    Dim StrFound As Integer = 0
+            '    Dim StatusFound As Integer = 0
+            '    Dim CategoryFound As Integer = 0
+
+            '    'On recherche le texte à filtrer dans les champs 0, 1 ou 3 (ID, titre, description)
+            '    StrFound &= InStr(UCase(dgvProjets.Item(0, I).Value), UCase(Me.texFilter.Text))
+            '    StrFound &= InStr(UCase(dgvProjets.Item(1, I).Value), UCase(Me.texFilter.Text))
+            '    StrFound &= InStr(UCase(dgvProjets.Item(3, I).Value), UCase(Me.texFilter.Text))
+
+            '    'On recherche le status
+            '    StatusFound = InStr(dgvProjets.Item(4, I).Value, myStatus.Status)
 
 
-                If StrFound > 0 And StatusFound > 0 And CategoryFound > 0 Then
-                    dgvProjets.Rows(I).Visible = True
-                    ProjectDisplayedCount = ProjectDisplayedCount + 1
-                Else
-                    dgvProjets.Rows(I).Visible = False
-                End If
 
-            Next I
+            '    'On recherche la catégorie
+            '    CategoryFound = InStr(dgvProjets.Item(2, I).Value, myCategory.Category)
 
-            Me.labProjectsNumber.Text = "Projects : " & ProjectDisplayedCount & "/" & dgvProjets.RowCount
+            '    'On recherche la catégorie
+            '    CategoryFound = InStr(dgvProjets.Item(2, I).Value, myCategory.Category)
+
+
+            '    If StrFound > 0 And StatusFound > 0 And CategoryFound > 0 Then
+            '        dgvProjets.Rows(I).Visible = True
+            '        ProjectDisplayedCount = ProjectDisplayedCount + 1
+            '    Else
+            '        dgvProjets.Rows(I).Visible = False
+            '    End If
+
+            'Next I
+
+            Me.labProjectsNumber.Text = "Projects : " & dgvProjets.RowCount & "/" & TotalProjectNumber
 
         Catch ex As Exception
             If DebugFlag = True Then MessageBox.Show(ex.ToString)
@@ -372,8 +408,8 @@ Public Class frmProjectsList
         End Try
     End Sub
 
-    Private Sub dgvProjets_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvProjets.CellClick
 
+    Private Sub dgvProjets_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvProjets.CellClick
         Try
 
             dgvProjets.Rows(dgvProjets.CurrentCell.RowIndex).Selected = True
@@ -384,7 +420,7 @@ Public Class frmProjectsList
         End Try
     End Sub
 
-    Private Sub dgvProjets_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvProjets.CellDoubleClick
+    Private Sub dgvProjets_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs)
 
         Try
 
@@ -392,7 +428,7 @@ Public Class frmProjectsList
             ID_Project = dgvProjets.Item(0, dgvProjets.CurrentCell.RowIndex).Value
 
             Dim myForm As Form = frmProjectDetails
-            myForm.ShowDialog()
+            myForm.Show()
             myForm.Dispose()
 
             pDisplayProjects()
@@ -403,6 +439,7 @@ Public Class frmProjectsList
         End Try
     End Sub
 
+
     Private Sub btcFilterClear_Click(sender As Object, e As EventArgs) Handles btcFilterClear.Click
 
         Try
@@ -410,8 +447,10 @@ Public Class frmProjectsList
             Me.texFilter.Text = ""
             Me.lovFilterStatus.SelectedIndex = 0
             Me.lovFilterCategory.SelectedIndex = 0
+            Me.chkAllProjects.Checked = False
 
             pFilterDGV()
+
 
         Catch ex As Exception
             If DebugFlag = True Then MessageBox.Show(ex.ToString)
@@ -422,8 +461,9 @@ Public Class frmProjectsList
     Private Sub chkAllProjects_CheckedChanged(sender As Object, e As EventArgs) Handles chkAllProjects.CheckedChanged
 
         Try
-            'Affichage de tous les projets
-            pDisplayProjects()
+            'On filtre les données
+            'pFilterDGV()
+
         Catch ex As Exception
             If DebugFlag = True Then MessageBox.Show(ex.ToString)
         End Try
@@ -471,7 +511,7 @@ Public Class frmProjectsList
             pDisplayProjects()
 
             pFilterDGV()
-            dgvProjets.Rows(3).Selected = True
+            'dgvProjets.Rows(3).Selected = True
 
 
         Catch ex As Exception
@@ -480,7 +520,4 @@ Public Class frmProjectsList
 
     End Sub
 
-    Private Sub dgvProjets_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvProjets.CellContentClick
-
-    End Sub
 End Class

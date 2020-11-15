@@ -123,7 +123,7 @@ Public Class frmMain
 
             ID_Project = 0
 
-            Dim myForm As Form = frmTestDGV
+            Dim myForm As Form = frmProjectsList
 
             myForm.MdiParent = Me
             myForm.Show()
