@@ -19,7 +19,8 @@ Module GlobalProjectPlan
     Public G_Add_NumberDays As Integer = 0
 
     'Variable de connexion à la db
-    Public cnProjectPlan As String = "Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=ProjectPlan;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False"
+    'Public cnProjectPlan As String = "Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=ProjectPlan;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False"
+    Public cnProjectPlan As String = "server=localhost;user id=root;password=syY2Dnvii5CFTdxXwFqU;persistsecurityinfo=True;database=projectplan"
 
 
 

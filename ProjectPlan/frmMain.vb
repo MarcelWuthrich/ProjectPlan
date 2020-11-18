@@ -147,4 +147,18 @@ Public Class frmMain
             If DebugFlag = True Then MessageBox.Show(ex.ToString)
         End Try
     End Sub
+
+    Private Sub mniProjectMember_Click(sender As Object, e As EventArgs) Handles mniProjectMember.Click
+        Try
+
+            ID_ProjectMember = 0
+
+            Dim myForm As Form = frmProjectMembers
+            myForm.MdiParent = Me
+            myForm.Show()
+
+        Catch ex As Exception
+            If DebugFlag = True Then MessageBox.Show(ex.ToString)
+        End Try
+    End Sub
 End Class

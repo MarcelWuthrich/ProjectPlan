@@ -53,6 +53,17 @@ Partial Class frmMain
         Me.mniDataActivityDomain = New System.Windows.Forms.ToolStripMenuItem()
         Me.mniProjet = New System.Windows.Forms.ToolStripMenuItem()
         Me.mniProjectList = New System.Windows.Forms.ToolStripMenuItem()
+        Me.mniProjectMember = New System.Windows.Forms.ToolStripMenuItem()
+        Me.mniProjectManager = New System.Windows.Forms.ToolStripMenuItem()
+        Me.mniResource = New System.Windows.Forms.ToolStripMenuItem()
+        Me.mniResourcePlaning = New System.Windows.Forms.ToolStripMenuItem()
+        Me.mniResourceVisualization = New System.Windows.Forms.ToolStripMenuItem()
+        Me.mniResourcePlaned = New System.Windows.Forms.ToolStripMenuItem()
+        Me.mniResourceValidate = New System.Windows.Forms.ToolStripMenuItem()
+        Me.mniReporting = New System.Windows.Forms.ToolStripMenuItem()
+        Me.mniReportingDashboard = New System.Windows.Forms.ToolStripMenuItem()
+        Me.mniReportingProjectStatistic = New System.Windows.Forms.ToolStripMenuItem()
+        Me.mniReportingPersonStatistic = New System.Windows.Forms.ToolStripMenuItem()
         Me.ViewMenu = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolBarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.StatusBarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -86,17 +97,6 @@ Partial Class frmMain
         Me.StatusStrip = New System.Windows.Forms.StatusStrip()
         Me.ToolStripStatusLabel = New System.Windows.Forms.ToolStripStatusLabel()
         Me.ToolTip = New System.Windows.Forms.ToolTip(Me.components)
-        Me.mniProjectMember = New System.Windows.Forms.ToolStripMenuItem()
-        Me.mniProjectManager = New System.Windows.Forms.ToolStripMenuItem()
-        Me.mniResource = New System.Windows.Forms.ToolStripMenuItem()
-        Me.mniResourcePlaning = New System.Windows.Forms.ToolStripMenuItem()
-        Me.mniResourceVisualization = New System.Windows.Forms.ToolStripMenuItem()
-        Me.mniResourcePlaned = New System.Windows.Forms.ToolStripMenuItem()
-        Me.mniResourceValidate = New System.Windows.Forms.ToolStripMenuItem()
-        Me.mniReporting = New System.Windows.Forms.ToolStripMenuItem()
-        Me.mniReportingDashboard = New System.Windows.Forms.ToolStripMenuItem()
-        Me.mniReportingProjectStatistic = New System.Windows.Forms.ToolStripMenuItem()
-        Me.mniReportingPersonStatistic = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip.SuspendLayout()
         Me.ToolStrip.SuspendLayout()
         Me.StatusStrip.SuspendLayout()
@@ -276,19 +276,19 @@ Partial Class frmMain
         'mniDataCustomer
         '
         Me.mniDataCustomer.Name = "mniDataCustomer"
-        Me.mniDataCustomer.Size = New System.Drawing.Size(180, 22)
+        Me.mniDataCustomer.Size = New System.Drawing.Size(173, 22)
         Me.mniDataCustomer.Text = "Commanditaires"
         '
         'mniDataStatus
         '
         Me.mniDataStatus.Name = "mniDataStatus"
-        Me.mniDataStatus.Size = New System.Drawing.Size(180, 22)
+        Me.mniDataStatus.Size = New System.Drawing.Size(173, 22)
         Me.mniDataStatus.Text = "Statuts"
         '
         'mniDataActivityDomain
         '
         Me.mniDataActivityDomain.Name = "mniDataActivityDomain"
-        Me.mniDataActivityDomain.Size = New System.Drawing.Size(180, 22)
+        Me.mniDataActivityDomain.Size = New System.Drawing.Size(173, 22)
         Me.mniDataActivityDomain.Text = "Domaine d'activité"
         '
         'mniProjet
@@ -304,6 +304,74 @@ Partial Class frmMain
         Me.mniProjectList.Size = New System.Drawing.Size(180, 22)
         Me.mniProjectList.Text = "Liste des projets"
         '
+        'mniProjectMember
+        '
+        Me.mniProjectMember.Name = "mniProjectMember"
+        Me.mniProjectMember.Size = New System.Drawing.Size(180, 22)
+        Me.mniProjectMember.Text = "Membres de projets"
+        '
+        'mniProjectManager
+        '
+        Me.mniProjectManager.Name = "mniProjectManager"
+        Me.mniProjectManager.Size = New System.Drawing.Size(180, 22)
+        Me.mniProjectManager.Text = "Chefs de projets"
+        '
+        'mniResource
+        '
+        Me.mniResource.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.mniResourcePlaning, Me.mniResourceVisualization, Me.mniResourcePlaned, Me.mniResourceValidate})
+        Me.mniResource.Name = "mniResource"
+        Me.mniResource.Size = New System.Drawing.Size(77, 23)
+        Me.mniResource.Text = "Ressources"
+        '
+        'mniResourcePlaning
+        '
+        Me.mniResourcePlaning.Name = "mniResourcePlaning"
+        Me.mniResourcePlaning.Size = New System.Drawing.Size(185, 22)
+        Me.mniResourcePlaning.Text = "Planification"
+        '
+        'mniResourceVisualization
+        '
+        Me.mniResourceVisualization.Name = "mniResourceVisualization"
+        Me.mniResourceVisualization.Size = New System.Drawing.Size(185, 22)
+        Me.mniResourceVisualization.Text = "Visualisation"
+        '
+        'mniResourcePlaned
+        '
+        Me.mniResourcePlaned.Name = "mniResourcePlaned"
+        Me.mniResourcePlaned.Size = New System.Drawing.Size(185, 22)
+        Me.mniResourcePlaned.Text = "Ressources planifiées"
+        '
+        'mniResourceValidate
+        '
+        Me.mniResourceValidate.Name = "mniResourceValidate"
+        Me.mniResourceValidate.Size = New System.Drawing.Size(185, 22)
+        Me.mniResourceValidate.Text = "Validation"
+        '
+        'mniReporting
+        '
+        Me.mniReporting.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.mniReportingDashboard, Me.mniReportingProjectStatistic, Me.mniReportingPersonStatistic})
+        Me.mniReporting.Name = "mniReporting"
+        Me.mniReporting.Size = New System.Drawing.Size(71, 23)
+        Me.mniReporting.Text = "Reporting"
+        '
+        'mniReportingDashboard
+        '
+        Me.mniReportingDashboard.Name = "mniReportingDashboard"
+        Me.mniReportingDashboard.Size = New System.Drawing.Size(212, 22)
+        Me.mniReportingDashboard.Text = "Dashboard"
+        '
+        'mniReportingProjectStatistic
+        '
+        Me.mniReportingProjectStatistic.Name = "mniReportingProjectStatistic"
+        Me.mniReportingProjectStatistic.Size = New System.Drawing.Size(212, 22)
+        Me.mniReportingProjectStatistic.Text = "Statistiques des projets"
+        '
+        'mniReportingPersonStatistic
+        '
+        Me.mniReportingPersonStatistic.Name = "mniReportingPersonStatistic"
+        Me.mniReportingPersonStatistic.Size = New System.Drawing.Size(212, 22)
+        Me.mniReportingPersonStatistic.Text = "Statistiques des personnes"
+        '
         'ViewMenu
         '
         Me.ViewMenu.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolBarToolStripMenuItem, Me.StatusBarToolStripMenuItem})
@@ -317,7 +385,7 @@ Partial Class frmMain
         Me.ToolBarToolStripMenuItem.CheckOnClick = True
         Me.ToolBarToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked
         Me.ToolBarToolStripMenuItem.Name = "ToolBarToolStripMenuItem"
-        Me.ToolBarToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.ToolBarToolStripMenuItem.Size = New System.Drawing.Size(143, 22)
         Me.ToolBarToolStripMenuItem.Text = "&Barre d'outils"
         '
         'StatusBarToolStripMenuItem
@@ -326,7 +394,7 @@ Partial Class frmMain
         Me.StatusBarToolStripMenuItem.CheckOnClick = True
         Me.StatusBarToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked
         Me.StatusBarToolStripMenuItem.Name = "StatusBarToolStripMenuItem"
-        Me.StatusBarToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.StatusBarToolStripMenuItem.Size = New System.Drawing.Size(143, 22)
         Me.StatusBarToolStripMenuItem.Text = "&Barre d'état"
         '
         'ToolsMenu
@@ -339,7 +407,7 @@ Partial Class frmMain
         'OptionsToolStripMenuItem
         '
         Me.OptionsToolStripMenuItem.Name = "OptionsToolStripMenuItem"
-        Me.OptionsToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.OptionsToolStripMenuItem.Size = New System.Drawing.Size(116, 22)
         Me.OptionsToolStripMenuItem.Text = "&Options"
         '
         'WindowsMenu
@@ -532,74 +600,6 @@ Partial Class frmMain
         Me.ToolStripStatusLabel.Name = "ToolStripStatusLabel"
         Me.ToolStripStatusLabel.Size = New System.Drawing.Size(27, 17)
         Me.ToolStripStatusLabel.Text = "État"
-        '
-        'mniProjectMember
-        '
-        Me.mniProjectMember.Name = "mniProjectMember"
-        Me.mniProjectMember.Size = New System.Drawing.Size(180, 22)
-        Me.mniProjectMember.Text = "Membres de projets"
-        '
-        'mniProjectManager
-        '
-        Me.mniProjectManager.Name = "mniProjectManager"
-        Me.mniProjectManager.Size = New System.Drawing.Size(180, 22)
-        Me.mniProjectManager.Text = "Chefs de projets"
-        '
-        'mniResource
-        '
-        Me.mniResource.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.mniResourcePlaning, Me.mniResourceVisualization, Me.mniResourcePlaned, Me.mniResourceValidate})
-        Me.mniResource.Name = "mniResource"
-        Me.mniResource.Size = New System.Drawing.Size(77, 23)
-        Me.mniResource.Text = "Ressources"
-        '
-        'mniResourcePlaning
-        '
-        Me.mniResourcePlaning.Name = "mniResourcePlaning"
-        Me.mniResourcePlaning.Size = New System.Drawing.Size(185, 22)
-        Me.mniResourcePlaning.Text = "Planification"
-        '
-        'mniResourceVisualization
-        '
-        Me.mniResourceVisualization.Name = "mniResourceVisualization"
-        Me.mniResourceVisualization.Size = New System.Drawing.Size(185, 22)
-        Me.mniResourceVisualization.Text = "Visualisation"
-        '
-        'mniResourcePlaned
-        '
-        Me.mniResourcePlaned.Name = "mniResourcePlaned"
-        Me.mniResourcePlaned.Size = New System.Drawing.Size(185, 22)
-        Me.mniResourcePlaned.Text = "Ressources planifiées"
-        '
-        'mniResourceValidate
-        '
-        Me.mniResourceValidate.Name = "mniResourceValidate"
-        Me.mniResourceValidate.Size = New System.Drawing.Size(185, 22)
-        Me.mniResourceValidate.Text = "Validation"
-        '
-        'mniReporting
-        '
-        Me.mniReporting.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.mniReportingDashboard, Me.mniReportingProjectStatistic, Me.mniReportingPersonStatistic})
-        Me.mniReporting.Name = "mniReporting"
-        Me.mniReporting.Size = New System.Drawing.Size(71, 23)
-        Me.mniReporting.Text = "Reporting"
-        '
-        'mniReportingDashboard
-        '
-        Me.mniReportingDashboard.Name = "mniReportingDashboard"
-        Me.mniReportingDashboard.Size = New System.Drawing.Size(212, 22)
-        Me.mniReportingDashboard.Text = "Dashboard"
-        '
-        'mniReportingProjectStatistic
-        '
-        Me.mniReportingProjectStatistic.Name = "mniReportingProjectStatistic"
-        Me.mniReportingProjectStatistic.Size = New System.Drawing.Size(212, 22)
-        Me.mniReportingProjectStatistic.Text = "Statistiques des projets"
-        '
-        'mniReportingPersonStatistic
-        '
-        Me.mniReportingPersonStatistic.Name = "mniReportingPersonStatistic"
-        Me.mniReportingPersonStatistic.Size = New System.Drawing.Size(212, 22)
-        Me.mniReportingPersonStatistic.Text = "Statistiques des personnes"
         '
         'frmMain
         '

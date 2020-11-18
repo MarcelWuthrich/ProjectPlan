@@ -1,4 +1,5 @@
-﻿Imports System.Data.SqlClient
+﻿'Imports System.Data.SqlClient
+Imports MySql.Data.MySqlClient
 
 Public Class frmProjectMemberDetails
     Private Sub btcAnnuler_Click(sender As Object, e As EventArgs) Handles btcAnnuler.Click
@@ -93,9 +94,9 @@ Public Class frmProjectMemberDetails
 
             Me.lovTasks.Items.Clear()
 
-            Dim mySQLDataReader As SqlDataReader
+            Dim myDBDataReader As MySqlDataReader
             Dim Sql As String = "SELECT ID_Task, Task FROM Tasks WHERE Enable = 1 ORDER BY DisplayOrder ASC ;"
-            Dim MySQLConnection As New SqlConnection
+            Dim MyDBConnection As New MySqlConnection
 
             Dim Task As String = ""
             Dim ID_Task As Integer = 0
@@ -104,22 +105,22 @@ Public Class frmProjectMemberDetails
             'On insère une ligne vide
             myDictionnary.Add(Str(0), "")
 
-            MySQLConnection.ConnectionString = cnProjectPlan
-            MySQLConnection.Open()
+            MyDBConnection.ConnectionString = cnProjectPlan
+            MyDBConnection.Open()
 
-            Dim mySQLCommand As SqlCommand = New SqlCommand(Sql, MySQLConnection)
-            mySQLDataReader = mySQLCommand.ExecuteReader()
+            Dim myDBCommand As MySqlCommand = New MySqlCommand(Sql, MyDBConnection)
+            myDBDataReader = myDBCommand.ExecuteReader()
 
-            While mySQLDataReader.Read
+            While myDBDataReader.Read
 
 
                 Try
-                    ID_Task = mySQLDataReader.GetValue(0)
+                    ID_Task = myDBDataReader.GetValue(0)
                 Catch ex As Exception
                 End Try
 
                 Try
-                    Task = mySQLDataReader.GetString(1)
+                    Task = myDBDataReader.GetString(1)
                 Catch ex As Exception
                 End Try
 
@@ -127,8 +128,8 @@ Public Class frmProjectMemberDetails
 
             End While
 
-            mySQLDataReader.Close()
-            MySQLConnection.Close()
+            myDBDataReader.Close()
+            MyDBConnection.Close()
 
             Me.lovTasks.DataSource = New BindingSource(myDictionnary, Nothing)
             Me.lovTasks.DisplayMember = "Value"

@@ -1,4 +1,5 @@
-﻿Imports System.Data.SqlClient
+﻿'Imports System.Data.SqlClient
+Imports MySql.Data.MySqlClient
 
 Public Class frmProjectMembers
 
@@ -21,10 +22,10 @@ Public Class frmProjectMembers
 
         Try
             Dim ActiveRow As Integer = 0
-            Dim MySQLConnection As New SqlConnection
+            Dim MyDBConnection As New MySqlConnection
 
-            Dim mySQLDataReader As SqlDataReader
-            Dim Sql As String = "SELECT ID_ProjectMember FROM ProjectsMembers WHERE Enable = 1 AND IsDeleted=0"
+            Dim myDBDataReader As MySqlDataReader
+            Dim Sql As String = "SELECT ID_ProjectMember FROM ProjectsMembers"
 
 
             'On vide le DataGridView
@@ -47,21 +48,21 @@ Public Class frmProjectMembers
             dgvProjectsMembers.Columns.Add("Tâche", "Tâche")
 
 
-            MySQLConnection.ConnectionString = cnProjectPlan
-            MySQLConnection.Open()
+            MyDBConnection.ConnectionString = cnProjectPlan
+            MyDBConnection.Open()
 
-            Dim mySQLCommand As SqlCommand = New SqlCommand(Sql, MySQLConnection)
+            Dim myDBCommand As MySqlCommand = New MySqlCommand(Sql, MyDBConnection)
 
-            mySQLDataReader = mySQLCommand.ExecuteReader()
+            myDBDataReader = myDBCommand.ExecuteReader()
 
-            While mySQLDataReader.Read
+            While myDBDataReader.Read
 
                 Dim thisMember As New myProjectMember
                 Dim thisTask As New myTask
 
                 'Lecture du premier paramètre COUNT
                 Try
-                    thisMember.ID_ProjectMember = mySQLDataReader.GetValue(0)
+                    thisMember.ID_ProjectMember = myDBDataReader.GetValue(0)
                     thisMember.Read()
 
                     thisTask.ID_Task = thisMember.CE_ID_Task
@@ -88,8 +89,8 @@ Public Class frmProjectMembers
 
             End While
 
-            mySQLDataReader.Close()
-            MySQLConnection.Close()
+            myDBDataReader.Close()
+            MyDBConnection.Close()
 
             dgvProjectsMembers.Rows(0).Selected = True
             ID_ProjectMember = dgvProjectsMembers.Item(0, dgvProjectsMembers.CurrentCell.RowIndex).Value

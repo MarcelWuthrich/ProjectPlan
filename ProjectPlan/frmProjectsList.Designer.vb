@@ -403,6 +403,7 @@ Partial Class frmProjectsList
         Me.Description.HeaderText = "Description"
         Me.Description.Name = "Description"
         Me.Description.ReadOnly = True
+        Me.Description.Visible = False
         Me.Description.Width = 85
         '
         'frmProjectsList
