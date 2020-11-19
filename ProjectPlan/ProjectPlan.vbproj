@@ -140,6 +140,11 @@
     <Compile Include="myStatus.vb" />
     <Compile Include="myTask.vb" />
     <Compile Include="myUrgency.vb" />
+    <Compile Include="projectplanDataSet.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>projectplanDataSet.xsd</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="frmMain.resx">
@@ -186,6 +191,17 @@
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
     <None Include="App.config" />
+    <None Include="projectplanDataSet.xsc">
+      <DependentUpon>projectplanDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="projectplanDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>projectplanDataSet.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="projectplanDataSet.xss">
+      <DependentUpon>projectplanDataSet.xsd</DependentUpon>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

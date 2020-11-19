@@ -9,8 +9,8 @@ Public Class frmProjectsList
     Dim TotalProjectNumber As Integer = 0
 
     Private Sub frmProjectsList_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        'TODO: This line of code loads data into the 'DsProjectList.vProjectList' table. You can move, or remove it, as needed.
-        Me.VProjectListTableAdapter.Fill(Me.DsProjectList.vProjectList)
+        'TODO: This line of code loads data into the 'ProjectplanDataSet.vprojectlist' table. You can move, or remove it, as needed.
+        Me.VprojectlistTableAdapter.Fill(Me.ProjectplanDataSet.vprojectlist)
 
 
 
@@ -220,7 +220,7 @@ Public Class frmProjectsList
 
             Dim myFilter As String = ""
             Dim bs As New BindingSource
-            bs = VProjectListBindingSource
+            bs = VprojectlistBindingSource
 
             'Filtre selon le texte
             myFilter = "(title like '%" & Me.texFilter.Text & "%' OR description like '%" & Me.texFilter.Text & "%') "
