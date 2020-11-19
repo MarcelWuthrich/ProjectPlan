@@ -1,5 +1,6 @@
-﻿Imports System.Data.SqlClient
+﻿'Imports System.Data.SqlClient
 Imports System.Windows.Forms
+Imports MySql.Data.MySqlClient
 
 
 
@@ -46,9 +47,9 @@ Public Class frmProjectsList
 
 
             'Dim ActiveRow As Integer = 0
-            'Dim MySQLConnection As New SqlConnection
+            'Dim MyDBConnection As New SqlConnection
 
-            'Dim mySQLDataReader As SqlDataReader
+            'Dim myDBDataReader As SqlDataReader
             'Dim Sql As String = ""
             'If Me.chkAllProjects.Checked = True Then
             '    Sql = "SELECT ID_Project FROM Projects;"
@@ -93,7 +94,7 @@ Public Class frmProjectsList
             'MySQLConnection.ConnectionString = cnProjectPlan
             'MySQLConnection.Open()
 
-            'Dim mySQLCommand As SqlCommand = New SqlCommand(Sql, MySQLConnection)
+            'Dim myDBCommand As SqlCommand = New SqlCommand(Sql, MySQLConnection)
 
             'mySQLDataReader = mySQLCommand.ExecuteReader()
 
@@ -293,9 +294,9 @@ Public Class frmProjectsList
 
             Me.lovFilterStatus.Items.Clear()
 
-            Dim mySQLDataReader As SqlDataReader
+            Dim myDBDataReader As MySqlDataReader
             Dim Sql As String = "SELECT ID_Status, Status FROM Status WHERE Enable = 1 ORDER BY DisplayOrder ASC ;"
-            Dim MySQLConnection As New SqlConnection
+            Dim MyDBConnection As New MySqlConnection
 
             Dim Status As String = ""
             Dim ID_Status As Integer = 0
@@ -304,22 +305,22 @@ Public Class frmProjectsList
             'On insère une ligne vide
             myDictionnary.Add(Str(0), "")
 
-            MySQLConnection.ConnectionString = cnProjectPlan
-            MySQLConnection.Open()
+            MyDBConnection.ConnectionString = cnProjectPlan
+            MyDBConnection.Open()
 
-            Dim mySQLCommand As SqlCommand = New SqlCommand(Sql, MySQLConnection)
-            mySQLDataReader = mySQLCommand.ExecuteReader()
+            Dim myDBCommand As MySqlCommand = New MySqlCommand(Sql, MyDBConnection)
+            myDBDataReader = myDBCommand.ExecuteReader()
 
-            While mySQLDataReader.Read
+            While myDBDataReader.Read
 
 
                 Try
-                    ID_Status = mySQLDataReader.GetValue(0)
+                    ID_Status = myDBDataReader.GetValue(0)
                 Catch ex As Exception
                 End Try
 
                 Try
-                    Status = mySQLDataReader.GetString(1)
+                    Status = myDBDataReader.GetString(1)
                 Catch ex As Exception
                 End Try
 
@@ -327,8 +328,8 @@ Public Class frmProjectsList
 
             End While
 
-            mySQLDataReader.Close()
-            MySQLConnection.Close()
+            myDBDataReader.Close()
+            MyDBConnection.Close()
 
             Me.lovFilterStatus.DataSource = New BindingSource(myDictionnary, Nothing)
             Me.lovFilterStatus.DisplayMember = "Value"
@@ -349,9 +350,9 @@ Public Class frmProjectsList
 
             Me.lovFilterCategory.Items.Clear()
 
-            Dim mySQLDataReader As SqlDataReader
+            Dim myDBDataReader As MySqlDataReader
             Dim Sql As String = "SELECT ID_Category, Category FROM ProjectCategories WHERE Enable = 1 ORDER BY DisplayOrder ASC ;"
-            Dim MySQLConnection As New SqlConnection
+            Dim MyDBConnection As New MySqlConnection
 
             Dim Category As String = ""
             Dim ID_Category As Integer = 0
@@ -360,22 +361,22 @@ Public Class frmProjectsList
             'On insère une ligne vide
             myDictionnary.Add(Str(0), "")
 
-            MySQLConnection.ConnectionString = cnProjectPlan
-            MySQLConnection.Open()
+            MyDBConnection.ConnectionString = cnProjectPlan
+            MyDBConnection.Open()
 
-            Dim mySQLCommand As SqlCommand = New SqlCommand(Sql, MySQLConnection)
-            mySQLDataReader = mySQLCommand.ExecuteReader()
+            Dim myDBCommand As MySqlCommand = New MySqlCommand(Sql, MyDBConnection)
+            myDBDataReader = myDBCommand.ExecuteReader()
 
-            While mySQLDataReader.Read
+            While myDBDataReader.Read
 
 
                 Try
-                    ID_Category = mySQLDataReader.GetValue(0)
+                    ID_Category = myDBDataReader.GetValue(0)
                 Catch ex As Exception
                 End Try
 
                 Try
-                    Category = mySQLDataReader.GetString(1)
+                    Category = myDBDataReader.GetString(1)
                 Catch ex As Exception
                 End Try
 
@@ -383,8 +384,8 @@ Public Class frmProjectsList
 
             End While
 
-            mySQLDataReader.Close()
-            MySQLConnection.Close()
+            myDBDataReader.Close()
+            MyDBConnection.Close()
 
             Me.lovFilterCategory.DataSource = New BindingSource(myDictionnary, Nothing)
             Me.lovFilterCategory.DisplayMember = "Value"
