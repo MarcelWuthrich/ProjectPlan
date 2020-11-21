@@ -1,4 +1,5 @@
-﻿Imports System.Data.SqlClient
+﻿'Imports System.Data.SqlClient
+Imports MySql.Data.MySqlClient
 
 
 Public Class myProjectHistory
@@ -89,24 +90,24 @@ Public Class myProjectHistory
         Dim _NewID As Integer = 0
 
         Try
-            Dim MySQLConn As New SqlConnection
-            Dim mySQLDataReader As SqlDataReader
-            Dim Sql As String = "SELECT TOP 1 ID_History FROM ProjectsHistory ORDER BY ID_History DESC;"
+            Dim MyDBConnection As New MySqlConnection
+            Dim myDBDataReader As MySqlDataReader
+            Dim Sql As String = "SELECT ID_History FROM ProjectsHistory ORDER BY ID_History DESC LIMIT 1;"
 
-            MySQLConn.ConnectionString = cnProjectPlan
-            MySQLConn.Open()
-            Dim mySQLCommand As SqlCommand = New SqlCommand(Sql, MySQLConn)
-            mySQLDataReader = mySQLCommand.ExecuteReader()
+            MyDBConnection.ConnectionString = cnProjectPlan
+            MyDBConnection.Open()
+            Dim myDBCommand As MySqlCommand = New MySqlCommand(Sql, MyDBConnection)
+            myDBDataReader = myDBCommand.ExecuteReader()
 
             Try
-                If mySQLDataReader.Read Then
-                    _NewID = mySQLDataReader.GetValue(0)
+                If myDBDataReader.Read Then
+                    _NewID = myDBDataReader.GetValue(0)
                 End If
             Catch ex As Exception
             End Try
             _NewID = _NewID + 1
-            mySQLDataReader.Close()
-            MySQLConn.Close()
+            myDBDataReader.Close()
+            MyDBConnection.Close()
 
         Catch ex As Exception
 
@@ -128,9 +129,9 @@ Public Class myProjectHistory
 
         Try
 
-            Dim MySQLConnection As New SqlConnection
+            Dim MyDBConnection As New MySqlConnection
 
-            Dim mySQLDataReader As SqlDataReader
+            Dim myDBDataReader As MySqlDataReader
             Dim Sql As String = "SELECT ID_History, CE_ID_Project, ModifyBy, ModifyDate, Modifcation FROM ProjectsHistory WHERE ID_History=" & Me.ID_History
 
             'Remise à zéro des variables
@@ -142,52 +143,52 @@ Public Class myProjectHistory
             ModifyDate = Nothing
             Modification = Nothing
 
-            MySQLConnection.ConnectionString = cnProjectPlan
+            MyDBConnection.ConnectionString = cnProjectPlan
 
 
-            MySQLConnection.Open()
+            MyDBConnection.Open()
 
-            Dim mySQLCommand As SqlCommand = New SqlCommand(Sql, MySQLConnection)
+            Dim myDBCommand As MySqlCommand = New MySqlCommand(Sql, MyDBConnection)
 
-            mySQLDataReader = mySQLCommand.ExecuteReader()
+            myDBDataReader = myDBCommand.ExecuteReader()
 
-            While mySQLDataReader.Read
+            While myDBDataReader.Read
 
                 'Lecture du premier paramètre
                 Try
-                    Me.ID_History = mySQLDataReader.GetValue(0)
+                    Me.ID_History = myDBDataReader.GetValue(0)
                 Catch ex As Exception
                 End Try
 
                 'Lecture du 2e paramètre 
                 Try
-                    Me.CE_ID_Project = mySQLDataReader.GetValue(1)
+                    Me.CE_ID_Project = myDBDataReader.GetValue(1)
                 Catch ex As Exception
                 End Try
 
                 'Lecture du 3e paramètre 
                 Try
-                    Me.ModifyBy = mySQLDataReader.GetString(2)
+                    Me.ModifyBy = myDBDataReader.GetString(2)
                 Catch ex As Exception
                 End Try
 
                 'Lecture du 4e paramètre 
                 Try
-                    Me.ModifyDate = mySQLDataReader.GetDateTime(3)
+                    Me.ModifyDate = myDBDataReader.GetDateTime(3)
                 Catch ex As Exception
                 End Try
 
                 'Lecture du 5e paramètre DESCRIPTION
                 Try
-                    Me.Modification = mySQLDataReader.GetString(4)
+                    Me.Modification = myDBDataReader.GetString(4)
                 Catch ex As Exception
                 End Try
 
 
             End While
 
-            mySQLDataReader.Close()
-            MySQLConnection.Close()
+            myDBDataReader.Close()
+            MyDBConnection.Close()
 
 
         Catch ex As Exception
@@ -208,32 +209,32 @@ Public Class myProjectHistory
 
         Try
 
-            Dim MySQLConnection As New SqlConnection
+            Dim MyDBConnection As New MySqlConnection
 
-            Dim mySQLDataReader As SqlDataReader
+            Dim myDBDataReader As MySqlDataReader
             Dim Sql As String = "SELECT COUNT(ID_History) FROM ProjectsHistory WHERE ID_History = " & Me.ID_History
 
-            MySQLConnection.ConnectionString = cnProjectPlan
+            MyDBConnection.ConnectionString = cnProjectPlan
 
 
-            MySQLConnection.Open()
+            MyDBConnection.Open()
 
-            Dim mySQLCommand As SqlCommand = New SqlCommand(Sql, MySQLConnection)
+            Dim myDBCommand As MySqlCommand = New MySqlCommand(Sql, MyDBConnection)
 
-            mySQLDataReader = mySQLCommand.ExecuteReader()
+            myDBDataReader = myDBCommand.ExecuteReader()
 
-            While mySQLDataReader.Read
+            While myDBDataReader.Read
 
                 'Lecture du premier paramètre COUNT
                 Try
-                    _Count = mySQLDataReader.GetValue(0)
+                    _Count = myDBDataReader.GetValue(0)
                 Catch ex As Exception
                 End Try
 
             End While
 
-            mySQLDataReader.Close()
-            MySQLConnection.Close()
+            myDBDataReader.Close()
+            MyDBConnection.Close()
 
             If _Count = 1 Then
                 _Exists = True
@@ -262,7 +263,7 @@ Public Class myProjectHistory
                 SQL = "UPDATE ProjectsHistory SET "
                 SQL &= "CE_ID_Project = " & Me.CE_ID_Project & ", "
                 SQL &= "ModifyBy ='" & Replace(Me.ModifyBy, "'", "''") & "', "
-                SQL &= "ModifyDate ='" & fConvertDateTimeSQL(Me.ModifyDate) & "', "
+                SQL &= "ModifyDate ='" & fConvertDateTimeMySQL(Me.ModifyDate) & "', "
                 SQL &= "Modification ='" & Replace(Me.Modification, "'", "''") & "' "
                 SQL &= "WHERE ID_History=" & Me.ID_History & ";"
 
@@ -277,28 +278,28 @@ Public Class myProjectHistory
                 SQL &= Me.ID_History & ","
                 SQL &= Me.CE_ID_Project & ","
                 SQL &= "'" & Replace(Me.ModifyBy, "'", "''") & "',"
-                SQL &= "'" & fConvertDateTimeSQL(Me.ModifyDate) & "',"
+                SQL &= "'" & fConvertDateTimeMySQL(Me.ModifyDate) & "',"
                 SQL &= "'" & Replace(Me.Modification, "'", "''") & "')"
 
                 ID_History = Me.ID_History
 
             End If
 
-            Dim MySQLConn As New SqlConnection
+            Dim MyDBConnection As New MySqlConnection
 
 
 
             If SQL <> "" Then
 
                 'On exécute la commande SQL uniquement si elle existe
-                MySQLConn.ConnectionString = cnProjectPlan
-                MySQLConn.Open()
+                MyDBConnection.ConnectionString = cnProjectPlan
+                MyDBConnection.Open()
 
-                Dim mySQLCommand As SqlCommand = New SqlCommand(SQL, MySQLConn)
+                Dim myDBCommand As MySqlCommand = New MySqlCommand(SQL, MyDBConnection)
 
-                mySQLCommand.ExecuteNonQuery()
-                mySQLCommand = Nothing
-                MySQLConn.Close()
+                myDBCommand.ExecuteNonQuery()
+                myDBCommand = Nothing
+                MyDBConnection.Close()
 
             End If
 

@@ -93,7 +93,7 @@ Partial Class frmProjectDetails
         'labCategorie
         '
         Me.labCategorie.AutoSize = True
-        Me.labCategorie.Location = New System.Drawing.Point(106, 241)
+        Me.labCategorie.Location = New System.Drawing.Point(106, 214)
         Me.labCategorie.Name = "labCategorie"
         Me.labCategorie.Size = New System.Drawing.Size(52, 13)
         Me.labCategorie.TabIndex = 3
@@ -119,7 +119,7 @@ Partial Class frmProjectDetails
         'labDeadline
         '
         Me.labDeadline.AutoSize = True
-        Me.labDeadline.Location = New System.Drawing.Point(105, 375)
+        Me.labDeadline.Location = New System.Drawing.Point(530, 268)
         Me.labDeadline.Name = "labDeadline"
         Me.labDeadline.Size = New System.Drawing.Size(53, 13)
         Me.labDeadline.TabIndex = 7
@@ -127,24 +127,24 @@ Partial Class frmProjectDetails
         '
         'dtpDeadline
         '
-        Me.dtpDeadline.Location = New System.Drawing.Point(164, 372)
+        Me.dtpDeadline.Location = New System.Drawing.Point(589, 265)
         Me.dtpDeadline.Name = "dtpDeadline"
-        Me.dtpDeadline.Size = New System.Drawing.Size(647, 20)
+        Me.dtpDeadline.Size = New System.Drawing.Size(221, 20)
         Me.dtpDeadline.TabIndex = 5
         '
         'lovProjectManager
         '
         Me.lovProjectManager.FormattingEnabled = True
-        Me.lovProjectManager.Location = New System.Drawing.Point(164, 211)
+        Me.lovProjectManager.Location = New System.Drawing.Point(590, 184)
         Me.lovProjectManager.Name = "lovProjectManager"
-        Me.lovProjectManager.Size = New System.Drawing.Size(647, 21)
+        Me.lovProjectManager.Size = New System.Drawing.Size(221, 21)
         Me.lovProjectManager.Sorted = True
         Me.lovProjectManager.TabIndex = 3
         '
         'labChefProjet
         '
         Me.labChefProjet.AutoSize = True
-        Me.labChefProjet.Location = New System.Drawing.Point(85, 214)
+        Me.labChefProjet.Location = New System.Drawing.Point(511, 187)
         Me.labChefProjet.Name = "labChefProjet"
         Me.labChefProjet.Size = New System.Drawing.Size(73, 13)
         Me.labChefProjet.TabIndex = 10
@@ -153,7 +153,7 @@ Partial Class frmProjectDetails
         'labStatut
         '
         Me.labStatut.AutoSize = True
-        Me.labStatut.Location = New System.Drawing.Point(123, 268)
+        Me.labStatut.Location = New System.Drawing.Point(549, 214)
         Me.labStatut.Name = "labStatut"
         Me.labStatut.Size = New System.Drawing.Size(35, 13)
         Me.labStatut.TabIndex = 11
@@ -163,14 +163,14 @@ Partial Class frmProjectDetails
         '
         Me.lovStatus.FormattingEnabled = True
         Me.lovStatus.Items.AddRange(New Object() {"1 ; sijfiej", "2 ; ifjwijfe"})
-        Me.lovStatus.Location = New System.Drawing.Point(164, 265)
+        Me.lovStatus.Location = New System.Drawing.Point(590, 211)
         Me.lovStatus.Name = "lovStatus"
-        Me.lovStatus.Size = New System.Drawing.Size(647, 21)
+        Me.lovStatus.Size = New System.Drawing.Size(221, 21)
         Me.lovStatus.TabIndex = 4
         '
         'btcAnnuler
         '
-        Me.btcAnnuler.Location = New System.Drawing.Point(363, 765)
+        Me.btcAnnuler.Location = New System.Drawing.Point(350, 683)
         Me.btcAnnuler.Name = "btcAnnuler"
         Me.btcAnnuler.Size = New System.Drawing.Size(75, 23)
         Me.btcAnnuler.TabIndex = 9
@@ -179,7 +179,7 @@ Partial Class frmProjectDetails
         '
         'btcOK
         '
-        Me.btcOK.Location = New System.Drawing.Point(475, 765)
+        Me.btcOK.Location = New System.Drawing.Point(462, 683)
         Me.btcOK.Name = "btcOK"
         Me.btcOK.Size = New System.Drawing.Size(75, 23)
         Me.btcOK.TabIndex = 10
@@ -189,7 +189,7 @@ Partial Class frmProjectDetails
         'labImplementationRate
         '
         Me.labImplementationRate.AutoSize = True
-        Me.labImplementationRate.Location = New System.Drawing.Point(62, 479)
+        Me.labImplementationRate.Location = New System.Drawing.Point(487, 346)
         Me.labImplementationRate.Name = "labImplementationRate"
         Me.labImplementationRate.Size = New System.Drawing.Size(96, 13)
         Me.labImplementationRate.TabIndex = 18
@@ -197,16 +197,16 @@ Partial Class frmProjectDetails
         '
         'texImplementationRate
         '
-        Me.texImplementationRate.Location = New System.Drawing.Point(164, 476)
+        Me.texImplementationRate.Location = New System.Drawing.Point(589, 343)
         Me.texImplementationRate.Name = "texImplementationRate"
         Me.texImplementationRate.ReadOnly = True
-        Me.texImplementationRate.Size = New System.Drawing.Size(647, 20)
+        Me.texImplementationRate.Size = New System.Drawing.Size(221, 20)
         Me.texImplementationRate.TabIndex = 7
         '
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(817, 479)
+        Me.Label2.Location = New System.Drawing.Point(816, 346)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(27, 13)
         Me.Label2.TabIndex = 20
@@ -232,15 +232,15 @@ Partial Class frmProjectDetails
         'lovPriority
         '
         Me.lovPriority.FormattingEnabled = True
-        Me.lovPriority.Location = New System.Drawing.Point(164, 292)
+        Me.lovPriority.Location = New System.Drawing.Point(164, 238)
         Me.lovPriority.Name = "lovPriority"
-        Me.lovPriority.Size = New System.Drawing.Size(647, 21)
+        Me.lovPriority.Size = New System.Drawing.Size(221, 21)
         Me.lovPriority.TabIndex = 40
         '
         'labPriority
         '
         Me.labPriority.AutoSize = True
-        Me.labPriority.Location = New System.Drawing.Point(119, 295)
+        Me.labPriority.Location = New System.Drawing.Point(119, 241)
         Me.labPriority.Name = "labPriority"
         Me.labPriority.Size = New System.Drawing.Size(39, 13)
         Me.labPriority.TabIndex = 41
@@ -249,9 +249,9 @@ Partial Class frmProjectDetails
         'lovProjectCategory
         '
         Me.lovProjectCategory.FormattingEnabled = True
-        Me.lovProjectCategory.Location = New System.Drawing.Point(164, 238)
+        Me.lovProjectCategory.Location = New System.Drawing.Point(164, 211)
         Me.lovProjectCategory.Name = "lovProjectCategory"
-        Me.lovProjectCategory.Size = New System.Drawing.Size(647, 21)
+        Me.lovProjectCategory.Size = New System.Drawing.Size(221, 21)
         Me.lovProjectCategory.TabIndex = 42
         '
         'labClient
@@ -268,22 +268,22 @@ Partial Class frmProjectDetails
         Me.lovCustomer.FormattingEnabled = True
         Me.lovCustomer.Location = New System.Drawing.Point(164, 184)
         Me.lovCustomer.Name = "lovCustomer"
-        Me.lovCustomer.Size = New System.Drawing.Size(647, 21)
+        Me.lovCustomer.Size = New System.Drawing.Size(221, 21)
         Me.lovCustomer.Sorted = True
         Me.lovCustomer.TabIndex = 43
         '
         'texPlanResources
         '
-        Me.texPlanResources.Location = New System.Drawing.Point(164, 424)
+        Me.texPlanResources.Location = New System.Drawing.Point(588, 317)
         Me.texPlanResources.Name = "texPlanResources"
         Me.texPlanResources.ReadOnly = True
-        Me.texPlanResources.Size = New System.Drawing.Size(647, 20)
+        Me.texPlanResources.Size = New System.Drawing.Size(221, 20)
         Me.texPlanResources.TabIndex = 45
         '
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(817, 427)
+        Me.Label3.Location = New System.Drawing.Point(815, 320)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(51, 13)
         Me.Label3.TabIndex = 46
@@ -292,7 +292,7 @@ Partial Class frmProjectDetails
         'labPlanResources
         '
         Me.labPlanResources.AutoSize = True
-        Me.labPlanResources.Location = New System.Drawing.Point(48, 427)
+        Me.labPlanResources.Location = New System.Drawing.Point(472, 320)
         Me.labPlanResources.Name = "labPlanResources"
         Me.labPlanResources.Size = New System.Drawing.Size(110, 13)
         Me.labPlanResources.TabIndex = 47
@@ -301,7 +301,7 @@ Partial Class frmProjectDetails
         'labExecutedResources
         '
         Me.labExecutedResources.AutoSize = True
-        Me.labExecutedResources.Location = New System.Drawing.Point(48, 453)
+        Me.labExecutedResources.Location = New System.Drawing.Point(52, 346)
         Me.labExecutedResources.Name = "labExecutedResources"
         Me.labExecutedResources.Size = New System.Drawing.Size(107, 13)
         Me.labExecutedResources.TabIndex = 50
@@ -310,7 +310,7 @@ Partial Class frmProjectDetails
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(817, 453)
+        Me.Label6.Location = New System.Drawing.Point(391, 346)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(51, 13)
         Me.Label6.TabIndex = 49
@@ -318,15 +318,15 @@ Partial Class frmProjectDetails
         '
         'texExecutedResources
         '
-        Me.texExecutedResources.Location = New System.Drawing.Point(164, 450)
+        Me.texExecutedResources.Location = New System.Drawing.Point(164, 343)
         Me.texExecutedResources.Name = "texExecutedResources"
         Me.texExecutedResources.ReadOnly = True
-        Me.texExecutedResources.Size = New System.Drawing.Size(647, 20)
+        Me.texExecutedResources.Size = New System.Drawing.Size(221, 20)
         Me.texExecutedResources.TabIndex = 48
         '
         'btcComments
         '
-        Me.btcComments.Location = New System.Drawing.Point(589, 765)
+        Me.btcComments.Location = New System.Drawing.Point(576, 683)
         Me.btcComments.Name = "btcComments"
         Me.btcComments.Size = New System.Drawing.Size(81, 23)
         Me.btcComments.TabIndex = 51
@@ -337,15 +337,15 @@ Partial Class frmProjectDetails
         'lovUrgency
         '
         Me.lovUrgency.FormattingEnabled = True
-        Me.lovUrgency.Location = New System.Drawing.Point(164, 319)
+        Me.lovUrgency.Location = New System.Drawing.Point(590, 238)
         Me.lovUrgency.Name = "lovUrgency"
-        Me.lovUrgency.Size = New System.Drawing.Size(647, 21)
+        Me.lovUrgency.Size = New System.Drawing.Size(221, 21)
         Me.lovUrgency.TabIndex = 52
         '
         'labUrgency
         '
         Me.labUrgency.AutoSize = True
-        Me.labUrgency.Location = New System.Drawing.Point(110, 322)
+        Me.labUrgency.Location = New System.Drawing.Point(536, 241)
         Me.labUrgency.Name = "labUrgency"
         Me.labUrgency.Size = New System.Drawing.Size(48, 13)
         Me.labUrgency.TabIndex = 53
@@ -353,15 +353,15 @@ Partial Class frmProjectDetails
         '
         'dtpBegin
         '
-        Me.dtpBegin.Location = New System.Drawing.Point(164, 346)
+        Me.dtpBegin.Location = New System.Drawing.Point(164, 265)
         Me.dtpBegin.Name = "dtpBegin"
-        Me.dtpBegin.Size = New System.Drawing.Size(647, 20)
+        Me.dtpBegin.Size = New System.Drawing.Size(221, 20)
         Me.dtpBegin.TabIndex = 54
         '
         'labBegin
         '
         Me.labBegin.AutoSize = True
-        Me.labBegin.Location = New System.Drawing.Point(105, 349)
+        Me.labBegin.Location = New System.Drawing.Point(122, 271)
         Me.labBegin.Name = "labBegin"
         Me.labBegin.Size = New System.Drawing.Size(36, 13)
         Me.labBegin.TabIndex = 55
@@ -370,7 +370,7 @@ Partial Class frmProjectDetails
         'labRemarks
         '
         Me.labRemarks.AutoSize = True
-        Me.labRemarks.Location = New System.Drawing.Point(98, 619)
+        Me.labRemarks.Location = New System.Drawing.Point(98, 538)
         Me.labRemarks.Name = "labRemarks"
         Me.labRemarks.Size = New System.Drawing.Size(61, 13)
         Me.labRemarks.TabIndex = 70
@@ -383,14 +383,14 @@ Partial Class frmProjectDetails
         Me.dgvProjectRemarks.AllowUserToResizeColumns = False
         Me.dgvProjectRemarks.AllowUserToResizeRows = False
         Me.dgvProjectRemarks.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgvProjectRemarks.Location = New System.Drawing.Point(164, 619)
+        Me.dgvProjectRemarks.Location = New System.Drawing.Point(164, 538)
         Me.dgvProjectRemarks.Name = "dgvProjectRemarks"
         Me.dgvProjectRemarks.Size = New System.Drawing.Size(647, 111)
         Me.dgvProjectRemarks.TabIndex = 71
         '
         'btcRemarkAdd
         '
-        Me.btcRemarkAdd.Location = New System.Drawing.Point(814, 619)
+        Me.btcRemarkAdd.Location = New System.Drawing.Point(814, 538)
         Me.btcRemarkAdd.Margin = New System.Windows.Forms.Padding(0)
         Me.btcRemarkAdd.Name = "btcRemarkAdd"
         Me.btcRemarkAdd.Size = New System.Drawing.Size(77, 23)
@@ -400,7 +400,7 @@ Partial Class frmProjectDetails
         '
         'btcRemarkRemove
         '
-        Me.btcRemarkRemove.Location = New System.Drawing.Point(814, 671)
+        Me.btcRemarkRemove.Location = New System.Drawing.Point(814, 590)
         Me.btcRemarkRemove.Margin = New System.Windows.Forms.Padding(0)
         Me.btcRemarkRemove.Name = "btcRemarkRemove"
         Me.btcRemarkRemove.Size = New System.Drawing.Size(77, 23)
@@ -410,7 +410,7 @@ Partial Class frmProjectDetails
         '
         'btcRemardModify
         '
-        Me.btcRemardModify.Location = New System.Drawing.Point(814, 645)
+        Me.btcRemardModify.Location = New System.Drawing.Point(814, 564)
         Me.btcRemardModify.Name = "btcRemardModify"
         Me.btcRemardModify.Size = New System.Drawing.Size(77, 23)
         Me.btcRemardModify.TabIndex = 74
@@ -419,7 +419,7 @@ Partial Class frmProjectDetails
         '
         'btcRessourceModify
         '
-        Me.btcRessourceModify.Location = New System.Drawing.Point(814, 528)
+        Me.btcRessourceModify.Location = New System.Drawing.Point(813, 421)
         Me.btcRessourceModify.Name = "btcRessourceModify"
         Me.btcRessourceModify.Size = New System.Drawing.Size(77, 23)
         Me.btcRessourceModify.TabIndex = 79
@@ -428,7 +428,7 @@ Partial Class frmProjectDetails
         '
         'btcRessourceRemove
         '
-        Me.btcRessourceRemove.Location = New System.Drawing.Point(814, 554)
+        Me.btcRessourceRemove.Location = New System.Drawing.Point(813, 447)
         Me.btcRessourceRemove.Margin = New System.Windows.Forms.Padding(0)
         Me.btcRessourceRemove.Name = "btcRessourceRemove"
         Me.btcRessourceRemove.Size = New System.Drawing.Size(77, 23)
@@ -438,7 +438,7 @@ Partial Class frmProjectDetails
         '
         'btcRessourceAdd
         '
-        Me.btcRessourceAdd.Location = New System.Drawing.Point(814, 502)
+        Me.btcRessourceAdd.Location = New System.Drawing.Point(813, 395)
         Me.btcRessourceAdd.Margin = New System.Windows.Forms.Padding(0)
         Me.btcRessourceAdd.Name = "btcRessourceAdd"
         Me.btcRessourceAdd.Size = New System.Drawing.Size(77, 23)
@@ -453,7 +453,7 @@ Partial Class frmProjectDetails
         Me.dgvProjectRessources.AllowUserToResizeColumns = False
         Me.dgvProjectRessources.AllowUserToResizeRows = False
         Me.dgvProjectRessources.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgvProjectRessources.Location = New System.Drawing.Point(164, 502)
+        Me.dgvProjectRessources.Location = New System.Drawing.Point(163, 395)
         Me.dgvProjectRessources.Name = "dgvProjectRessources"
         Me.dgvProjectRessources.Size = New System.Drawing.Size(647, 111)
         Me.dgvProjectRessources.TabIndex = 76
@@ -461,7 +461,7 @@ Partial Class frmProjectDetails
         'labRessources
         '
         Me.labRessources.AutoSize = True
-        Me.labRessources.Location = New System.Drawing.Point(48, 502)
+        Me.labRessources.Location = New System.Drawing.Point(51, 395)
         Me.labRessources.Name = "labRessources"
         Me.labRessources.Size = New System.Drawing.Size(107, 13)
         Me.labRessources.TabIndex = 75
@@ -470,7 +470,7 @@ Partial Class frmProjectDetails
         'labEstimatedResources
         '
         Me.labEstimatedResources.AutoSize = True
-        Me.labEstimatedResources.Location = New System.Drawing.Point(48, 401)
+        Me.labEstimatedResources.Location = New System.Drawing.Point(51, 320)
         Me.labEstimatedResources.Name = "labEstimatedResources"
         Me.labEstimatedResources.Size = New System.Drawing.Size(107, 13)
         Me.labEstimatedResources.TabIndex = 81
@@ -478,16 +478,16 @@ Partial Class frmProjectDetails
         '
         'texEstimatedResources
         '
-        Me.texEstimatedResources.Location = New System.Drawing.Point(164, 398)
+        Me.texEstimatedResources.Location = New System.Drawing.Point(164, 317)
         Me.texEstimatedResources.Name = "texEstimatedResources"
         Me.texEstimatedResources.ReadOnly = True
-        Me.texEstimatedResources.Size = New System.Drawing.Size(647, 20)
+        Me.texEstimatedResources.Size = New System.Drawing.Size(221, 20)
         Me.texEstimatedResources.TabIndex = 80
         '
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(816, 401)
+        Me.Label1.Location = New System.Drawing.Point(391, 320)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(51, 13)
         Me.Label1.TabIndex = 82
@@ -497,7 +497,7 @@ Partial Class frmProjectDetails
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(926, 812)
+        Me.ClientSize = New System.Drawing.Size(926, 726)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.labEstimatedResources)
         Me.Controls.Add(Me.texEstimatedResources)

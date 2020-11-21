@@ -1,4 +1,5 @@
-﻿Imports System.Data.SqlClient
+﻿'Imports System.Data.SqlClient
+Imports MySql.Data.MySqlClient
 
 Public Class myPlanResource
 
@@ -198,40 +199,40 @@ Public Class myPlanResource
 
         Try
 
-            Dim MySQLConn As New SqlConnection
-            MySQLConn.ConnectionString = cnProjectPlan
+            Dim MyDBConnection As New MySqlConnection
+            MyDBConnection.ConnectionString = cnProjectPlan
 
-            Dim mySQLDataReader1 As SqlDataReader
-            Dim mySQLDataReader2 As SqlDataReader
+            Dim myDBDataReader1 As MySqlDataReader
+            Dim myDBDataReader2 As MySqlDataReader
             Dim Sql As String = ""
 
 
-            MySQLConn.Open()
+            MyDBConnection.Open()
 
-            Sql = "SELECT TOP 1 ID_Resource FROM PlanResources ORDER BY ID_Resource DESC;"
-            Dim mySQLCommand1 As SqlCommand = New SqlCommand(Sql, MySQLConn)
-            mySQLDataReader1 = mySQLCommand1.ExecuteReader()
+            Sql = "SELECT ID_Resource FROM PlanResources ORDER BY ID_Resource DESC LIMIT 1;"
+            Dim mydbCommand1 As MySqlCommand = New MySqlCommand(Sql, MyDBConnection)
+            myDBDataReader1 = mydbCommand1.ExecuteReader()
             Try
-                If mySQLDataReader1.Read Then
-                    _NewIDPlan = mySQLDataReader1.GetValue(0)
+                If myDBDataReader1.Read Then
+                    _NewIDPlan = myDBDataReader1.GetValue(0)
                 End If
             Catch ex As Exception
             End Try
-            mySQLDataReader1.Close()
+            myDBDataReader1.Close()
 
-            Sql = "SELECT TOP 1 ID_Resource FROM ExecutedResources ORDER BY ID_Resource DESC;"
-            Dim mySQLCommand2 As SqlCommand = New SqlCommand(Sql, MySQLConn)
+            Sql = "SELECT ID_Resource FROM ExecutedResources ORDER BY ID_Resource DESC LIMIT 1;"
+            Dim myDBCommand2 As MySqlCommand = New MySqlCommand(Sql, MyDBConnection)
 
-            mySQLDataReader2 = mySQLCommand2.ExecuteReader()
+            myDBDataReader2 = myDBCommand2.ExecuteReader()
             Try
-                If mySQLDataReader2.Read Then
-                    _NewIDExecuted = mySQLDataReader2.GetValue(0)
+                If myDBDataReader2.Read Then
+                    _NewIDExecuted = myDBDataReader2.GetValue(0)
                 End If
             Catch ex As Exception
             End Try
-            mySQLDataReader2.Close()
+            myDBDataReader2.Close()
 
-            MySQLConn.Close()
+            MyDBConnection.Close()
 
             If _NewIDPlan > _NewIDExecuted Then
                 _NewID = _NewIDPlan + 1
@@ -256,32 +257,32 @@ Public Class myPlanResource
 
         Try
 
-            Dim MySQLConnection As New SqlConnection
+            Dim MyDBConnection As New MySqlConnection
 
-            Dim mySQLDataReader As SqlDataReader
+            Dim myDBDataReader As MySqlDataReader
             Dim Sql As String = "SELECT COUNT(ID_Resource) FROM PlanResources WHERE ID_Resource = " & Me.ID_Resource
 
-            MySQLConnection.ConnectionString = cnProjectPlan
+            MyDBConnection.ConnectionString = cnProjectPlan
 
 
-            MySQLConnection.Open()
+            MyDBConnection.Open()
 
-            Dim mySQLCommand As SqlCommand = New SqlCommand(Sql, MySQLConnection)
+            Dim myDBCommand As MySqlCommand = New MySqlCommand(Sql, MyDBConnection)
 
-            mySQLDataReader = mySQLCommand.ExecuteReader()
+            myDBDataReader = myDBCommand.ExecuteReader()
 
-            While mySQLDataReader.Read
+            While myDBDataReader.Read
 
                 'Lecture du premier paramètre COUNT
                 Try
-                    _Count = mySQLDataReader.GetValue(0)
+                    _Count = myDBDataReader.GetValue(0)
                 Catch ex As Exception
                 End Try
 
             End While
 
-            mySQLDataReader.Close()
-            MySQLConnection.Close()
+            myDBDataReader.Close()
+            MyDBConnection.Close()
 
             If _Count = 1 Then
                 _Exists = True
@@ -303,9 +304,9 @@ Public Class myPlanResource
 
         Try
 
-            Dim MySQLConnection As New SqlConnection
+            Dim MyDBConnection As New MySqlConnection
 
-            Dim mySQLDataReader As SqlDataReader
+            Dim myDBDataReader As MySqlDataReader
             Dim Sql As String = "SELECT ID_Resource, CE_ID_ProjectMember, CE_ID_Project, CE_ID_AdminResource, PlanDate, HalfDay, Blocked, Remark FROM PlanResources WHERE ID_Resource=" & Me.ID_Resource
 
 
@@ -324,69 +325,69 @@ Public Class myPlanResource
             IsProjectResource = Nothing
             FirstFreeDayForResource = Nothing
 
-            MySQLConnection.ConnectionString = cnProjectPlan
+            MyDBConnection.ConnectionString = cnProjectPlan
 
-            MySQLConnection.Open()
+            MyDBConnection.Open()
 
-            Dim mySQLCommand As SqlCommand = New SqlCommand(Sql, MySQLConnection)
+            Dim myDBCommand As MySqlCommand = New MySqlCommand(Sql, MyDBConnection)
 
-            mySQLDataReader = mySQLCommand.ExecuteReader()
+            myDBDataReader = myDBCommand.ExecuteReader()
 
-            While mySQLDataReader.Read
+            While myDBDataReader.Read
 
                 'Lecture du premier paramètre 
                 Try
-                    Me.ID_Resource = mySQLDataReader.GetValue(0)
+                    Me.ID_Resource = myDBDataReader.GetValue(0)
                 Catch ex As Exception
                 End Try
 
                 'Lecture du 2e paramètre
                 Try
-                    Me.CE_ID_ProjectMember = mySQLDataReader.GetValue(1)
+                    Me.CE_ID_ProjectMember = myDBDataReader.GetValue(1)
                 Catch ex As Exception
                 End Try
 
                 'Lecture du 3e paramètre
                 Try
-                    Me.CE_ID_Project = mySQLDataReader.GetValue(2)
+                    Me.CE_ID_Project = myDBDataReader.GetValue(2)
                 Catch ex As Exception
                 End Try
 
                 'Lecture du 4e paramètre 
                 Try
-                    Me.CE_ID_AdminResource = mySQLDataReader.GetValue(3)
+                    Me.CE_ID_AdminResource = myDBDataReader.GetValue(3)
                 Catch ex As Exception
                 End Try
 
                 'Lecture du 5e paramètre 
                 Try
-                    Me.PlanDate = mySQLDataReader.GetDateTime(4)
+                    Me.PlanDate = myDBDataReader.GetDateTime(4)
                 Catch ex As Exception
                 End Try
 
                 'Lecture du 6e paramètre 
                 Try
-                    Me.HalfDay = mySQLDataReader.GetValue(5)
+                    Me.HalfDay = myDBDataReader.GetValue(5)
                 Catch ex As Exception
                 End Try
 
                 'Lecture du 7e paramètre 
                 Try
-                    Me.Blocked = mySQLDataReader.GetBoolean(6)
+                    Me.Blocked = myDBDataReader.GetBoolean(6)
                 Catch ex As Exception
                 End Try
 
                 'Lecture du 8e paramètre 
                 Try
-                    Me.Remark = mySQLDataReader.GetString(7)
+                    Me.Remark = myDBDataReader.GetString(7)
                 Catch ex As Exception
                 End Try
 
 
             End While
 
-            mySQLDataReader.Close()
-            MySQLConnection.Close()
+            myDBDataReader.Close()
+            MyDBConnection.Close()
 
             'On détermine si c'est une ressource de projet
             If Me.CE_ID_Project = 0 Then
@@ -454,7 +455,7 @@ Public Class myPlanResource
                 SQL &= "CE_ID_ProjectMember =" & Me._CE_ID_ProjectMember & ", "
                 SQL &= "CE_ID_Project =" & Me._CE_ID_Project & ", "
                 SQL &= "CE_ID_AdminResource =" & Me.CE_ID_AdminResource & ", "
-                SQL &= "PlanDate ='" & fConvertDateTimeSQL(Me.PlanDate) & "', "
+                SQL &= "PlanDate ='" & fConvertDateTimeMySQL(Me.PlanDate) & "', "
                 SQL &= "HalfDay =" & Me.HalfDay & ",  "
                 If Me.Blocked = True Then
                     SQL &= "Blocked = 1, "
@@ -479,7 +480,7 @@ Public Class myPlanResource
                 SQL &= Me.CE_ID_ProjectMember & ","
                 SQL &= Me.CE_ID_Project & ","
                 SQL &= Me.CE_ID_AdminResource & ","
-                SQL &= "'" & fConvertDateOnlySQL(Me.PlanDate) & "',"
+                SQL &= "'" & fConvertDateOnlyMySQL(Me.PlanDate) & "',"
                 SQL &= Me.HalfDay & ","
                 If Me.Blocked = True Then
                     SQL &= "1, "
@@ -491,21 +492,21 @@ Public Class myPlanResource
             End If
 
 
-            Dim MySQLConn As New SqlConnection
+            Dim MyDBConnection As New MySqlConnection
 
 
 
             If SQL <> "" Then
 
                 'On exécute la commande SQL uniquement si elle existe
-                MySQLConn.ConnectionString = cnProjectPlan
-                MySQLConn.Open()
+                MyDBConnection.ConnectionString = cnProjectPlan
+                MyDBConnection.Open()
 
-                Dim mySQLCommand As SqlCommand = New SqlCommand(SQL, MySQLConn)
+                Dim myDBCommand As MySqlCommand = New MySqlCommand(SQL, MyDBConnection)
 
-                mySQLCommand.ExecuteNonQuery()
-                mySQLCommand = Nothing
-                MySQLConn.Close()
+                myDBCommand.ExecuteNonQuery()
+                myDBCommand = Nothing
+                MyDBConnection.Close()
 
             End If
 
@@ -535,45 +536,45 @@ Public Class myPlanResource
 
         Try
 
-            Dim MySQLConnection As New SqlConnection
+            Dim MyDBConnection As New MySqlConnection
 
 
-            Dim mySQLDataReader As SqlDataReader
-            Dim Sql As String = "SELECT ID_Resource, CE_ID_Project, CE_ID_AdminResource FROM PlanResources WHERE  CE_ID_ProjectMember = " & Me.CE_ID_ProjectMember & " AND PlanDate = '" & fConvertDateOnlySQL(Me.PlanDate) & "' AND HalfDay = " & Me.HalfDay & ";"
+            Dim myDBDataReader As MySqlDataReader
+            Dim Sql As String = "SELECT ID_Resource, CE_ID_Project, CE_ID_AdminResource FROM PlanResources WHERE  CE_ID_ProjectMember = " & Me.CE_ID_ProjectMember & " AND PlanDate = '" & fConvertDateOnlyMySQL(Me.PlanDate) & "' AND HalfDay = " & Me.HalfDay & ";"
 
-            MySQLConnection.ConnectionString = cnProjectPlan
+            MyDBConnection.ConnectionString = cnProjectPlan
 
 
-            MySQLConnection.Open()
+            MyDBConnection.Open()
 
-            Dim mySQLCommand As SqlCommand = New SqlCommand(Sql, MySQLConnection)
+            Dim myDBCommand As MySqlCommand = New MySqlCommand(Sql, MyDBConnection)
 
-            mySQLDataReader = mySQLCommand.ExecuteReader()
+            myDBDataReader = myDBCommand.ExecuteReader()
 
-            While mySQLDataReader.Read
+            While myDBDataReader.Read
 
                 'Lecture du premier paramètre 
                 Try
-                    _ID_Resource = mySQLDataReader.GetValue(0)
+                    _ID_Resource = myDBDataReader.GetValue(0)
                 Catch ex As Exception
                 End Try
 
                 'Lecture du 2e paramètre 
                 Try
-                    _CE_ID_Project = mySQLDataReader.GetValue(1)
+                    _CE_ID_Project = myDBDataReader.GetValue(1)
                 Catch ex As Exception
                 End Try
 
                 'Lecture du premier paramètre 
                 Try
-                    _CE_ID_AdminResource = mySQLDataReader.GetValue(2)
+                    _CE_ID_AdminResource = myDBDataReader.GetValue(2)
                 Catch ex As Exception
                 End Try
 
             End While
 
-            mySQLDataReader.Close()
-            MySQLConnection.Close()
+            myDBDataReader.Close()
+            MyDBConnection.Close()
 
             If _ID_Resource <> 0 Then
 
@@ -620,32 +621,32 @@ Public Class myPlanResource
             'INPUT : rien
             'OUTPUT : Le nombre de membres de projects qui ont des ressources planifiées
 
-            Dim MySQLConnection As New SqlConnection
+            Dim MyDBConnection As New MySqlConnection
 
-            Dim mySQLDataReader As SqlDataReader
+            Dim myDBDataReader As MySqlDataReader
             Dim Sql As String = "SELECT COUNT(DISTINCT CE_ID_ProjectMember) FROM PlanResources;"
 
-            MySQLConnection.ConnectionString = cnProjectPlan
+            MyDBConnection.ConnectionString = cnProjectPlan
 
 
-            MySQLConnection.Open()
+            MyDBConnection.Open()
 
-            Dim mySQLCommand As SqlCommand = New SqlCommand(Sql, MySQLConnection)
+            Dim myDBCommand As MySqlCommand = New MySqlCommand(Sql, MyDBConnection)
 
-            mySQLDataReader = mySQLCommand.ExecuteReader()
+            myDBDataReader = myDBCommand.ExecuteReader()
 
-            While mySQLDataReader.Read
+            While myDBDataReader.Read
 
                 'Lecture du premier paramètre ID_PROJECT
                 Try
-                    Me.ProjectMembersCount = mySQLDataReader.GetValue(0)
+                    Me.ProjectMembersCount = myDBDataReader.GetValue(0)
                 Catch ex As Exception
                 End Try
 
             End While
 
-            mySQLDataReader.Close()
-            MySQLConnection.Close()
+            myDBDataReader.Close()
+            MyDBConnection.Close()
         Catch ex As Exception
 
         End Try
@@ -663,32 +664,32 @@ Public Class myPlanResource
             'INPUT : HalfDay
             'OUTPUT : myPlanResource
 
-            Dim MySQLConnection As New SqlConnection
+            Dim MyDBConnection As New MySqlConnection
 
-            Dim mySQLDataReader As SqlDataReader
-            Dim Sql As String = "SELECT ID_Resource FROM PlanResources WHERE CE_ID_ProjectMember = " & Me.CE_ID_ProjectMember & " AND PlanDate = '" & fConvertDateOnlySQL(Me.PlanDate) & "' AND HalfDay = " & Me.HalfDay & ";"
+            Dim myDBDataReader As MySqlDataReader
+            Dim Sql As String = "SELECT ID_Resource FROM PlanResources WHERE CE_ID_ProjectMember = " & Me.CE_ID_ProjectMember & " AND PlanDate = '" & fConvertDateOnlyMySQL(Me.PlanDate) & "' AND HalfDay = " & Me.HalfDay & ";"
 
-            MySQLConnection.ConnectionString = cnProjectPlan
+            MyDBConnection.ConnectionString = cnProjectPlan
 
 
-            MySQLConnection.Open()
+            MyDBConnection.Open()
 
-            Dim mySQLCommand As SqlCommand = New SqlCommand(Sql, MySQLConnection)
+            Dim myDBCommand As MySqlCommand = New MySqlCommand(Sql, MyDBConnection)
 
-            mySQLDataReader = mySQLCommand.ExecuteReader()
+            myDBDataReader = myDBCommand.ExecuteReader()
 
-            While mySQLDataReader.Read
+            While myDBDataReader.Read
 
                 'Lecture du premier paramètre ID_Resource
                 Try
-                    Me.ID_Resource = mySQLDataReader.GetValue(0)
+                    Me.ID_Resource = myDBDataReader.GetValue(0)
                 Catch ex As Exception
                 End Try
 
             End While
 
-            mySQLDataReader.Close()
-            MySQLConnection.Close()
+            myDBDataReader.Close()
+            MyDBConnection.Close()
 
             Me.Read()
 
@@ -710,32 +711,32 @@ Public Class myPlanResource
             'INPUT : HalfDay
             'OUTPUT : ID_Resource
 
-            Dim MySQLConnection As New SqlConnection
+            Dim MyDBConnection As New MySqlConnection
 
-            Dim mySQLDataReader As SqlDataReader
-            Dim Sql As String = "SELECT ID_Resource FROM PlanResources WHERE CE_ID_ProjectMember = " & Me.CE_ID_ProjectMember & " AND PlanDate = '" & fConvertDateOnlySQL(Me.PlanDate) & "' AND HalfDay = " & Me.HalfDay & ";"
+            Dim myDBDataReader As MySqlDataReader
+            Dim Sql As String = "SELECT ID_Resource FROM PlanResources WHERE CE_ID_ProjectMember = " & Me.CE_ID_ProjectMember & " AND PlanDate = '" & fConvertDateOnlyMySQL(Me.PlanDate) & "' AND HalfDay = " & Me.HalfDay & ";"
 
-            MySQLConnection.ConnectionString = cnProjectPlan
+            MyDBConnection.ConnectionString = cnProjectPlan
 
 
-            MySQLConnection.Open()
+            MyDBConnection.Open()
 
-            Dim mySQLCommand As SqlCommand = New SqlCommand(Sql, MySQLConnection)
+            Dim myDBCommand As MySqlCommand = New MySqlCommand(Sql, MyDBConnection)
 
-            mySQLDataReader = mySQLCommand.ExecuteReader()
+            myDBDataReader = myDBCommand.ExecuteReader()
 
-            While mySQLDataReader.Read
+            While myDBDataReader.Read
 
                 'Lecture du premier paramètre ID_Resource
                 Try
-                    Me.ID_Resource = mySQLDataReader.GetValue(0)
+                    Me.ID_Resource = myDBDataReader.GetValue(0)
                 Catch ex As Exception
                 End Try
 
             End While
 
-            mySQLDataReader.Close()
-            MySQLConnection.Close()
+            myDBDataReader.Close()
+            MyDBConnection.Close()
 
 
         Catch ex As Exception
@@ -753,18 +754,18 @@ Public Class myPlanResource
             'On efface la ressource en fonction de son ID_Resource
             'INPUT : ID_Resource
 
-            Dim MySQLConnection As New SqlConnection
+            Dim MyDBConnection As New MySqlConnection
 
-            Dim mySQLDataReader As SqlDataReader
+            Dim myDBDataReader As MySqlDataReader
             Dim Sql As String = "DELETE FROM PlanResources WHERE ID_Resource = " & Me.ID_Resource & ";"
 
-            MySQLConnection.ConnectionString = cnProjectPlan
+            MyDBConnection.ConnectionString = cnProjectPlan
 
-            MySQLConnection.Open()
+            MyDBConnection.Open()
 
-            Dim mySQLCommand As SqlCommand = New SqlCommand(Sql, MySQLConnection)
+            Dim myDBCommand As MySqlCommand = New MySqlCommand(Sql, MyDBConnection)
 
-            mySQLDataReader = mySQLCommand.ExecuteReader()
+            myDBDataReader = myDBCommand.ExecuteReader()
 
             'While mySQLDataReader.Read
 
@@ -776,8 +777,8 @@ Public Class myPlanResource
 
             'End While
 
-            mySQLDataReader.Close()
-            MySQLConnection.Close()
+            myDBDataReader.Close()
+            MyDBConnection.Close()
 
             Me.Read()
 
@@ -841,32 +842,32 @@ Public Class myPlanResource
             'INPUT : CE_ID_Project
             'OUTPUT : CountPlanResource
 
-            Dim MySQLConnection As New SqlConnection
+            Dim MyDBConnection As New MySqlConnection
 
-            Dim mySQLDataReader As SqlDataReader
+            Dim myDBDataReader As MySqlDataReader
             Dim SQL As String = "select COUNT(ID_Resource) from PlanResources WHERE CE_ID_Project=" & CE_ID_Project
 
-            MySQLConnection.ConnectionString = cnProjectPlan
+            MyDBConnection.ConnectionString = cnProjectPlan
 
 
-            MySQLConnection.Open()
+            MyDBConnection.Open()
 
-            Dim mySQLCommand As SqlCommand = New SqlCommand(SQL, MySQLConnection)
+            Dim myDBCommand As MySqlCommand = New MySqlCommand(SQL, MyDBConnection)
 
-            mySQLDataReader = mySQLCommand.ExecuteReader()
+            myDBDataReader = myDBCommand.ExecuteReader()
 
-            While mySQLDataReader.Read
+            While myDBDataReader.Read
 
                 'Lecture du premier paramètre ID_Resource
                 Try
-                    Me.CountPlanResource = mySQLDataReader.GetValue(0)
+                    Me.CountPlanResource = myDBDataReader.GetValue(0)
                 Catch ex As Exception
                 End Try
 
             End While
 
-            mySQLDataReader.Close()
-            MySQLConnection.Close()
+            myDBDataReader.Close()
+            MyDBConnection.Close()
 
         Catch ex As Exception
 
@@ -889,32 +890,32 @@ Public Class myPlanResource
             'OUTPUT : PlanDate
 
 
-            Dim MySQLConnection As New SqlConnection
-            Dim mySQLDataReader As SqlDataReader
-            Dim SQL As String = "SELECT TOP 1 PlanDate FROM PlanResources ORDER BY plandate DESC;"
+            Dim MyDBConnection As New MySqlConnection
+            Dim myDBDataReader As MySqlDataReader
+            Dim SQL As String = "SELECT PlanDate FROM PlanResources ORDER BY plandate DESC LIMIT 1;"
             Me.MaxPlanDate = Nothing
 
 
-            MySQLConnection.ConnectionString = cnProjectPlan
+            MyDBConnection.ConnectionString = cnProjectPlan
 
-            MySQLConnection.Open()
+            MyDBConnection.Open()
 
-            Dim mySQLCommand As SqlCommand = New SqlCommand(SQL, MySQLConnection)
+            Dim myDBCommand As MySqlCommand = New MySqlCommand(SQL, MyDBConnection)
 
-            mySQLDataReader = mySQLCommand.ExecuteReader()
+            myDBDataReader = myDBCommand.ExecuteReader()
 
-            While mySQLDataReader.Read
+            While myDBDataReader.Read
 
                 'Lecture du premier paramètre ID_Resource
                 Try
-                    Me.MaxPlanDate = mySQLDataReader.GetDateTime(0)
+                    Me.MaxPlanDate = myDBDataReader.GetDateTime(0)
                 Catch ex As Exception
                 End Try
 
             End While
 
-            mySQLDataReader.Close()
-            MySQLConnection.Close()
+            myDBDataReader.Close()
+            MyDBConnection.Close()
 
         Catch ex As Exception
 
@@ -936,32 +937,32 @@ Public Class myPlanResource
             'OUTPUT : PlanDate
 
 
-            Dim MySQLConnection As New SqlConnection
-            Dim mySQLDataReader As SqlDataReader
-            Dim SQL As String = "SELECT TOP 1 PlanDate FROM PlanResources ORDER BY plandate ASC;"
+            Dim MyDBConnection As New MySqlConnection
+            Dim myDBDataReader As MySqlDataReader
+            Dim SQL As String = "SELECT PlanDate FROM PlanResources ORDER BY plandate ASC LIMIT 1;"
             Me.MinPlanDate = Nothing
 
 
-            MySQLConnection.ConnectionString = cnProjectPlan
+            MyDBConnection.ConnectionString = cnProjectPlan
 
-            MySQLConnection.Open()
+            MyDBConnection.Open()
 
-            Dim mySQLCommand As SqlCommand = New SqlCommand(SQL, MySQLConnection)
+            Dim myDBCommand As MySqlCommand = New MySqlCommand(SQL, MyDBConnection)
 
-            mySQLDataReader = mySQLCommand.ExecuteReader()
+            myDBDataReader = myDBCommand.ExecuteReader()
 
-            While mySQLDataReader.Read
+            While myDBDataReader.Read
 
                 'Lecture du premier paramètre ID_Resource
                 Try
-                    Me.MinPlanDate = mySQLDataReader.GetDateTime(0)
+                    Me.MinPlanDate = myDBDataReader.GetDateTime(0)
                 Catch ex As Exception
                 End Try
 
             End While
 
-            mySQLDataReader.Close()
-            MySQLConnection.Close()
+            myDBDataReader.Close()
+            MyDBConnection.Close()
 
         Catch ex As Exception
 
@@ -983,31 +984,31 @@ Public Class myPlanResource
 
         Try
 
-            Dim MySQLConn As New SqlConnection
-            Dim mySQLDataReader As SqlDataReader
+            Dim MyDBConnection As New MySqlConnection
+            Dim myDBDataReader As MySqlDataReader
             Dim SQL As String = ""
 
             SQL = "SELECT COUNT(ID_Resource) FROM PlanResources where CE_ID_Project=" & Me.CE_ID_Project & " AND CE_ID_ProjectMember IN (SELECT ID_ProjectMember FROM ProjectsMembers WHERE CE_ID_Task=" & Me.CE_ID_Task & ") "
 
             'SQL = "SELECT NumberDays FROM ProjectEstimatedResources WHERE CE_ID_Project = " & Me.CE_ID_Project & " AND CE_ID_TASK = " & Me.CE_ID_Task & ";"
-            MySQLConn.ConnectionString = cnProjectPlan
-            MySQLConn.Open()
-            Dim mySQLCommand As SqlCommand = New SqlCommand(SQL, MySQLConn)
-            mySQLDataReader = mySQLCommand.ExecuteReader()
+            MyDBConnection.ConnectionString = cnProjectPlan
+            MyDBConnection.Open()
+            Dim myDBCommand As MySqlCommand = New MySqlCommand(SQL, MyDBConnection)
+            myDBDataReader = myDBCommand.ExecuteReader()
 
-            While mySQLDataReader.Read
+            While myDBDataReader.Read
 
                 'Lecture du paramètre HalfDay
                 Try
                     'On lit et on divise par 2 parce que les valeurs de la DB sont des demi-jours
-                    ProjectResources = mySQLDataReader.GetValue(0) / 2
+                    ProjectResources = myDBDataReader.GetValue(0) / 2
                 Catch ex As Exception
                 End Try
 
             End While
 
-            mySQLDataReader.Close()
-            MySQLConn.Close()
+            myDBDataReader.Close()
+            MyDBConnection.Close()
 
         Catch ex As Exception
             If DebugFlag = True Then MessageBox.Show(ex.ToString)

@@ -77,6 +77,11 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataSetVProjectList1.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetVProjectList1.xsd</DependentUpon>
+    </Compile>
     <Compile Include="dsProjectList.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -170,6 +175,17 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <None Include="DataSetVProjectList1.xsc">
+      <DependentUpon>DataSetVProjectList1.xsd</DependentUpon>
+    </None>
+    <None Include="DataSetVProjectList1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetVProjectList1.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSetVProjectList1.xss">
+      <DependentUpon>DataSetVProjectList1.xsd</DependentUpon>
+    </None>
     <None Include="dsProjectList.xsc">
       <DependentUpon>dsProjectList.xsd</DependentUpon>
     </None>

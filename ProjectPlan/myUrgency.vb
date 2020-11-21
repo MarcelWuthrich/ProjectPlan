@@ -1,4 +1,5 @@
-﻿Imports System.Data.SqlClient
+﻿'Imports System.Data.SqlClient
+Imports MySql.Data.MySqlClient
 
 
 Public Class myUrgency
@@ -45,44 +46,44 @@ Public Class myUrgency
 
         Try
 
-            Dim MySQLConnection As New SqlConnection
+            Dim MyDBConnection As New MySqlConnection
 
-            Dim mySQLDataReader As SqlDataReader
+            Dim myDBDataReader As MySqlDataReader
             Dim Sql As String = "SELECT ID_Urgency, Urgency, Enable from Urgencies where ID_Urgency =" & Me.ID_Urgency
 
-            MySQLConnection.ConnectionString = cnProjectPlan
+            MyDBConnection.ConnectionString = cnProjectPlan
 
 
-            MySQLConnection.Open()
+            MyDBConnection.Open()
 
-            Dim mySQLCommand As SqlCommand = New SqlCommand(Sql, MySQLConnection)
+            Dim myDBCommand As MySqlCommand = New MySqlCommand(Sql, MyDBConnection)
 
-            mySQLDataReader = mySQLCommand.ExecuteReader()
+            myDBDataReader = myDBCommand.ExecuteReader()
 
-            While mySQLDataReader.Read
+            While myDBDataReader.Read
 
                 'Lecture du premier paramètre
                 Try
-                    Me.ID_Urgency = mySQLDataReader.GetValue(0)
+                    Me.ID_Urgency = myDBDataReader.GetValue(0)
                 Catch ex As Exception
                 End Try
 
                 'Lecture du 2e paramètre
                 Try
-                    Me.Urgency = mySQLDataReader.GetString(1)
+                    Me.Urgency = myDBDataReader.GetString(1)
                 Catch ex As Exception
                 End Try
 
                 'Lecture du 3e paramètre
                 Try
-                    Me.Enable = mySQLDataReader.GetValue(2)
+                    Me.Enable = myDBDataReader.GetValue(2)
                 Catch ex As Exception
                 End Try
 
             End While
 
-            mySQLDataReader.Close()
-            MySQLConnection.Close()
+            myDBDataReader.Close()
+            MyDBConnection.Close()
 
 
         Catch ex As Exception

@@ -5,6 +5,7 @@ Imports Microsoft.VisualBasic
 Module GlobalProjectPlan
 
     Public ID_Project As Integer = 0
+    Public ID_ProjectInDGV As Integer = 0
     Public ID_Remark As Integer = 0
     Public ID_Customer As Integer = 0
     Public ID_ProjectManager As Integer = 0
@@ -22,8 +23,43 @@ Module GlobalProjectPlan
     'Public cnProjectPlan As String = "Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=ProjectPlan;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False"
     Public cnProjectPlan As String = "server=localhost;user id=root;password=syY2Dnvii5CFTdxXwFqU;persistsecurityinfo=True;database=projectplan"
 
+    '2020-11-19'
 
+    Public Function fConvertDateOnlyMySQL(ByVal tDate As Date) As String
 
+        'Converti une variable de type Date en une variable de type String que l'on peut utiliser dans une commande MySQL
+        Dim DateString As String = ""
+        Dim DateNull As New Date
+
+        Try
+            If DateNull <> tDate Then
+                DateString = Year(tDate) & "-" & Month(tDate) & "-" & Day(tDate)
+            End If
+        Catch ex As Exception
+
+        End Try
+
+        Return DateString
+
+    End Function
+
+    Public Function fConvertDateTimeMySQL(ByVal tDate As Date) As String
+
+        'Converti une variable de type Date en une variable de type String que l'on peut utiliser dans une commande MySQL
+        Dim DateString As String = ""
+        Dim DateNull As New Date
+
+        Try
+            If DateNull <> tDate Then
+                DateString = Year(tDate) & "-" & Month(tDate) & "-" & Day(tDate) & " " & Hour(tDate) & ":" & Minute(tDate) & ":" & Second(tDate)
+            End If
+        Catch ex As Exception
+
+        End Try
+
+        Return DateString
+
+    End Function
 
     Public Function fConvertDateTimeSQL(ByVal tDate As Date) As String
 
@@ -43,7 +79,7 @@ Module GlobalProjectPlan
 
     End Function
 
-    Public Function fConvertDateOnlySQL(ByVal tDate As Date) As String
+    Public Function fConvertDateonlySQL(ByVal tDate As Date) As String
 
         'Converti une variable de type Date en une variable de type String que l'on peut utiliser dans une commande SQL
         Dim DateString As String = ""
@@ -75,7 +111,7 @@ Module GlobalProjectPlan
             Dim MySQLConnection As New SqlConnection
 
             Dim mySQLDataReader As SqlDataReader
-            Dim Sql As String = "SELECT TOP 1 PlanDate FROM PlanResources ORDER by PlanDate ASC;"
+            Dim Sql As String = "SELECT PlanDate FROM PlanResources ORDER by PlanDate ASC LIMIT 1;"
 
             MySQLConnection.ConnectionString = cnProjectPlan
 
@@ -125,7 +161,7 @@ Module GlobalProjectPlan
             Dim MySQLConnection As New SqlConnection
 
             Dim mySQLDataReader As SqlDataReader
-            Dim Sql As String = "SELECT TOP 1 PlanDate FROM PlanResources ORDER by PlanDate DESC;"
+            Dim Sql As String = "SELECT PlanDate FROM PlanResources ORDER by PlanDate DESC LIMIT 1;"
 
             MySQLConnection.ConnectionString = cnProjectPlan
 
@@ -175,7 +211,7 @@ Module GlobalProjectPlan
             Dim MySQLConnection As New SqlConnection
 
             Dim mySQLDataReader As SqlDataReader
-            Dim Sql As String = "SELECT TOP 1 PlanDate FROM ExecutedResources ORDER by PlanDate ASC;"
+            Dim Sql As String = "SELECT PlanDate FROM ExecutedResources ORDER by PlanDate ASC LIMIT 1;"
 
             MySQLConnection.ConnectionString = cnProjectPlan
 
@@ -225,7 +261,7 @@ Module GlobalProjectPlan
             Dim MySQLConnection As New SqlConnection
 
             Dim mySQLDataReader As SqlDataReader
-            Dim Sql As String = "SELECT TOP 1 PlanDate FROM ExecutedResources ORDER by PlanDate DESC;"
+            Dim Sql As String = "SELECT PlanDate FROM ExecutedResources ORDER by PlanDate DESC LIMIT 1;"
 
             MySQLConnection.ConnectionString = cnProjectPlan
 
@@ -260,4 +296,5 @@ Module GlobalProjectPlan
 
 
     End Function
+
 End Module

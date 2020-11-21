@@ -404,7 +404,7 @@ Public Class myProject
         Try
             Dim MyDBConnection As New MySqlConnection
             Dim myDBDataReader As MySqlDataReader
-            Dim Sql As String = "SELECT TOP 1 ID_Project FROM Projects ORDER BY ID_Project DESC;"
+            Dim Sql As String = "SELECT ID_Project FROM Projects ORDER BY ID_Project DESC LIMIT 1;"
 
             MyDBConnection.ConnectionString = cnProjectPlan
             MyDBConnection.Open()
@@ -463,8 +463,8 @@ Public Class myProject
                 SQL &= "CE_ID_Category =" & Me.CE_ID_Category & ", "
                 SQL &= "CE_ID_Customer =" & Me.CE_ID_Customer & ", "
                 SQL &= "CE_ID_Urgency =" & Me.CE_ID_Urgency & ", "
-                SQL &= "BeginDate ='" & fConvertDateOnlySQL(Me.BeginDate) & "', "
-                SQL &= "Deadline ='" & fConvertDateOnlySQL(Me.DeadLine) & "', "
+                SQL &= "BeginDate ='" & fConvertDateOnlyMySQL(Me.BeginDate) & "', "
+                SQL &= "Deadline ='" & fConvertDateOnlyMySQL(Me.DeadLine) & "', "
                 SQL &= "EstimatedResources = " & Me.EstimatedResources & ", "
                 SQL &= "EffectiveResources = " & Me.EffectiveResources & ", "
                 SQL &= "ImplementationRate = " & Me.ImplementationRate & " "
@@ -507,8 +507,8 @@ Public Class myProject
                 SQL &= Me.CE_ID_Category & ","
                 SQL &= Me.CE_ID_Customer & ","
                 SQL &= Me.CE_ID_Urgency & ","
-                SQL &= "'" & fConvertDateOnlySQL(Me.BeginDate) & "', "
-                SQL &= "'" & fConvertDateOnlySQL(Me.DeadLine) & "', "
+                SQL &= "'" & fConvertDateOnlyMySQL(Me.BeginDate) & "', "
+                SQL &= "'" & fConvertDateOnlyMySQL(Me.DeadLine) & "', "
                 SQL &= Me.EstimatedResources & ","
                 SQL &= Me.EffectiveResources & ","
                 SQL &= Me.ImplementationRate & ")"
