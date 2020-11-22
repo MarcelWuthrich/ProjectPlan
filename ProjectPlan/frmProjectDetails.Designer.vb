@@ -22,6 +22,7 @@ Partial Class frmProjectDetails
     'Ne la modifiez pas à l'aide de l'éditeur de code.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmProjectDetails))
         Me.texTitre = New System.Windows.Forms.TextBox()
         Me.labTitre = New System.Windows.Forms.Label()
@@ -70,8 +71,20 @@ Partial Class frmProjectDetails
         Me.labEstimatedResources = New System.Windows.Forms.Label()
         Me.texEstimatedResources = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
+        Me.ProjectplanDataSet1 = New ProjectPlan.projectplanDataSet1()
+        Me.VprojectestimatedresourcesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.VprojectestimatedresourcesTableAdapter = New ProjectPlan.projectplanDataSet1TableAdapters.vprojectestimatedresourcesTableAdapter()
+        Me.IDResourceDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.CEIDProjectDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.CEIDTaskDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.TaskDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.EstimatedResourceDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.CreationDateDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.LastModifyDateDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         CType(Me.dgvProjectRemarks, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dgvProjectRessources, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ProjectplanDataSet1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.VprojectestimatedresourcesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'texTitre
@@ -450,9 +463,12 @@ Partial Class frmProjectDetails
         '
         Me.dgvProjectRessources.AllowUserToAddRows = False
         Me.dgvProjectRessources.AllowUserToDeleteRows = False
-        Me.dgvProjectRessources.AllowUserToResizeColumns = False
         Me.dgvProjectRessources.AllowUserToResizeRows = False
+        Me.dgvProjectRessources.AutoGenerateColumns = False
+        Me.dgvProjectRessources.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.dgvProjectRessources.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dgvProjectRessources.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.IDResourceDataGridViewTextBoxColumn, Me.CEIDProjectDataGridViewTextBoxColumn, Me.CEIDTaskDataGridViewTextBoxColumn, Me.TaskDataGridViewTextBoxColumn, Me.EstimatedResourceDataGridViewTextBoxColumn, Me.CreationDateDataGridViewTextBoxColumn, Me.LastModifyDateDataGridViewTextBoxColumn})
+        Me.dgvProjectRessources.DataSource = Me.VprojectestimatedresourcesBindingSource
         Me.dgvProjectRessources.Location = New System.Drawing.Point(163, 395)
         Me.dgvProjectRessources.Name = "dgvProjectRessources"
         Me.dgvProjectRessources.Size = New System.Drawing.Size(647, 111)
@@ -492,6 +508,65 @@ Partial Class frmProjectDetails
         Me.Label1.Size = New System.Drawing.Size(51, 13)
         Me.Label1.TabIndex = 82
         Me.Label1.Text = "( heures )"
+        '
+        'ProjectplanDataSet1
+        '
+        Me.ProjectplanDataSet1.DataSetName = "projectplanDataSet1"
+        Me.ProjectplanDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'VprojectestimatedresourcesBindingSource
+        '
+        Me.VprojectestimatedresourcesBindingSource.DataMember = "vprojectestimatedresources"
+        Me.VprojectestimatedresourcesBindingSource.DataSource = Me.ProjectplanDataSet1
+        '
+        'VprojectestimatedresourcesTableAdapter
+        '
+        Me.VprojectestimatedresourcesTableAdapter.ClearBeforeFill = True
+        '
+        'IDResourceDataGridViewTextBoxColumn
+        '
+        Me.IDResourceDataGridViewTextBoxColumn.DataPropertyName = "ID_Resource"
+        Me.IDResourceDataGridViewTextBoxColumn.HeaderText = "ID_Resource"
+        Me.IDResourceDataGridViewTextBoxColumn.Name = "IDResourceDataGridViewTextBoxColumn"
+        Me.IDResourceDataGridViewTextBoxColumn.Visible = False
+        '
+        'CEIDProjectDataGridViewTextBoxColumn
+        '
+        Me.CEIDProjectDataGridViewTextBoxColumn.DataPropertyName = "CE_ID_Project"
+        Me.CEIDProjectDataGridViewTextBoxColumn.HeaderText = "CE_ID_Project"
+        Me.CEIDProjectDataGridViewTextBoxColumn.Name = "CEIDProjectDataGridViewTextBoxColumn"
+        Me.CEIDProjectDataGridViewTextBoxColumn.Visible = False
+        '
+        'CEIDTaskDataGridViewTextBoxColumn
+        '
+        Me.CEIDTaskDataGridViewTextBoxColumn.DataPropertyName = "CE_ID_Task"
+        Me.CEIDTaskDataGridViewTextBoxColumn.HeaderText = "CE_ID_Task"
+        Me.CEIDTaskDataGridViewTextBoxColumn.Name = "CEIDTaskDataGridViewTextBoxColumn"
+        Me.CEIDTaskDataGridViewTextBoxColumn.Visible = False
+        '
+        'TaskDataGridViewTextBoxColumn
+        '
+        Me.TaskDataGridViewTextBoxColumn.DataPropertyName = "Task"
+        Me.TaskDataGridViewTextBoxColumn.HeaderText = "Tâche"
+        Me.TaskDataGridViewTextBoxColumn.Name = "TaskDataGridViewTextBoxColumn"
+        '
+        'EstimatedResourceDataGridViewTextBoxColumn
+        '
+        Me.EstimatedResourceDataGridViewTextBoxColumn.DataPropertyName = "EstimatedResource"
+        Me.EstimatedResourceDataGridViewTextBoxColumn.HeaderText = "Ressources estimées"
+        Me.EstimatedResourceDataGridViewTextBoxColumn.Name = "EstimatedResourceDataGridViewTextBoxColumn"
+        '
+        'CreationDateDataGridViewTextBoxColumn
+        '
+        Me.CreationDateDataGridViewTextBoxColumn.DataPropertyName = "CreationDate"
+        Me.CreationDateDataGridViewTextBoxColumn.HeaderText = "Date création"
+        Me.CreationDateDataGridViewTextBoxColumn.Name = "CreationDateDataGridViewTextBoxColumn"
+        '
+        'LastModifyDateDataGridViewTextBoxColumn
+        '
+        Me.LastModifyDateDataGridViewTextBoxColumn.DataPropertyName = "LastModifyDate"
+        Me.LastModifyDateDataGridViewTextBoxColumn.HeaderText = "Dernière modification"
+        Me.LastModifyDateDataGridViewTextBoxColumn.Name = "LastModifyDateDataGridViewTextBoxColumn"
         '
         'frmProjectDetails
         '
@@ -552,6 +627,8 @@ Partial Class frmProjectDetails
         Me.Text = "Details du projet"
         CType(Me.dgvProjectRemarks, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.dgvProjectRessources, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ProjectplanDataSet1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.VprojectestimatedresourcesBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -604,4 +681,14 @@ Partial Class frmProjectDetails
     Friend WithEvents labEstimatedResources As Label
     Friend WithEvents texEstimatedResources As TextBox
     Friend WithEvents Label1 As Label
+    Friend WithEvents ProjectplanDataSet1 As projectplanDataSet1
+    Friend WithEvents VprojectestimatedresourcesBindingSource As BindingSource
+    Friend WithEvents VprojectestimatedresourcesTableAdapter As projectplanDataSet1TableAdapters.vprojectestimatedresourcesTableAdapter
+    Friend WithEvents IDResourceDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents CEIDProjectDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents CEIDTaskDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents TaskDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents EstimatedResourceDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents CreationDateDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents LastModifyDateDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
 End Class

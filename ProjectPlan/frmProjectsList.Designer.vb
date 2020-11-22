@@ -218,7 +218,7 @@ Partial Class frmProjectsList
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.dgvProjets.AutoGenerateColumns = False
-        Me.dgvProjets.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
+        Me.dgvProjets.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.dgvProjets.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgvProjets.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.ID_Project, Me.Title, Me.CE_ID_Status, Me.Status, Me.CE_ID_Priority, Me.Priority, Me.CE_ID_Category, Me.Category, Me.CE_ID_Urgency, Me.Urgency, Me.BeginDate, Me.Deadline, Me.EstimatedResources, Me.EffectiveResources, Me.ImplementationRate, Me.CE_ID_ProjectManager, Me.ManagerFirstname, Me.ManagerLastname, Me.CE_ID_Customer, Me.CustomerFirstname, Me.CustomerLastname, Me.Description})
         Me.dgvProjets.DataSource = Me.VprojectlistBindingSource
@@ -248,7 +248,6 @@ Partial Class frmProjectsList
         Me.ID_Project.HeaderText = "ID"
         Me.ID_Project.Name = "ID_Project"
         Me.ID_Project.ReadOnly = True
-        Me.ID_Project.Width = 43
         '
         'Title
         '
@@ -256,7 +255,6 @@ Partial Class frmProjectsList
         Me.Title.HeaderText = "Titre"
         Me.Title.Name = "Title"
         Me.Title.ReadOnly = True
-        Me.Title.Width = 53
         '
         'CE_ID_Status
         '
@@ -265,7 +263,6 @@ Partial Class frmProjectsList
         Me.CE_ID_Status.Name = "CE_ID_Status"
         Me.CE_ID_Status.ReadOnly = True
         Me.CE_ID_Status.Visible = False
-        Me.CE_ID_Status.Width = 99
         '
         'Status
         '
@@ -273,7 +270,6 @@ Partial Class frmProjectsList
         Me.Status.HeaderText = "Statut"
         Me.Status.Name = "Status"
         Me.Status.ReadOnly = True
-        Me.Status.Width = 60
         '
         'CE_ID_Priority
         '
@@ -289,7 +285,6 @@ Partial Class frmProjectsList
         Me.Priority.HeaderText = "Priorité"
         Me.Priority.Name = "Priority"
         Me.Priority.ReadOnly = True
-        Me.Priority.Width = 64
         '
         'CE_ID_Category
         '
@@ -298,7 +293,6 @@ Partial Class frmProjectsList
         Me.CE_ID_Category.Name = "CE_ID_Category"
         Me.CE_ID_Category.ReadOnly = True
         Me.CE_ID_Category.Visible = False
-        Me.CE_ID_Category.Width = 111
         '
         'Category
         '
@@ -306,7 +300,6 @@ Partial Class frmProjectsList
         Me.Category.HeaderText = "Categorie"
         Me.Category.Name = "Category"
         Me.Category.ReadOnly = True
-        Me.Category.Width = 77
         '
         'CE_ID_Urgency
         '
@@ -315,7 +308,6 @@ Partial Class frmProjectsList
         Me.CE_ID_Urgency.Name = "CE_ID_Urgency"
         Me.CE_ID_Urgency.ReadOnly = True
         Me.CE_ID_Urgency.Visible = False
-        Me.CE_ID_Urgency.Width = 109
         '
         'Urgency
         '
@@ -323,7 +315,6 @@ Partial Class frmProjectsList
         Me.Urgency.HeaderText = "Urgence"
         Me.Urgency.Name = "Urgency"
         Me.Urgency.ReadOnly = True
-        Me.Urgency.Width = 73
         '
         'BeginDate
         '
@@ -331,7 +322,6 @@ Partial Class frmProjectsList
         Me.BeginDate.HeaderText = "Début"
         Me.BeginDate.Name = "BeginDate"
         Me.BeginDate.ReadOnly = True
-        Me.BeginDate.Width = 61
         '
         'Deadline
         '
@@ -339,7 +329,6 @@ Partial Class frmProjectsList
         Me.Deadline.HeaderText = "Deadline"
         Me.Deadline.Name = "Deadline"
         Me.Deadline.ReadOnly = True
-        Me.Deadline.Width = 74
         '
         'EstimatedResources
         '
@@ -347,7 +336,6 @@ Partial Class frmProjectsList
         Me.EstimatedResources.HeaderText = "Res. estimées"
         Me.EstimatedResources.Name = "EstimatedResources"
         Me.EstimatedResources.ReadOnly = True
-        Me.EstimatedResources.Width = 98
         '
         'EffectiveResources
         '
@@ -355,7 +343,6 @@ Partial Class frmProjectsList
         Me.EffectiveResources.HeaderText = "Res. effectives"
         Me.EffectiveResources.Name = "EffectiveResources"
         Me.EffectiveResources.ReadOnly = True
-        Me.EffectiveResources.Width = 95
         '
         'ImplementationRate
         '
@@ -363,7 +350,6 @@ Partial Class frmProjectsList
         Me.ImplementationRate.HeaderText = "Taux impl."
         Me.ImplementationRate.Name = "ImplementationRate"
         Me.ImplementationRate.ReadOnly = True
-        Me.ImplementationRate.Width = 74
         '
         'CE_ID_ProjectManager
         '
@@ -372,7 +358,6 @@ Partial Class frmProjectsList
         Me.CE_ID_ProjectManager.Name = "CE_ID_ProjectManager"
         Me.CE_ID_ProjectManager.ReadOnly = True
         Me.CE_ID_ProjectManager.Visible = False
-        Me.CE_ID_ProjectManager.Width = 144
         '
         'ManagerFirstname
         '
@@ -380,7 +365,6 @@ Partial Class frmProjectsList
         Me.ManagerFirstname.HeaderText = "ManagerFirstname"
         Me.ManagerFirstname.Name = "ManagerFirstname"
         Me.ManagerFirstname.ReadOnly = True
-        Me.ManagerFirstname.Width = 119
         '
         'ManagerLastname
         '
@@ -388,7 +372,6 @@ Partial Class frmProjectsList
         Me.ManagerLastname.HeaderText = "ManagerLastname"
         Me.ManagerLastname.Name = "ManagerLastname"
         Me.ManagerLastname.ReadOnly = True
-        Me.ManagerLastname.Width = 120
         '
         'CE_ID_Customer
         '
@@ -397,7 +380,6 @@ Partial Class frmProjectsList
         Me.CE_ID_Customer.Name = "CE_ID_Customer"
         Me.CE_ID_Customer.ReadOnly = True
         Me.CE_ID_Customer.Visible = False
-        Me.CE_ID_Customer.Width = 113
         '
         'CustomerFirstname
         '
@@ -405,7 +387,6 @@ Partial Class frmProjectsList
         Me.CustomerFirstname.HeaderText = "CustomerFirstname"
         Me.CustomerFirstname.Name = "CustomerFirstname"
         Me.CustomerFirstname.ReadOnly = True
-        Me.CustomerFirstname.Width = 121
         '
         'CustomerLastname
         '
@@ -413,7 +394,6 @@ Partial Class frmProjectsList
         Me.CustomerLastname.HeaderText = "CustomerLastname"
         Me.CustomerLastname.Name = "CustomerLastname"
         Me.CustomerLastname.ReadOnly = True
-        Me.CustomerLastname.Width = 122
         '
         'Description
         '
@@ -422,7 +402,6 @@ Partial Class frmProjectsList
         Me.Description.Name = "Description"
         Me.Description.ReadOnly = True
         Me.Description.Visible = False
-        Me.Description.Width = 85
         '
         'frmProjectsList
         '

@@ -216,7 +216,7 @@ Public Class frmProjectsList
         Try
 
             dgvProjets.Rows(dgvProjets.CurrentCell.RowIndex).Selected = True
-            ID_ProjectInDGV = dgvProjets.Item(0, dgvProjets.CurrentCell.RowIndex).Value
+            ID_Project_Current = dgvProjets.Item(0, dgvProjets.CurrentCell.RowIndex).Value
 
             Dim myForm As Form = frmProjectDetails
             myForm.Show()
@@ -273,7 +273,7 @@ Public Class frmProjectsList
         Try
 
 
-            ID_ProjectInDGV = 0
+            ID_Project_Current = 0
 
 
             Dim myForm As Form = frmProjectDetails
@@ -311,7 +311,7 @@ Public Class frmProjectsList
         Try
 
             dgvProjets.Rows(dgvProjets.CurrentCell.RowIndex).Selected = True
-            ID_ProjectInDGV = dgvProjets.Rows(dgvProjets.CurrentRow.Index).Cells(0).Value
+            ID_Project_Current = dgvProjets.Rows(dgvProjets.CurrentRow.Index).Cells(0).Value
 
         Catch ex As Exception
             If DebugFlag = True Then MessageBox.Show(ex.ToString)

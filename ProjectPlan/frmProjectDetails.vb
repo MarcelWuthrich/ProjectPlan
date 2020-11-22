@@ -59,11 +59,10 @@ Public Class frmProjectDetails
 
 
 
-            ID_Project = thisProject.ID_Project
+            ID_Project_Current = thisProject.ID_Project
             thisProject.Save()
 
-            ID_Project = 0
-            ID_ProjectInDGV = 0
+            ID_Project_Current = 0
 
             Me.Close()
         Catch ex As Exception
@@ -74,8 +73,7 @@ Public Class frmProjectDetails
 
         Try
 
-            ID_Project = 0
-            ID_ProjectInDGV = 0
+            ID_Project_Current = 0
 
         Catch ex As Exception
 
@@ -86,10 +84,12 @@ Public Class frmProjectDetails
     End Sub
 
     Private Sub frmProjectDetails_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        'TODO: This line of code loads data into the 'ProjectplanDataSet1.vprojectestimatedresources' table. You can move, or remove it, as needed.
+        Me.VprojectestimatedresourcesTableAdapter.Fill(Me.ProjectplanDataSet1.vprojectestimatedresources)
 
+        pDisplayProjectEstimatedResources()
 
         Dim ID As Integer = 0
-        ID_Project = ID_ProjectInDGV
 
         Try
 
@@ -113,13 +113,13 @@ Public Class frmProjectDetails
 
 
             'On lit les informations du projet
-            thisProject.ID_Project = ID_Project
+            thisProject.ID_Project = ID_Project_Current
             thisProject.Read()
             'thisProject.GetEffectiveResources()
 
             'On cherche le nombre de jours planifés
             Dim thisResource As New myPlanResource
-            If ID_Project <> 0 Then
+            If ID_Project_Current <> 0 Then
                 thisResource.CE_ID_Project = thisProject.ID_Project
                 thisResource.Get_Count_PlanResource_From_CE_ID_Project()
             End If
@@ -587,5 +587,67 @@ Public Class frmProjectDetails
         End Try
     End Sub
 
+    Private Sub btcRessourceAdd_Click(sender As Object, e As EventArgs) Handles btcRessourceAdd.Click
+        Try
 
+            'On ajoute une ressource, l'ID de la nouvlle ressource n'est pas encore connue
+            ID_Resource_Current = 0
+
+            Dim myForm As Form = frmProjectEstimatedResources
+            myForm.ShowDialog()
+            myForm.Dispose()
+
+            pDisplayProjectEstimatedResources()
+
+            'Dernière opération avant la fin
+            ID_Resource_Current = 0
+
+        Catch ex As Exception
+            If DebugFlag = True Then MessageBox.Show(ex.ToString)
+        End Try
+    End Sub
+
+    Private Sub pDisplayProjectEstimatedResources()
+        Try
+
+            'TODO: This line of code loads data into the 'ProjectplanDataSet1.vprojectestimatedresources' table. You can move, or remove it, as needed.
+            Me.VprojectestimatedresourcesTableAdapter.Fill(Me.ProjectplanDataSet1.vprojectestimatedresources)
+
+            Dim thisResource As New myEstimatedResource
+            thisResource.ID_Resource = ID_Resource_Current
+            thisResource.Read()
+
+            Me.texEstimatedResources.Text = thisResource.GetEstimatedResources_CE_ID_Project()
+
+        Catch ex As Exception
+            If DebugFlag = True Then MessageBox.Show(ex.ToString)
+        End Try
+    End Sub
+
+    Private Sub btcRessourceModify_Click(sender As Object, e As EventArgs) Handles btcRessourceModify.Click
+        Try
+
+            Dim myForm As Form = frmProjectEstimatedResources
+            myForm.ShowDialog()
+            myForm.Dispose()
+
+            pDisplayProjectEstimatedResources()
+
+            'Dernière opération avant la fin
+            ID_Resource_Current = 0
+
+        Catch ex As Exception
+            If DebugFlag = True Then MessageBox.Show(ex.ToString)
+        End Try
+    End Sub
+
+    Private Sub dgvProjectRessources_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvProjectRessources.CellClick
+        Try
+            dgvProjectRessources.Rows(dgvProjectRessources.CurrentCell.RowIndex).Selected = True
+            ID_Resource_Current = dgvProjectRessources.Rows(dgvProjectRessources.CurrentRow.Index).Cells(0).Value
+
+        Catch ex As Exception
+
+        End Try
+    End Sub
 End Class

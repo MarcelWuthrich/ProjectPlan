@@ -5,7 +5,7 @@ Imports Microsoft.VisualBasic
 Module GlobalProjectPlan
 
     Public ID_Project As Integer = 0
-    Public ID_ProjectInDGV As Integer = 0
+    Public ID_Project_Current As Integer = 0
     Public ID_Remark As Integer = 0
     Public ID_Customer As Integer = 0
     Public ID_ProjectManager As Integer = 0
@@ -14,6 +14,7 @@ Module GlobalProjectPlan
     Public G_ID_ResourceAdmin As Integer = 0
     Public G_ID_ResourceProject As Integer = 0
     Public Logon As String = ""
+    Public ID_Resource_Current As Integer = 0
 
     'Variables pour frmProjectAddEstimateRessource.vb
     Public G_Add_ID_Task As Integer = 0
