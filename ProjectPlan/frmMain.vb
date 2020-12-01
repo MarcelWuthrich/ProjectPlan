@@ -90,21 +90,6 @@ Public Class frmMain
 
     End Sub
 
-    Private Sub ProjectsMembersToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles mniDataActivityDomain.Click
-
-        Try
-
-            ID_ProjectMember = 0
-
-            Dim myForm As Form = frmProjectMembers
-            myForm.MdiParent = Me
-            myForm.Show()
-
-        Catch ex As Exception
-
-        End Try
-    End Sub
-
     Private Sub frmMain_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
         Try
@@ -160,5 +145,13 @@ Public Class frmMain
         Catch ex As Exception
             If DebugFlag = True Then MessageBox.Show(ex.ToString)
         End Try
+    End Sub
+
+    Private Sub mniDataActivityDomain_Click(sender As Object, e As EventArgs) Handles mniDataActivityDomain.Click
+
+        Dim myForm As Form = frmTasks
+        myForm.MdiParent = Me
+        myForm.Show()
+
     End Sub
 End Class
