@@ -327,4 +327,8 @@ Public Class frmProjectsList
             If DebugFlag = True Then MessageBox.Show(ex.ToString)
         End Try
     End Sub
+
+    Private Sub dgvProjets_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvProjets.CellContentClick
+
+    End Sub
 End Class

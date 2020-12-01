@@ -23,21 +23,22 @@ Partial Class frmTasks
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmTasks))
         Me.btcDelete = New System.Windows.Forms.Button()
         Me.btcClose = New System.Windows.Forms.Button()
         Me.btcEdit = New System.Windows.Forms.Button()
         Me.btcAdd = New System.Windows.Forms.Button()
         Me.dgvTasks = New System.Windows.Forms.DataGridView()
-        Me.DsTasks = New ProjectPlan.dsTasks()
-        Me.VtasksBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.VtasksTableAdapter = New ProjectPlan.dsTasksTableAdapters.vtasksTableAdapter()
         Me.IDTaskDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.TaskDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.EnableDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DisplayOrderDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.VtasksBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.DsTasks = New ProjectPlan.dsTasks()
+        Me.VtasksTableAdapter = New ProjectPlan.dsTasksTableAdapters.vtasksTableAdapter()
         CType(Me.dgvTasks, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.DsTasks, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.VtasksBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DsTasks, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'btcDelete
@@ -81,6 +82,8 @@ Partial Class frmTasks
         '
         'dgvTasks
         '
+        Me.dgvTasks.AllowUserToAddRows = False
+        Me.dgvTasks.AllowUserToDeleteRows = False
         Me.dgvTasks.AutoGenerateColumns = False
         Me.dgvTasks.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.dgvTasks.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
@@ -90,20 +93,6 @@ Partial Class frmTasks
         Me.dgvTasks.Name = "dgvTasks"
         Me.dgvTasks.Size = New System.Drawing.Size(463, 266)
         Me.dgvTasks.TabIndex = 6
-        '
-        'DsTasks
-        '
-        Me.DsTasks.DataSetName = "dsTasks"
-        Me.DsTasks.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'VtasksBindingSource
-        '
-        Me.VtasksBindingSource.DataMember = "vtasks"
-        Me.VtasksBindingSource.DataSource = Me.DsTasks
-        '
-        'VtasksTableAdapter
-        '
-        Me.VtasksTableAdapter.ClearBeforeFill = True
         '
         'IDTaskDataGridViewTextBoxColumn
         '
@@ -129,6 +118,20 @@ Partial Class frmTasks
         Me.DisplayOrderDataGridViewTextBoxColumn.HeaderText = "DisplayOrder"
         Me.DisplayOrderDataGridViewTextBoxColumn.Name = "DisplayOrderDataGridViewTextBoxColumn"
         '
+        'VtasksBindingSource
+        '
+        Me.VtasksBindingSource.DataMember = "vtasks"
+        Me.VtasksBindingSource.DataSource = Me.DsTasks
+        '
+        'DsTasks
+        '
+        Me.DsTasks.DataSetName = "dsTasks"
+        Me.DsTasks.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'VtasksTableAdapter
+        '
+        Me.VtasksTableAdapter.ClearBeforeFill = True
+        '
         'frmTasks
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -139,11 +142,13 @@ Partial Class frmTasks
         Me.Controls.Add(Me.btcEdit)
         Me.Controls.Add(Me.btcAdd)
         Me.Controls.Add(Me.dgvTasks)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "frmTasks"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Domaines d'activités"
         CType(Me.dgvTasks, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.DsTasks, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.VtasksBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DsTasks, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub

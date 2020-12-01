@@ -104,10 +104,16 @@
     <Compile Include="frmProjectDetails.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmProjectMemberDetails.Designer.vb">
+    <Compile Include="frmProjectMemberDetails.designer.vb">
       <DependentUpon>frmProjectMemberDetails.vb</DependentUpon>
     </Compile>
     <Compile Include="frmProjectMemberDetails.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmTaskDetails.Designer.vb">
+      <DependentUpon>frmTaskDetails.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmTaskDetails.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmProjectMembers.Designer.vb">
@@ -186,6 +192,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmProjectMemberDetails.resx">
       <DependentUpon>frmProjectMemberDetails.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmTaskDetails.resx">
+      <DependentUpon>frmTaskDetails.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmProjectMembers.resx">
       <DependentUpon>frmProjectMembers.vb</DependentUpon>

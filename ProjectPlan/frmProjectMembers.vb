@@ -128,7 +128,7 @@ Public Class frmProjectMembers
 
             ID_ProjectMember = 0
 
-            Dim myForm As Form = frmProjectMemberDetails
+            Dim myForm As Form = frmTaskDetails
 
             myForm.ShowDialog()
             myForm.Dispose()
@@ -145,7 +145,7 @@ Public Class frmProjectMembers
     Private Sub btcEdit_Click(sender As Object, e As EventArgs) Handles btcEdit.Click
         Try
 
-            Dim myForm As Form = frmProjectMemberDetails
+            Dim myForm As Form = frmTaskDetails
             myForm.ShowDialog()
             myForm.Dispose()
 

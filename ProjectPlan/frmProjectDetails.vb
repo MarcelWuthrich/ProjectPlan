@@ -12,7 +12,7 @@ Public Class frmProjectDetails
         Try
             Me.Close()
         Catch ex As Exception
-
+            If DebugFlag = True Then MessageBox.Show(ex.ToString)
         End Try
     End Sub
 

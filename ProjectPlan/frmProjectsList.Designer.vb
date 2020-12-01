@@ -39,9 +39,6 @@ Partial Class frmProjectsList
         Me.grpFilters = New System.Windows.Forms.GroupBox()
         Me.btcClose = New System.Windows.Forms.Button()
         Me.dgvProjets = New System.Windows.Forms.DataGridView()
-        Me.VprojectlistBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.DataSetVProjectList = New ProjectPlan.DataSetVProjectList()
-        Me.VprojectlistTableAdapter = New ProjectPlan.DataSetVProjectListTableAdapters.vprojectlistTableAdapter()
         Me.ID_Project = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Title = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.CE_ID_Status = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -64,6 +61,31 @@ Partial Class frmProjectsList
         Me.CustomerFirstname = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.CustomerLastname = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Description = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.VprojectlistBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.DataSetVProjectList = New ProjectPlan.DataSetVProjectList()
+        Me.VprojectlistTableAdapter = New ProjectPlan.DataSetVProjectListTableAdapters.vprojectlistTableAdapter()
+        Me.IDProjectDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.CEIDStatusDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.StatusDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.CEIDProjectManagerDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ManagerFirstnameDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ManagerLastnameDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.CEIDPriorityDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.PriorityDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.CEIDCategoryDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.CategoryDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.CEIDCustomerDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.CustomerFirstnameDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.CustomerLastnameDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.CEIDUrgencyDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.UrgencyDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.TitleDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DescriptionDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.BeginDateDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DeadlineDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.EstimatedResourcesDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ImplementationRateDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.EffectiveResourcesDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.grpFilters.SuspendLayout()
         CType(Me.dgvProjets, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.VprojectlistBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -220,27 +242,13 @@ Partial Class frmProjectsList
         Me.dgvProjets.AutoGenerateColumns = False
         Me.dgvProjets.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.dgvProjets.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgvProjets.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.ID_Project, Me.Title, Me.CE_ID_Status, Me.Status, Me.CE_ID_Priority, Me.Priority, Me.CE_ID_Category, Me.Category, Me.CE_ID_Urgency, Me.Urgency, Me.BeginDate, Me.Deadline, Me.EstimatedResources, Me.EffectiveResources, Me.ImplementationRate, Me.CE_ID_ProjectManager, Me.ManagerFirstname, Me.ManagerLastname, Me.CE_ID_Customer, Me.CustomerFirstname, Me.CustomerLastname, Me.Description})
+        Me.dgvProjets.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.ID_Project, Me.Title, Me.CE_ID_Status, Me.Status, Me.CE_ID_Priority, Me.Priority, Me.CE_ID_Category, Me.Category, Me.CE_ID_Urgency, Me.Urgency, Me.BeginDate, Me.Deadline, Me.EstimatedResources, Me.EffectiveResources, Me.ImplementationRate, Me.CE_ID_ProjectManager, Me.ManagerFirstname, Me.ManagerLastname, Me.CE_ID_Customer, Me.CustomerFirstname, Me.CustomerLastname, Me.Description, Me.IDProjectDataGridViewTextBoxColumn, Me.CEIDStatusDataGridViewTextBoxColumn, Me.StatusDataGridViewTextBoxColumn, Me.CEIDProjectManagerDataGridViewTextBoxColumn, Me.ManagerFirstnameDataGridViewTextBoxColumn, Me.ManagerLastnameDataGridViewTextBoxColumn, Me.CEIDPriorityDataGridViewTextBoxColumn, Me.PriorityDataGridViewTextBoxColumn, Me.CEIDCategoryDataGridViewTextBoxColumn, Me.CategoryDataGridViewTextBoxColumn, Me.CEIDCustomerDataGridViewTextBoxColumn, Me.CustomerFirstnameDataGridViewTextBoxColumn, Me.CustomerLastnameDataGridViewTextBoxColumn, Me.CEIDUrgencyDataGridViewTextBoxColumn, Me.UrgencyDataGridViewTextBoxColumn, Me.TitleDataGridViewTextBoxColumn, Me.DescriptionDataGridViewTextBoxColumn, Me.BeginDateDataGridViewTextBoxColumn, Me.DeadlineDataGridViewTextBoxColumn, Me.EstimatedResourcesDataGridViewTextBoxColumn, Me.ImplementationRateDataGridViewTextBoxColumn, Me.EffectiveResourcesDataGridViewTextBoxColumn})
         Me.dgvProjets.DataSource = Me.VprojectlistBindingSource
         Me.dgvProjets.Location = New System.Drawing.Point(12, 120)
         Me.dgvProjets.Name = "dgvProjets"
         Me.dgvProjets.ReadOnly = True
         Me.dgvProjets.Size = New System.Drawing.Size(1130, 540)
         Me.dgvProjets.TabIndex = 22
-        '
-        'VprojectlistBindingSource
-        '
-        Me.VprojectlistBindingSource.DataMember = "vprojectlist"
-        Me.VprojectlistBindingSource.DataSource = Me.DataSetVProjectList
-        '
-        'DataSetVProjectList
-        '
-        Me.DataSetVProjectList.DataSetName = "DataSetVProjectList"
-        Me.DataSetVProjectList.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'VprojectlistTableAdapter
-        '
-        Me.VprojectlistTableAdapter.ClearBeforeFill = True
         '
         'ID_Project
         '
@@ -403,6 +411,174 @@ Partial Class frmProjectsList
         Me.Description.ReadOnly = True
         Me.Description.Visible = False
         '
+        'VprojectlistBindingSource
+        '
+        Me.VprojectlistBindingSource.DataMember = "vprojectlist"
+        Me.VprojectlistBindingSource.DataSource = Me.DataSetVProjectList
+        '
+        'DataSetVProjectList
+        '
+        Me.DataSetVProjectList.DataSetName = "DataSetVProjectList"
+        Me.DataSetVProjectList.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'VprojectlistTableAdapter
+        '
+        Me.VprojectlistTableAdapter.ClearBeforeFill = True
+        '
+        'IDProjectDataGridViewTextBoxColumn
+        '
+        Me.IDProjectDataGridViewTextBoxColumn.DataPropertyName = "ID_Project"
+        Me.IDProjectDataGridViewTextBoxColumn.HeaderText = "ID_Project"
+        Me.IDProjectDataGridViewTextBoxColumn.Name = "IDProjectDataGridViewTextBoxColumn"
+        Me.IDProjectDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'CEIDStatusDataGridViewTextBoxColumn
+        '
+        Me.CEIDStatusDataGridViewTextBoxColumn.DataPropertyName = "CE_ID_Status"
+        Me.CEIDStatusDataGridViewTextBoxColumn.HeaderText = "CE_ID_Status"
+        Me.CEIDStatusDataGridViewTextBoxColumn.Name = "CEIDStatusDataGridViewTextBoxColumn"
+        Me.CEIDStatusDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'StatusDataGridViewTextBoxColumn
+        '
+        Me.StatusDataGridViewTextBoxColumn.DataPropertyName = "Status"
+        Me.StatusDataGridViewTextBoxColumn.HeaderText = "Status"
+        Me.StatusDataGridViewTextBoxColumn.Name = "StatusDataGridViewTextBoxColumn"
+        Me.StatusDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'CEIDProjectManagerDataGridViewTextBoxColumn
+        '
+        Me.CEIDProjectManagerDataGridViewTextBoxColumn.DataPropertyName = "CE_ID_ProjectManager"
+        Me.CEIDProjectManagerDataGridViewTextBoxColumn.HeaderText = "CE_ID_ProjectManager"
+        Me.CEIDProjectManagerDataGridViewTextBoxColumn.Name = "CEIDProjectManagerDataGridViewTextBoxColumn"
+        Me.CEIDProjectManagerDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'ManagerFirstnameDataGridViewTextBoxColumn
+        '
+        Me.ManagerFirstnameDataGridViewTextBoxColumn.DataPropertyName = "ManagerFirstname"
+        Me.ManagerFirstnameDataGridViewTextBoxColumn.HeaderText = "ManagerFirstname"
+        Me.ManagerFirstnameDataGridViewTextBoxColumn.Name = "ManagerFirstnameDataGridViewTextBoxColumn"
+        Me.ManagerFirstnameDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'ManagerLastnameDataGridViewTextBoxColumn
+        '
+        Me.ManagerLastnameDataGridViewTextBoxColumn.DataPropertyName = "ManagerLastname"
+        Me.ManagerLastnameDataGridViewTextBoxColumn.HeaderText = "ManagerLastname"
+        Me.ManagerLastnameDataGridViewTextBoxColumn.Name = "ManagerLastnameDataGridViewTextBoxColumn"
+        Me.ManagerLastnameDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'CEIDPriorityDataGridViewTextBoxColumn
+        '
+        Me.CEIDPriorityDataGridViewTextBoxColumn.DataPropertyName = "CE_ID_Priority"
+        Me.CEIDPriorityDataGridViewTextBoxColumn.HeaderText = "CE_ID_Priority"
+        Me.CEIDPriorityDataGridViewTextBoxColumn.Name = "CEIDPriorityDataGridViewTextBoxColumn"
+        Me.CEIDPriorityDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'PriorityDataGridViewTextBoxColumn
+        '
+        Me.PriorityDataGridViewTextBoxColumn.DataPropertyName = "Priority"
+        Me.PriorityDataGridViewTextBoxColumn.HeaderText = "Priority"
+        Me.PriorityDataGridViewTextBoxColumn.Name = "PriorityDataGridViewTextBoxColumn"
+        Me.PriorityDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'CEIDCategoryDataGridViewTextBoxColumn
+        '
+        Me.CEIDCategoryDataGridViewTextBoxColumn.DataPropertyName = "CE_ID_Category"
+        Me.CEIDCategoryDataGridViewTextBoxColumn.HeaderText = "CE_ID_Category"
+        Me.CEIDCategoryDataGridViewTextBoxColumn.Name = "CEIDCategoryDataGridViewTextBoxColumn"
+        Me.CEIDCategoryDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'CategoryDataGridViewTextBoxColumn
+        '
+        Me.CategoryDataGridViewTextBoxColumn.DataPropertyName = "Category"
+        Me.CategoryDataGridViewTextBoxColumn.HeaderText = "Category"
+        Me.CategoryDataGridViewTextBoxColumn.Name = "CategoryDataGridViewTextBoxColumn"
+        Me.CategoryDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'CEIDCustomerDataGridViewTextBoxColumn
+        '
+        Me.CEIDCustomerDataGridViewTextBoxColumn.DataPropertyName = "CE_ID_Customer"
+        Me.CEIDCustomerDataGridViewTextBoxColumn.HeaderText = "CE_ID_Customer"
+        Me.CEIDCustomerDataGridViewTextBoxColumn.Name = "CEIDCustomerDataGridViewTextBoxColumn"
+        Me.CEIDCustomerDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'CustomerFirstnameDataGridViewTextBoxColumn
+        '
+        Me.CustomerFirstnameDataGridViewTextBoxColumn.DataPropertyName = "CustomerFirstname"
+        Me.CustomerFirstnameDataGridViewTextBoxColumn.HeaderText = "CustomerFirstname"
+        Me.CustomerFirstnameDataGridViewTextBoxColumn.Name = "CustomerFirstnameDataGridViewTextBoxColumn"
+        Me.CustomerFirstnameDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'CustomerLastnameDataGridViewTextBoxColumn
+        '
+        Me.CustomerLastnameDataGridViewTextBoxColumn.DataPropertyName = "CustomerLastname"
+        Me.CustomerLastnameDataGridViewTextBoxColumn.HeaderText = "CustomerLastname"
+        Me.CustomerLastnameDataGridViewTextBoxColumn.Name = "CustomerLastnameDataGridViewTextBoxColumn"
+        Me.CustomerLastnameDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'CEIDUrgencyDataGridViewTextBoxColumn
+        '
+        Me.CEIDUrgencyDataGridViewTextBoxColumn.DataPropertyName = "CE_ID_Urgency"
+        Me.CEIDUrgencyDataGridViewTextBoxColumn.HeaderText = "CE_ID_Urgency"
+        Me.CEIDUrgencyDataGridViewTextBoxColumn.Name = "CEIDUrgencyDataGridViewTextBoxColumn"
+        Me.CEIDUrgencyDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'UrgencyDataGridViewTextBoxColumn
+        '
+        Me.UrgencyDataGridViewTextBoxColumn.DataPropertyName = "Urgency"
+        Me.UrgencyDataGridViewTextBoxColumn.HeaderText = "Urgency"
+        Me.UrgencyDataGridViewTextBoxColumn.Name = "UrgencyDataGridViewTextBoxColumn"
+        Me.UrgencyDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'TitleDataGridViewTextBoxColumn
+        '
+        Me.TitleDataGridViewTextBoxColumn.DataPropertyName = "Title"
+        Me.TitleDataGridViewTextBoxColumn.HeaderText = "Title"
+        Me.TitleDataGridViewTextBoxColumn.Name = "TitleDataGridViewTextBoxColumn"
+        Me.TitleDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'DescriptionDataGridViewTextBoxColumn
+        '
+        Me.DescriptionDataGridViewTextBoxColumn.DataPropertyName = "Description"
+        Me.DescriptionDataGridViewTextBoxColumn.HeaderText = "Description"
+        Me.DescriptionDataGridViewTextBoxColumn.Name = "DescriptionDataGridViewTextBoxColumn"
+        Me.DescriptionDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'BeginDateDataGridViewTextBoxColumn
+        '
+        Me.BeginDateDataGridViewTextBoxColumn.DataPropertyName = "BeginDate"
+        Me.BeginDateDataGridViewTextBoxColumn.HeaderText = "BeginDate"
+        Me.BeginDateDataGridViewTextBoxColumn.Name = "BeginDateDataGridViewTextBoxColumn"
+        Me.BeginDateDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'DeadlineDataGridViewTextBoxColumn
+        '
+        Me.DeadlineDataGridViewTextBoxColumn.DataPropertyName = "Deadline"
+        Me.DeadlineDataGridViewTextBoxColumn.HeaderText = "Deadline"
+        Me.DeadlineDataGridViewTextBoxColumn.Name = "DeadlineDataGridViewTextBoxColumn"
+        Me.DeadlineDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'EstimatedResourcesDataGridViewTextBoxColumn
+        '
+        Me.EstimatedResourcesDataGridViewTextBoxColumn.DataPropertyName = "EstimatedResources"
+        Me.EstimatedResourcesDataGridViewTextBoxColumn.HeaderText = "EstimatedResources"
+        Me.EstimatedResourcesDataGridViewTextBoxColumn.Name = "EstimatedResourcesDataGridViewTextBoxColumn"
+        Me.EstimatedResourcesDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'ImplementationRateDataGridViewTextBoxColumn
+        '
+        Me.ImplementationRateDataGridViewTextBoxColumn.DataPropertyName = "ImplementationRate"
+        Me.ImplementationRateDataGridViewTextBoxColumn.HeaderText = "ImplementationRate"
+        Me.ImplementationRateDataGridViewTextBoxColumn.Name = "ImplementationRateDataGridViewTextBoxColumn"
+        Me.ImplementationRateDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'EffectiveResourcesDataGridViewTextBoxColumn
+        '
+        Me.EffectiveResourcesDataGridViewTextBoxColumn.DataPropertyName = "EffectiveResources"
+        Me.EffectiveResourcesDataGridViewTextBoxColumn.HeaderText = "EffectiveResources"
+        Me.EffectiveResourcesDataGridViewTextBoxColumn.Name = "EffectiveResourcesDataGridViewTextBoxColumn"
+        Me.EffectiveResourcesDataGridViewTextBoxColumn.ReadOnly = True
+        '
         'frmProjectsList
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -470,4 +646,26 @@ Partial Class frmProjectsList
     Friend WithEvents CustomerFirstname As DataGridViewTextBoxColumn
     Friend WithEvents CustomerLastname As DataGridViewTextBoxColumn
     Friend WithEvents Description As DataGridViewTextBoxColumn
+    Friend WithEvents IDProjectDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents CEIDStatusDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents StatusDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents CEIDProjectManagerDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents ManagerFirstnameDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents ManagerLastnameDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents CEIDPriorityDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents PriorityDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents CEIDCategoryDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents CategoryDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents CEIDCustomerDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents CustomerFirstnameDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents CustomerLastnameDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents CEIDUrgencyDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents UrgencyDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents TitleDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents DescriptionDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents BeginDateDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents DeadlineDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents EstimatedResourcesDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents ImplementationRateDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents EffectiveResourcesDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
 End Class
