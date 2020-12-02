@@ -33,3 +33,5 @@ D:\Users\Marcel\OneDrive\ProjectPlan\ProjectPlan\ProjectPlan\bin\Debug\System.Nu
 D:\Users\Marcel\OneDrive\ProjectPlan\ProjectPlan\ProjectPlan\obj\Debug\ProjectPlan.frmProjectEstimatedResources.resources
 D:\Users\Marcel\OneDrive\ProjectPlan\ProjectPlan\ProjectPlan\obj\Debug\ProjectPlan.frmTasks.resources
 D:\Users\Marcel\OneDrive\ProjectPlan\ProjectPlan\ProjectPlan\obj\Debug\ProjectPlan.frmTaskDetails.resources
+D:\Users\Marcel\OneDrive\ProjectPlan\ProjectPlan\ProjectPlan\obj\Debug\ProjectPlan.frmProjectManagers.resources
+D:\Users\Marcel\OneDrive\ProjectPlan\ProjectPlan\ProjectPlan\obj\Debug\ProjectPlan.frmProjectManagerDetails.resources

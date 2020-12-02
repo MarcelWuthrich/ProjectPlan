@@ -149,9 +149,26 @@ Public Class frmMain
 
     Private Sub mniDataActivityDomain_Click(sender As Object, e As EventArgs) Handles mniDataActivityDomain.Click
 
-        Dim myForm As Form = frmTasks
-        myForm.MdiParent = Me
-        myForm.Show()
+        Try
+            Dim myForm As Form = frmTasks
+            myForm.MdiParent = Me
+            myForm.Show()
 
+        Catch ex As Exception
+            If DebugFlag = True Then MessageBox.Show(ex.ToString)
+        End Try
+
+    End Sub
+
+    Private Sub mniProjectManager_Click(sender As Object, e As EventArgs) Handles mniProjectManager.Click
+        Try
+
+            Dim myForm As Form = frmProjectManagers
+            myForm.MdiParent = Me
+            myForm.Show()
+
+        Catch ex As Exception
+            If DebugFlag = True Then MessageBox.Show(ex.ToString)
+        End Try
     End Sub
 End Class

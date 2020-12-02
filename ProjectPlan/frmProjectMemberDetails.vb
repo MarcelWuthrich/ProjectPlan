@@ -9,7 +9,7 @@ Public Class frmProjectMemberDetails
             Me.Close()
 
         Catch ex As Exception
-
+            If DebugFlag = True Then MessageBox.Show(ex.ToString)
         End Try
     End Sub
 
@@ -40,7 +40,7 @@ Public Class frmProjectMemberDetails
             Me.Close()
 
         Catch ex As Exception
-
+            If DebugFlag = True Then MessageBox.Show(ex.ToString)
         End Try
 
     End Sub
@@ -81,7 +81,7 @@ Public Class frmProjectMemberDetails
             If Me.texID_ProjectMember.Text = "0" Then Me.texID_ProjectMember.Text = ""
 
         Catch ex As Exception
-
+            If DebugFlag = True Then MessageBox.Show(ex.ToString)
         End Try
 
     End Sub

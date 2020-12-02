@@ -276,19 +276,19 @@ Partial Class frmMain
         'mniDataCustomer
         '
         Me.mniDataCustomer.Name = "mniDataCustomer"
-        Me.mniDataCustomer.Size = New System.Drawing.Size(180, 22)
+        Me.mniDataCustomer.Size = New System.Drawing.Size(173, 22)
         Me.mniDataCustomer.Text = "Commanditaires"
         '
         'mniDataStatus
         '
         Me.mniDataStatus.Name = "mniDataStatus"
-        Me.mniDataStatus.Size = New System.Drawing.Size(180, 22)
+        Me.mniDataStatus.Size = New System.Drawing.Size(173, 22)
         Me.mniDataStatus.Text = "Statuts"
         '
         'mniDataActivityDomain
         '
         Me.mniDataActivityDomain.Name = "mniDataActivityDomain"
-        Me.mniDataActivityDomain.Size = New System.Drawing.Size(180, 22)
+        Me.mniDataActivityDomain.Size = New System.Drawing.Size(173, 22)
         Me.mniDataActivityDomain.Text = "Domaine d'activité"
         '
         'mniProjet
@@ -301,19 +301,19 @@ Partial Class frmMain
         'mniProjectList
         '
         Me.mniProjectList.Name = "mniProjectList"
-        Me.mniProjectList.Size = New System.Drawing.Size(179, 22)
+        Me.mniProjectList.Size = New System.Drawing.Size(180, 22)
         Me.mniProjectList.Text = "Liste des projets"
         '
         'mniProjectMember
         '
         Me.mniProjectMember.Name = "mniProjectMember"
-        Me.mniProjectMember.Size = New System.Drawing.Size(179, 22)
+        Me.mniProjectMember.Size = New System.Drawing.Size(180, 22)
         Me.mniProjectMember.Text = "Membres de projets"
         '
         'mniProjectManager
         '
         Me.mniProjectManager.Name = "mniProjectManager"
-        Me.mniProjectManager.Size = New System.Drawing.Size(179, 22)
+        Me.mniProjectManager.Size = New System.Drawing.Size(180, 22)
         Me.mniProjectManager.Text = "Chefs de projets"
         '
         'mniResource

@@ -21,76 +21,10 @@ Public Class frmProjectMembers
     Private Sub pDisplayProjectMembers()
 
         Try
-            Dim ActiveRow As Integer = 0
-            Dim MyDBConnection As New MySqlConnection
-
-            Dim myDBDataReader As MySqlDataReader
-            Dim Sql As String = "SELECT ID_ProjectMember FROM ProjectsMembers"
 
 
-            'On vide le DataGridView
-
-            dgvProjectsMembers.Rows.Clear()
-            dgvProjectsMembers.Columns.Clear()
-
-
-            'Définition du DataGridView
-            dgvProjectsMembers.ReadOnly = True
-            dgvProjectsMembers.AllowUserToAddRows = False
-            dgvProjectsMembers.AllowUserToDeleteRows = False
-            dgvProjectsMembers.MultiSelect = False
-
-
-            'Définition des colonnes
-            dgvProjectsMembers.Columns.Add("ID_ProjectMember", "ID_ProjectMember")
-            dgvProjectsMembers.Columns.Add("Prenom", "Prénom")
-            dgvProjectsMembers.Columns.Add("Nom", "Nom")
-            dgvProjectsMembers.Columns.Add("Tâche", "Tâche")
-
-
-            MyDBConnection.ConnectionString = cnProjectPlan
-            MyDBConnection.Open()
-
-            Dim myDBCommand As MySqlCommand = New MySqlCommand(Sql, MyDBConnection)
-
-            myDBDataReader = myDBCommand.ExecuteReader()
-
-            While myDBDataReader.Read
-
-                Dim thisMember As New myProjectMember
-                Dim thisTask As New myTask
-
-                'Lecture du premier paramètre COUNT
-                Try
-                    thisMember.ID_ProjectMember = myDBDataReader.GetValue(0)
-                    thisMember.Read()
-
-                    thisTask.ID_Task = thisMember.CE_ID_Task
-                    thisTask.Read()
-
-                    'On ajoute le projet dans le DataGridView
-                    dgvProjectsMembers.Rows.Add()
-                    dgvProjectsMembers.Item(0, ActiveRow).Value = thisMember.ID_ProjectMember
-                    dgvProjectsMembers.Item(1, ActiveRow).Value = thisMember.FirstName
-                    dgvProjectsMembers.Item(2, ActiveRow).Value = thisMember.Lastname
-                    dgvProjectsMembers.Item(3, ActiveRow).Value = thisTask.Task
-
-                    'La colonne 0 (ID_Project) n'est pas visible
-                    dgvProjectsMembers.Columns(0).Visible = False
-
-                    'On ajuste  la taille des colonnes
-                    dgvProjectsMembers.Columns(1).Width = 150
-                    dgvProjectsMembers.Columns(2).Width = 150
-                    dgvProjectsMembers.Columns(3).Width = 100
-
-                    ActiveRow = ActiveRow + 1
-                Catch ex As Exception
-                End Try
-
-            End While
-
-            myDBDataReader.Close()
-            MyDBConnection.Close()
+            'TODO: This line of code loads data into the 'DsProjectMembers.vprojectmembers' table. You can move, or remove it, as needed.
+            Me.VprojectmembersTableAdapter.Fill(Me.DsProjectMembers.vprojectmembers)
 
             dgvProjectsMembers.Rows(0).Selected = True
             ID_ProjectMember = dgvProjectsMembers.Item(0, dgvProjectsMembers.CurrentCell.RowIndex).Value
@@ -128,7 +62,7 @@ Public Class frmProjectMembers
 
             ID_ProjectMember = 0
 
-            Dim myForm As Form = frmTaskDetails
+            Dim myForm As Form = frmProjectMemberDetails
 
             myForm.ShowDialog()
             myForm.Dispose()
@@ -145,7 +79,7 @@ Public Class frmProjectMembers
     Private Sub btcEdit_Click(sender As Object, e As EventArgs) Handles btcEdit.Click
         Try
 
-            Dim myForm As Form = frmTaskDetails
+            Dim myForm As Form = frmProjectMemberDetails
             myForm.ShowDialog()
             myForm.Dispose()
 
