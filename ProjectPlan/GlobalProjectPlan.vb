@@ -16,6 +16,7 @@ Module GlobalProjectPlan
     Public Logon As String = ""
     Public ID_Resource_Current As Integer = 0
     Public ID_Task_Current As Integer = 0
+    Public ID_Status_Current As Integer = 0
 
     'Variables pour frmProjectAddEstimateRessource.vb
     Public G_Add_ID_Task As Integer = 0

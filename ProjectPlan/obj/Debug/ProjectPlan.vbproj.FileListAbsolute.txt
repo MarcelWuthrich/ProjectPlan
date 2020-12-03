@@ -35,3 +35,5 @@ D:\Users\Marcel\OneDrive\ProjectPlan\ProjectPlan\ProjectPlan\obj\Debug\ProjectPl
 D:\Users\Marcel\OneDrive\ProjectPlan\ProjectPlan\ProjectPlan\obj\Debug\ProjectPlan.frmTaskDetails.resources
 D:\Users\Marcel\OneDrive\ProjectPlan\ProjectPlan\ProjectPlan\obj\Debug\ProjectPlan.frmProjectManagers.resources
 D:\Users\Marcel\OneDrive\ProjectPlan\ProjectPlan\ProjectPlan\obj\Debug\ProjectPlan.frmProjectManagerDetails.resources
+D:\Users\Marcel\OneDrive\ProjectPlan\ProjectPlan\ProjectPlan\obj\Debug\ProjectPlan.frmStatus.resources
+D:\Users\Marcel\OneDrive\ProjectPlan\ProjectPlan\ProjectPlan\obj\Debug\ProjectPlan.frmStatusDetails.resources

@@ -171,4 +171,16 @@ Public Class frmMain
             If DebugFlag = True Then MessageBox.Show(ex.ToString)
         End Try
     End Sub
+
+    Private Sub mniDataStatus_Click(sender As Object, e As EventArgs) Handles mniDataStatus.Click
+        Try
+
+            Dim myForm As Form = frmStatus
+            myForm.MdiParent = Me
+            myForm.Show()
+
+        Catch ex As Exception
+            If DebugFlag = True Then MessageBox.Show(ex.ToString)
+        End Try
+    End Sub
 End Class

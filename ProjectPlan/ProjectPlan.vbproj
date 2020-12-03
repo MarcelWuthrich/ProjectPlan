@@ -97,6 +97,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>dsProjectMembers.xsd</DependentUpon>
     </Compile>
+    <Compile Include="dsStatus.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsStatus.xsd</DependentUpon>
+    </Compile>
     <Compile Include="dsTasks.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -130,6 +135,18 @@
       <DependentUpon>frmProjectMemberDetails.vb</DependentUpon>
     </Compile>
     <Compile Include="frmProjectMemberDetails.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmStatus.Designer.vb">
+      <DependentUpon>frmStatus.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmStatus.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmStatusDetails.Designer.vb">
+      <DependentUpon>frmStatusDetails.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmStatusDetails.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmTaskDetails.Designer.vb">
@@ -221,6 +238,12 @@
     <EmbeddedResource Include="frmProjectMemberDetails.resx">
       <DependentUpon>frmProjectMemberDetails.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmStatus.resx">
+      <DependentUpon>frmStatus.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmStatusDetails.resx">
+      <DependentUpon>frmStatusDetails.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmTaskDetails.resx">
       <DependentUpon>frmTaskDetails.vb</DependentUpon>
     </EmbeddedResource>
@@ -287,6 +310,17 @@
     </None>
     <None Include="dsProjectMembers.xss">
       <DependentUpon>dsProjectMembers.xsd</DependentUpon>
+    </None>
+    <None Include="dsStatus.xsc">
+      <DependentUpon>dsStatus.xsd</DependentUpon>
+    </None>
+    <None Include="dsStatus.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsStatus.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="dsStatus.xss">
+      <DependentUpon>dsStatus.xsd</DependentUpon>
     </None>
     <None Include="dsTasks.xsc">
       <DependentUpon>dsTasks.xsd</DependentUpon>
