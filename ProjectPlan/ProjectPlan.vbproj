@@ -107,6 +107,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>dsTasks.xsd</DependentUpon>
     </Compile>
+    <Compile Include="frmCustomers.Designer.vb">
+      <DependentUpon>frmCustomers.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmCustomers.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frmMain.designer.vb">
       <DependentUpon>frmMain.vb</DependentUpon>
     </Compile>
@@ -223,6 +229,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="frmCustomers.resx">
+      <DependentUpon>frmCustomers.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.vb</DependentUpon>
     </EmbeddedResource>
