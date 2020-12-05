@@ -23,6 +23,7 @@ Partial Class frmStatus
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmStatus))
         Me.btcDelete = New System.Windows.Forms.Button()
         Me.btcClose = New System.Windows.Forms.Button()
         Me.btcEdit = New System.Windows.Forms.Button()
@@ -147,6 +148,7 @@ Partial Class frmStatus
         Me.Controls.Add(Me.btcEdit)
         Me.Controls.Add(Me.btcAdd)
         Me.Controls.Add(Me.dgvStatus)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "frmStatus"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Liste des statuts"

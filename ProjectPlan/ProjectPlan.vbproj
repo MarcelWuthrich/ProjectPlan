@@ -82,6 +82,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DataSetVProjectList1.xsd</DependentUpon>
     </Compile>
+    <Compile Include="dsCustomers.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsCustomers.xsd</DependentUpon>
+    </Compile>
     <Compile Include="dsProjectList.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -106,6 +111,18 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>dsTasks.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="frmCustomerDetails.Designer.vb">
+      <DependentUpon>frmCustomerDetails.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmCustomerDetails.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCustomers.Designer.vb">
+      <DependentUpon>frmCustomers.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmCustomers.vb">
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmMain.designer.vb">
       <DependentUpon>frmMain.vb</DependentUpon>
@@ -196,6 +213,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="myCustomer.vb" />
     <Compile Include="myEstimatedResource.vb" />
     <Compile Include="myExecuteResource.vb" />
     <Compile Include="myPlanResource.vb" />
@@ -223,6 +241,12 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="frmCustomerDetails.resx">
+      <DependentUpon>frmCustomerDetails.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmCustomers.resx">
+      <DependentUpon>frmCustomers.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.vb</DependentUpon>
     </EmbeddedResource>
@@ -277,6 +301,17 @@
     </None>
     <None Include="DataSetVProjectList1.xss">
       <DependentUpon>DataSetVProjectList1.xsd</DependentUpon>
+    </None>
+    <None Include="dsCustomers.xsc">
+      <DependentUpon>dsCustomers.xsd</DependentUpon>
+    </None>
+    <None Include="dsCustomers.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsCustomers.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="dsCustomers.xss">
+      <DependentUpon>dsCustomers.xsd</DependentUpon>
     </None>
     <None Include="dsProjectList.xsc">
       <DependentUpon>dsProjectList.xsd</DependentUpon>
