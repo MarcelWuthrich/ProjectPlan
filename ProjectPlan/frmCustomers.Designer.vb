@@ -23,14 +23,12 @@ Partial Class frmCustomers
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmCustomers))
         Me.btcDelete = New System.Windows.Forms.Button()
         Me.btcClose = New System.Windows.Forms.Button()
         Me.btcEdit = New System.Windows.Forms.Button()
         Me.btcAdd = New System.Windows.Forms.Button()
         Me.dgvCustomers = New System.Windows.Forms.DataGridView()
-        Me.DsCustomers = New ProjectPlan.dsCustomers()
-        Me.VcustomersBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.VcustomersTableAdapter = New ProjectPlan.dsCustomersTableAdapters.vcustomersTableAdapter()
         Me.IDCustomerDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.FirstNameDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.LastNameDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -38,15 +36,18 @@ Partial Class frmCustomers
         Me.CompanyLocationDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.EnableDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DisplayOrderDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.VcustomersBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.DsCustomers = New ProjectPlan.dsCustomers()
+        Me.VcustomersTableAdapter = New ProjectPlan.dsCustomersTableAdapters.vcustomersTableAdapter()
         CType(Me.dgvCustomers, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.DsCustomers, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.VcustomersBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DsCustomers, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'btcDelete
         '
         Me.btcDelete.BackColor = System.Drawing.SystemColors.Control
-        Me.btcDelete.Location = New System.Drawing.Point(529, 158)
+        Me.btcDelete.Location = New System.Drawing.Point(678, 156)
         Me.btcDelete.Name = "btcDelete"
         Me.btcDelete.Size = New System.Drawing.Size(75, 23)
         Me.btcDelete.TabIndex = 10
@@ -55,7 +56,7 @@ Partial Class frmCustomers
         '
         'btcClose
         '
-        Me.btcClose.Location = New System.Drawing.Point(529, 270)
+        Me.btcClose.Location = New System.Drawing.Point(678, 268)
         Me.btcClose.Name = "btcClose"
         Me.btcClose.Size = New System.Drawing.Size(75, 23)
         Me.btcClose.TabIndex = 9
@@ -65,7 +66,7 @@ Partial Class frmCustomers
         'btcEdit
         '
         Me.btcEdit.BackColor = System.Drawing.SystemColors.Control
-        Me.btcEdit.Location = New System.Drawing.Point(529, 129)
+        Me.btcEdit.Location = New System.Drawing.Point(678, 127)
         Me.btcEdit.Name = "btcEdit"
         Me.btcEdit.Size = New System.Drawing.Size(75, 23)
         Me.btcEdit.TabIndex = 8
@@ -75,7 +76,7 @@ Partial Class frmCustomers
         'btcAdd
         '
         Me.btcAdd.BackColor = System.Drawing.SystemColors.Control
-        Me.btcAdd.Location = New System.Drawing.Point(529, 100)
+        Me.btcAdd.Location = New System.Drawing.Point(678, 98)
         Me.btcAdd.Name = "btcAdd"
         Me.btcAdd.Size = New System.Drawing.Size(75, 23)
         Me.btcAdd.TabIndex = 7
@@ -95,22 +96,8 @@ Partial Class frmCustomers
         Me.dgvCustomers.Name = "dgvCustomers"
         Me.dgvCustomers.ReadOnly = True
         Me.dgvCustomers.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dgvCustomers.Size = New System.Drawing.Size(463, 266)
+        Me.dgvCustomers.Size = New System.Drawing.Size(617, 266)
         Me.dgvCustomers.TabIndex = 6
-        '
-        'DsCustomers
-        '
-        Me.DsCustomers.DataSetName = "dsCustomers"
-        Me.DsCustomers.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'VcustomersBindingSource
-        '
-        Me.VcustomersBindingSource.DataMember = "vcustomers"
-        Me.VcustomersBindingSource.DataSource = Me.DsCustomers
-        '
-        'VcustomersTableAdapter
-        '
-        Me.VcustomersTableAdapter.ClearBeforeFill = True
         '
         'IDCustomerDataGridViewTextBoxColumn
         '
@@ -161,6 +148,20 @@ Partial Class frmCustomers
         Me.DisplayOrderDataGridViewTextBoxColumn.Name = "DisplayOrderDataGridViewTextBoxColumn"
         Me.DisplayOrderDataGridViewTextBoxColumn.ReadOnly = True
         '
+        'VcustomersBindingSource
+        '
+        Me.VcustomersBindingSource.DataMember = "vcustomers"
+        Me.VcustomersBindingSource.DataSource = Me.DsCustomers
+        '
+        'DsCustomers
+        '
+        Me.DsCustomers.DataSetName = "dsCustomers"
+        Me.DsCustomers.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'VcustomersTableAdapter
+        '
+        Me.VcustomersTableAdapter.ClearBeforeFill = True
+        '
         'frmCustomers
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -171,11 +172,13 @@ Partial Class frmCustomers
         Me.Controls.Add(Me.btcEdit)
         Me.Controls.Add(Me.btcAdd)
         Me.Controls.Add(Me.dgvCustomers)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "frmCustomers"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Liste des commanditaires"
         CType(Me.dgvCustomers, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.DsCustomers, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.VcustomersBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DsCustomers, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
