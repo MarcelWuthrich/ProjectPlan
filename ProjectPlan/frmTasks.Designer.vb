@@ -91,6 +91,8 @@ Partial Class frmTasks
         Me.dgvTasks.DataSource = Me.VtasksBindingSource
         Me.dgvTasks.Location = New System.Drawing.Point(12, 25)
         Me.dgvTasks.Name = "dgvTasks"
+        Me.dgvTasks.RowHeadersVisible = False
+        Me.dgvTasks.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.dgvTasks.Size = New System.Drawing.Size(463, 266)
         Me.dgvTasks.TabIndex = 6
         '

@@ -28,7 +28,6 @@ D:\Users\Marcel\OneDrive\ProjectPlan\ProjectPlan\ProjectPlan\obj\Debug\ProjectPl
 D:\Users\Marcel\OneDrive\ProjectPlan\ProjectPlan\ProjectPlan\obj\Debug\ProjectPlan.exe
 D:\Users\Marcel\OneDrive\ProjectPlan\ProjectPlan\ProjectPlan\obj\Debug\ProjectPlan.xml
 D:\Users\Marcel\OneDrive\ProjectPlan\ProjectPlan\ProjectPlan\obj\Debug\ProjectPlan.pdb
-D:\Users\Marcel\OneDrive\ProjectPlan\ProjectPlan\ProjectPlan\obj\Debug\ProjectPlan.vbprojAssemblyReference.cache
 D:\Users\Marcel\OneDrive\ProjectPlan\ProjectPlan\ProjectPlan\bin\Debug\System.Numerics.Vectors.dll
 D:\Users\Marcel\OneDrive\ProjectPlan\ProjectPlan\ProjectPlan\obj\Debug\ProjectPlan.frmProjectEstimatedResources.resources
 D:\Users\Marcel\OneDrive\ProjectPlan\ProjectPlan\ProjectPlan\obj\Debug\ProjectPlan.frmTasks.resources
@@ -39,3 +38,5 @@ D:\Users\Marcel\OneDrive\ProjectPlan\ProjectPlan\ProjectPlan\obj\Debug\ProjectPl
 D:\Users\Marcel\OneDrive\ProjectPlan\ProjectPlan\ProjectPlan\obj\Debug\ProjectPlan.frmStatusDetails.resources
 D:\Users\Marcel\OneDrive\ProjectPlan\ProjectPlan\ProjectPlan\obj\Debug\ProjectPlan.frmCustomers.resources
 D:\Users\Marcel\OneDrive\ProjectPlan\ProjectPlan\ProjectPlan\obj\Debug\ProjectPlan.frmCustomerDetails.resources
+D:\Users\Marcel\OneDrive\ProjectPlan\ProjectPlan\ProjectPlan\obj\Debug\ProjectPlan.frmResourcesAdmin.resources
+D:\Users\Marcel\OneDrive\ProjectPlan\ProjectPlan\ProjectPlan\obj\Debug\ProjectPlan.vbprojAssemblyReference.cache

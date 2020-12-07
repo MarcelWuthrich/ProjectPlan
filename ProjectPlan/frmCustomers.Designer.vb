@@ -95,6 +95,7 @@ Partial Class frmCustomers
         Me.dgvCustomers.Location = New System.Drawing.Point(25, 27)
         Me.dgvCustomers.Name = "dgvCustomers"
         Me.dgvCustomers.ReadOnly = True
+        Me.dgvCustomers.RowHeadersVisible = False
         Me.dgvCustomers.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.dgvCustomers.Size = New System.Drawing.Size(617, 266)
         Me.dgvCustomers.TabIndex = 6

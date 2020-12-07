@@ -217,6 +217,11 @@ Public Class myEstimatedResource
 
             End If
 
+            Dim thisProject As New myProject
+            thisProject.ID_Project = Me.CE_ID_Project
+            thisProject.Read()
+            thisProject.EstimatedResources = Me.GetEstimatedResources_CE_ID_Project
+            thisProject.Save()
 
 
         Catch ex As Exception
@@ -312,9 +317,12 @@ Public Class myEstimatedResource
     End Function
 
     Public Function GetEstimatedResources_CE_ID_Project() As Integer
+
+        Dim TotalEstimatedResouces As Integer = 0
+
         Try
 
-            Dim TotalEstimatedResouces As Integer = 0
+            GetEstimatedResources_CE_ID_Project = 0
 
             Dim MyDBConnection As New MySqlConnection
 
@@ -343,11 +351,12 @@ Public Class myEstimatedResource
             myDBDataReader.Close()
             MyDBConnection.Close()
 
-            Return TotalEstimatedResouces
 
         Catch ex As Exception
             If DebugFlag = True Then MessageBox.Show(ex.ToString)
         End Try
+
+        Return TotalEstimatedResouces
 
     End Function
 

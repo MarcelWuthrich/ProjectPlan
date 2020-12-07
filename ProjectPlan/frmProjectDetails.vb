@@ -84,8 +84,8 @@ Public Class frmProjectDetails
     End Sub
 
     Private Sub frmProjectDetails_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        'TODO: This line of code loads data into the 'ProjectplanDataSet1.vprojectestimatedresources' table. You can move, or remove it, as needed.
-        Me.VprojectestimatedresourcesTableAdapter.Fill(Me.ProjectplanDataSet1.vprojectestimatedresources)
+        'TODO: This line of code loads data into the 'DsProjectEstimatedResources.vprojectestimatedresources' table. You can move, or remove it, as needed.
+        Me.VprojectestimatedresourcesTableAdapter.Fill(Me.DsProjectEstimatedResources.vprojectestimatedresources)
 
         pDisplayProjectEstimatedResources()
 
@@ -118,11 +118,11 @@ Public Class frmProjectDetails
             'thisProject.GetEffectiveResources()
 
             'On cherche le nombre de jours planifés
-            Dim thisResource As New myPlanResource
-            If ID_Project_Current <> 0 Then
-                thisResource.CE_ID_Project = thisProject.ID_Project
-                thisResource.Get_Count_PlanResource_From_CE_ID_Project()
-            End If
+            'Dim thisResource As New myPlanResource
+            'If ID_Project_Current <> 0 Then
+            '    thisResource.CE_ID_Project = thisProject.ID_Project
+            '    thisResource.Get_Count_PlanResource_From_CE_ID_Project()
+            'End If
 
 
             'On renseigne les champs 
@@ -134,7 +134,9 @@ Public Class frmProjectDetails
             Me.texEstimatedResources.Text = thisProject.EstimatedResources
             Me.texImplementationRate.Text = thisProject.ImplementationRate
             Me.texExecutedResources.Text = Format(thisProject.EffectiveResources, "0.0")
-            Me.texPlanResources.Text = Format(thisResource.CountPlanResource, "0.0")
+            'Me.texPlanResources.Text = Format(thisResource.CountPlanResource, "0.0")
+
+
 
             'Chefs de projets
             For I = 0 To lovProjectManager.Items.Count - 1
@@ -559,17 +561,6 @@ Public Class frmProjectDetails
     End Sub
 
 
-    Private Sub dgvProjectRemarks_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvProjectRemarks.CellContentClick
-        Try
-
-            dgvProjectRemarks.Rows(dgvProjectRemarks.CurrentCell.RowIndex).Selected = True
-            ID_Remark = dgvProjectRemarks.Item(0, dgvProjectRemarks.CurrentCell.RowIndex).Value
-
-        Catch ex As Exception
-            If DebugFlag = True Then MessageBox.Show(ex.ToString)
-        End Try
-    End Sub
-
 
     Private Sub dgvProjectRemarks_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvProjectRemarks.CellDoubleClick
         Try
@@ -611,13 +602,19 @@ Public Class frmProjectDetails
         Try
 
             'TODO: This line of code loads data into the 'ProjectplanDataSet1.vprojectestimatedresources' table. You can move, or remove it, as needed.
-            Me.VprojectestimatedresourcesTableAdapter.Fill(Me.ProjectplanDataSet1.vprojectestimatedresources)
+            Me.VprojectestimatedresourcesTableAdapter.Fill(Me.DsProjectEstimatedResources.vprojectestimatedresources)
+            dgvProjectRessources.Rows(dgvProjectRessources.CurrentCell.RowIndex).Selected = True
+            ID_Resource_Current = dgvProjectRessources.Rows(dgvProjectRessources.CurrentRow.Index).Cells(0).Value
 
             Dim thisResource As New myEstimatedResource
             thisResource.ID_Resource = ID_Resource_Current
             thisResource.Read()
 
             Me.texEstimatedResources.Text = thisResource.GetEstimatedResources_CE_ID_Project()
+
+            Dim bs As New BindingSource
+            bs = VprojectestimatedresourcesBindingSource
+            bs.Filter = "CE_ID_Project=" & ID_Project_Current
 
         Catch ex As Exception
             If DebugFlag = True Then MessageBox.Show(ex.ToString)
@@ -648,6 +645,17 @@ Public Class frmProjectDetails
 
         Catch ex As Exception
 
+        End Try
+    End Sub
+
+    Private Sub dgvProjectRemarks_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvProjectRemarks.CellClick
+        Try
+
+            dgvProjectRemarks.Rows(dgvProjectRemarks.CurrentCell.RowIndex).Selected = True
+            ID_Remark = dgvProjectRemarks.Item(0, dgvProjectRemarks.CurrentCell.RowIndex).Value
+
+        Catch ex As Exception
+            If DebugFlag = True Then MessageBox.Show(ex.ToString)
         End Try
     End Sub
 End Class

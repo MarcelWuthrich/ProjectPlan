@@ -24,6 +24,7 @@ Public Class frmTasks
     Private Sub pRefreshDisplay()
         Try
             Me.VtasksTableAdapter.Fill(Me.DsTasks.vtasks)
+            ID_Task_Current = dgvTasks.Rows(dgvTasks.CurrentRow.Index).Cells(0).Value
         Catch ex As Exception
             If DebugFlag = True Then MessageBox.Show(ex.ToString)
         End Try

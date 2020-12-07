@@ -77,20 +77,15 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DataSetVProjectList1.Designer.vb">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DataSetVProjectList1.xsd</DependentUpon>
-    </Compile>
     <Compile Include="dsCustomers.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>dsCustomers.xsd</DependentUpon>
     </Compile>
-    <Compile Include="dsProjectList.Designer.vb">
+    <Compile Include="dsProjectEstimatedResources.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>dsProjectList.xsd</DependentUpon>
+      <DependentUpon>dsProjectEstimatedResources.xsd</DependentUpon>
     </Compile>
     <Compile Include="dsProjectManagers.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -101,6 +96,16 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>dsProjectMembers.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="dsProjectsList.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsProjectsList.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="dsResoucesAdmin.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsResoucesAdmin.xsd</DependentUpon>
     </Compile>
     <Compile Include="dsStatus.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -152,6 +157,12 @@
       <DependentUpon>frmProjectMemberDetails.vb</DependentUpon>
     </Compile>
     <Compile Include="frmProjectMemberDetails.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmResourcesAdmin.Designer.vb">
+      <DependentUpon>frmResourcesAdmin.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmResourcesAdmin.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmStatus.Designer.vb">
@@ -231,14 +242,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>projectplanDataSet.xsd</DependentUpon>
     </Compile>
-    <Compile Include="projectplanDataSet1.Designer.vb">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>projectplanDataSet1.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="projectplanDataSet1.vb">
-      <DependentUpon>projectplanDataSet1.xsd</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="frmCustomerDetails.resx">
@@ -261,6 +264,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmProjectMemberDetails.resx">
       <DependentUpon>frmProjectMemberDetails.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmResourcesAdmin.resx">
+      <DependentUpon>frmResourcesAdmin.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmStatus.resx">
       <DependentUpon>frmStatus.vb</DependentUpon>
@@ -291,17 +297,6 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <None Include="DataSetVProjectList1.xsc">
-      <DependentUpon>DataSetVProjectList1.xsd</DependentUpon>
-    </None>
-    <None Include="DataSetVProjectList1.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>DataSetVProjectList1.Designer.vb</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="DataSetVProjectList1.xss">
-      <DependentUpon>DataSetVProjectList1.xsd</DependentUpon>
-    </None>
     <None Include="dsCustomers.xsc">
       <DependentUpon>dsCustomers.xsd</DependentUpon>
     </None>
@@ -313,16 +308,16 @@
     <None Include="dsCustomers.xss">
       <DependentUpon>dsCustomers.xsd</DependentUpon>
     </None>
-    <None Include="dsProjectList.xsc">
-      <DependentUpon>dsProjectList.xsd</DependentUpon>
+    <None Include="dsProjectEstimatedResources.xsc">
+      <DependentUpon>dsProjectEstimatedResources.xsd</DependentUpon>
     </None>
-    <None Include="dsProjectList.xsd">
+    <None Include="dsProjectEstimatedResources.xsd">
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>dsProjectList.Designer.vb</LastGenOutput>
+      <LastGenOutput>dsProjectEstimatedResources.Designer.vb</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
-    <None Include="dsProjectList.xss">
-      <DependentUpon>dsProjectList.xsd</DependentUpon>
+    <None Include="dsProjectEstimatedResources.xss">
+      <DependentUpon>dsProjectEstimatedResources.xsd</DependentUpon>
     </None>
     <None Include="dsProjectManagers.xsc">
       <DependentUpon>dsProjectManagers.xsd</DependentUpon>
@@ -345,6 +340,28 @@
     </None>
     <None Include="dsProjectMembers.xss">
       <DependentUpon>dsProjectMembers.xsd</DependentUpon>
+    </None>
+    <None Include="dsProjectsList.xsc">
+      <DependentUpon>dsProjectsList.xsd</DependentUpon>
+    </None>
+    <None Include="dsProjectsList.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsProjectsList.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="dsProjectsList.xss">
+      <DependentUpon>dsProjectsList.xsd</DependentUpon>
+    </None>
+    <None Include="dsResoucesAdmin.xsc">
+      <DependentUpon>dsResoucesAdmin.xsd</DependentUpon>
+    </None>
+    <None Include="dsResoucesAdmin.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsResoucesAdmin.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="dsResoucesAdmin.xss">
+      <DependentUpon>dsResoucesAdmin.xsd</DependentUpon>
     </None>
     <None Include="dsStatus.xsc">
       <DependentUpon>dsStatus.xsd</DependentUpon>
@@ -388,17 +405,6 @@
     </None>
     <None Include="projectplanDataSet.xss">
       <DependentUpon>projectplanDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="projectplanDataSet1.xsc">
-      <DependentUpon>projectplanDataSet1.xsd</DependentUpon>
-    </None>
-    <None Include="projectplanDataSet1.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>projectplanDataSet1.Designer.vb</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="projectplanDataSet1.xss">
-      <DependentUpon>projectplanDataSet1.xsd</DependentUpon>
     </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
