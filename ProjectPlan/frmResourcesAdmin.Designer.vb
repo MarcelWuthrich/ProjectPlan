@@ -64,7 +64,7 @@ Partial Class frmResourcesAdmin
         Me.TaskDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.EnableDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.VprojectmembersBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.ProjectplanDataSet = New ProjectPlan.projectplanDataSet()
+        Me.dsProjectPlan = New ProjectPlan.projectplanDataSet()
         Me.VprojectmembersTableAdapter = New ProjectPlan.projectplanDataSetTableAdapters.vprojectmembersTableAdapter()
         Me.dgvResourcesAdmin = New System.Windows.Forms.DataGridView()
         Me.IDAdminResourceDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -75,12 +75,13 @@ Partial Class frmResourcesAdmin
         Me.VresourcesadminBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.DsResoucesAdmin = New ProjectPlan.dsResoucesAdmin()
         Me.VresourcesadminTableAdapter = New ProjectPlan.dsResoucesAdminTableAdapters.vresourcesadminTableAdapter()
+        Me.texMessage = New System.Windows.Forms.TextBox()
         Me.grpSchedule.SuspendLayout()
         Me.grpWeekly.SuspendLayout()
         Me.grpDaily.SuspendLayout()
         CType(Me.dgvProjectMembers, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.VprojectmembersBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.ProjectplanDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.dsProjectPlan, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dgvResourcesAdmin, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.VresourcesadminBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DsResoucesAdmin, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -97,14 +98,14 @@ Partial Class frmResourcesAdmin
         '
         'grpSchedule
         '
-        Me.grpSchedule.Controls.Add(Me.grpWeekly)
         Me.grpSchedule.Controls.Add(Me.radWeekly)
         Me.grpSchedule.Controls.Add(Me.radDaily)
         Me.grpSchedule.Controls.Add(Me.dtpDate)
         Me.grpSchedule.Controls.Add(Me.grpDaily)
+        Me.grpSchedule.Controls.Add(Me.grpWeekly)
         Me.grpSchedule.Location = New System.Drawing.Point(444, 25)
         Me.grpSchedule.Name = "grpSchedule"
-        Me.grpSchedule.Size = New System.Drawing.Size(490, 215)
+        Me.grpSchedule.Size = New System.Drawing.Size(522, 215)
         Me.grpSchedule.TabIndex = 30
         Me.grpSchedule.TabStop = False
         Me.grpSchedule.Text = "Planification des jours"
@@ -274,7 +275,7 @@ Partial Class frmResourcesAdmin
         '
         Me.dtpDate.Location = New System.Drawing.Point(160, 24)
         Me.dtpDate.Name = "dtpDate"
-        Me.dtpDate.Size = New System.Drawing.Size(315, 20)
+        Me.dtpDate.Size = New System.Drawing.Size(344, 20)
         Me.dtpDate.TabIndex = 1
         '
         'grpDaily
@@ -289,7 +290,7 @@ Partial Class frmResourcesAdmin
         Me.grpDaily.Controls.Add(Me.labNumberOfDays)
         Me.grpDaily.Location = New System.Drawing.Point(160, 50)
         Me.grpDaily.Name = "grpDaily"
-        Me.grpDaily.Size = New System.Drawing.Size(315, 143)
+        Me.grpDaily.Size = New System.Drawing.Size(344, 143)
         Me.grpDaily.TabIndex = 18
         Me.grpDaily.TabStop = False
         '
@@ -317,6 +318,7 @@ Partial Class frmResourcesAdmin
         Me.texDayTo.Name = "texDayTo"
         Me.texDayTo.Size = New System.Drawing.Size(38, 20)
         Me.texDayTo.TabIndex = 21
+        Me.texDayTo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'texDayFrom
         '
@@ -324,6 +326,7 @@ Partial Class frmResourcesAdmin
         Me.texDayFrom.Name = "texDayFrom"
         Me.texDayFrom.Size = New System.Drawing.Size(38, 20)
         Me.texDayFrom.TabIndex = 20
+        Me.texDayFrom.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'radDays
         '
@@ -354,6 +357,7 @@ Partial Class frmResourcesAdmin
         Me.texNumberOfDays.Size = New System.Drawing.Size(38, 20)
         Me.texNumberOfDays.TabIndex = 7
         Me.texNumberOfDays.Text = "1"
+        Me.texNumberOfDays.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'labNumberOfDays
         '
@@ -466,12 +470,12 @@ Partial Class frmResourcesAdmin
         'VprojectmembersBindingSource
         '
         Me.VprojectmembersBindingSource.DataMember = "vprojectmembers"
-        Me.VprojectmembersBindingSource.DataSource = Me.ProjectplanDataSet
+        Me.VprojectmembersBindingSource.DataSource = Me.dsProjectPlan
         '
-        'ProjectplanDataSet
+        'dsProjectPlan
         '
-        Me.ProjectplanDataSet.DataSetName = "projectplanDataSet"
-        Me.ProjectplanDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        Me.dsProjectPlan.DataSetName = "dsProjectPlan"
+        Me.dsProjectPlan.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'VprojectmembersTableAdapter
         '
@@ -548,11 +552,25 @@ Partial Class frmResourcesAdmin
         '
         Me.VresourcesadminTableAdapter.ClearBeforeFill = True
         '
+        'texMessage
+        '
+        Me.texMessage.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.texMessage.Location = New System.Drawing.Point(444, 246)
+        Me.texMessage.Multiline = True
+        Me.texMessage.Name = "texMessage"
+        Me.texMessage.ReadOnly = True
+        Me.texMessage.Size = New System.Drawing.Size(522, 45)
+        Me.texMessage.TabIndex = 23
+        Me.texMessage.TabStop = False
+        Me.texMessage.Text = "Message days"
+        Me.texMessage.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        '
         'frmResourcesAdmin
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1013, 408)
+        Me.Controls.Add(Me.texMessage)
         Me.Controls.Add(Me.dgvResourcesAdmin)
         Me.Controls.Add(Me.dgvProjectMembers)
         Me.Controls.Add(Me.btcPlanFree)
@@ -573,7 +591,7 @@ Partial Class frmResourcesAdmin
         Me.grpDaily.PerformLayout()
         CType(Me.dgvProjectMembers, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.VprojectmembersBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.ProjectplanDataSet, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.dsProjectPlan, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.dgvResourcesAdmin, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.VresourcesadminBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DsResoucesAdmin, System.ComponentModel.ISupportInitialize).EndInit()
@@ -607,7 +625,7 @@ Partial Class frmResourcesAdmin
     Friend WithEvents labProjectMember As Label
     Friend WithEvents btcFermer As Button
     Friend WithEvents dgvProjectMembers As DataGridView
-    Friend WithEvents ProjectplanDataSet As projectplanDataSet
+    Friend WithEvents dsProjectPlan As projectplanDataSet
     Friend WithEvents VprojectmembersBindingSource As BindingSource
     Friend WithEvents VprojectmembersTableAdapter As projectplanDataSetTableAdapters.vprojectmembersTableAdapter
     Friend WithEvents IDProjectMemberDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
@@ -633,4 +651,5 @@ Partial Class frmResourcesAdmin
     Friend WithEvents Label2 As Label
     Friend WithEvents texWeekTo As TextBox
     Friend WithEvents texWeekFrom As TextBox
+    Friend WithEvents texMessage As TextBox
 End Class
