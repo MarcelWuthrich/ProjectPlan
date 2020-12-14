@@ -282,6 +282,71 @@ Update Order Option
 Used to sort self-referenced table's rows
 </summary>
 </member>
+<member name="T:ProjectPlan.dsProjects">
+<summary>
+Represents a strongly typed in-memory cache of data.
+</summary>
+</member>
+<member name="T:ProjectPlan.dsProjects.projectsDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:ProjectPlan.dsProjects.projectsRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:ProjectPlan.dsProjects.projectsRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:ProjectPlan.dsProjectsTableAdapters.projectsTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:ProjectPlan.dsProjectsTableAdapters.TableAdapterManager">
+<summary>
+TableAdapterManager is used to coordinate TableAdapters in the dataset to enable Hierarchical Update scenarios
+</summary>
+</member>
+<member name="M:ProjectPlan.dsProjectsTableAdapters.TableAdapterManager.UpdateUpdatedRows(ProjectPlan.dsProjects,System.Collections.Generic.List{System.Data.DataRow},System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Update rows in top-down order.
+</summary>
+</member>
+<member name="M:ProjectPlan.dsProjectsTableAdapters.TableAdapterManager.UpdateInsertedRows(ProjectPlan.dsProjects,System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Insert rows in top-down order.
+</summary>
+</member>
+<member name="M:ProjectPlan.dsProjectsTableAdapters.TableAdapterManager.UpdateDeletedRows(ProjectPlan.dsProjects,System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Delete rows in bottom-up order.
+</summary>
+</member>
+<member name="M:ProjectPlan.dsProjectsTableAdapters.TableAdapterManager.GetRealUpdatedRows(System.Data.DataRow[],System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Remove inserted rows that become updated rows after calling TableAdapter.Update(inserted rows) first
+</summary>
+</member>
+<member name="M:ProjectPlan.dsProjectsTableAdapters.TableAdapterManager.UpdateAll(ProjectPlan.dsProjects)">
+<summary>
+Update all changes to the dataset.
+</summary>
+</member>
+<member name="T:ProjectPlan.dsProjectsTableAdapters.TableAdapterManager.UpdateOrderOption">
+<summary>
+Update Order Option
+</summary>
+</member>
+<member name="T:ProjectPlan.dsProjectsTableAdapters.TableAdapterManager.SelfReferenceComparer">
+<summary>
+Used to sort self-referenced table's rows
+</summary>
+</member>
 <member name="T:ProjectPlan.dsProjectsList">
 <summary>
 Represents a strongly typed in-memory cache of data.
