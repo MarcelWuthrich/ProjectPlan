@@ -42,9 +42,6 @@ Partial Class frmResourcesTable
         Me.labDateFrom = New System.Windows.Forms.Label()
         Me.dtpDateFrom = New System.Windows.Forms.DateTimePicker()
         Me.dgvPlanning = New System.Windows.Forms.DataGridView()
-        Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.dgvtest1 = New System.Windows.Forms.DataGridView()
         Me.grpManageResources.SuspendLayout()
         Me.grpResourcesPlan.SuspendLayout()
@@ -230,7 +227,6 @@ Partial Class frmResourcesTable
         Me.dgvPlanning.AllowUserToAddRows = False
         Me.dgvPlanning.AllowUserToDeleteRows = False
         Me.dgvPlanning.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgvPlanning.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column1, Me.Column2, Me.Column3})
         Me.dgvPlanning.Location = New System.Drawing.Point(12, 129)
         Me.dgvPlanning.Name = "dgvPlanning"
         Me.dgvPlanning.ReadOnly = True
@@ -238,24 +234,6 @@ Partial Class frmResourcesTable
         Me.dgvPlanning.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.dgvPlanning.Size = New System.Drawing.Size(1042, 405)
         Me.dgvPlanning.TabIndex = 31
-        '
-        'Column1
-        '
-        Me.Column1.HeaderText = "Column1"
-        Me.Column1.Name = "Column1"
-        Me.Column1.ReadOnly = True
-        '
-        'Column2
-        '
-        Me.Column2.HeaderText = "Column2"
-        Me.Column2.Name = "Column2"
-        Me.Column2.ReadOnly = True
-        '
-        'Column3
-        '
-        Me.Column3.HeaderText = "Column3"
-        Me.Column3.Name = "Column3"
-        Me.Column3.ReadOnly = True
         '
         'dgvtest1
         '
@@ -309,8 +287,5 @@ Partial Class frmResourcesTable
     Friend WithEvents labDateFrom As Label
     Friend WithEvents dtpDateFrom As DateTimePicker
     Friend WithEvents dgvPlanning As DataGridView
-    Friend WithEvents Column1 As DataGridViewTextBoxColumn
-    Friend WithEvents Column2 As DataGridViewTextBoxColumn
-    Friend WithEvents Column3 As DataGridViewTextBoxColumn
     Friend WithEvents dgvtest1 As DataGridView
 End Class
