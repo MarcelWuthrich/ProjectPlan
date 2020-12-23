@@ -9,7 +9,7 @@ Module GlobalProjectPlan
     Public ID_Customer As Integer = 0
     Public ID_ProjectManager As Integer = 0
     Public ID_ProjectMember As Integer = 0
-    Public DebugFlag As Boolean = True
+    Public DebugFlag As Boolean = False
     Public G_ID_ResourceAdmin As Integer = 0
     Public G_ID_ResourceProject As Integer = 0
     Public Logon As String = ""

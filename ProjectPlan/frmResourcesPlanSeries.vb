@@ -1,7 +1,12 @@
 ﻿Public Class frmResourcesPlanSeries
     Private Sub frmResourcesAdmin_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        'TODO: This line of code loads data into the 'DsProjects.projects' table. You can move, or remove it, as needed.
-        Me.ProjectsTableAdapter.Fill(Me.DsProjects.projects)
+
+        Try
+            'TODO: This line of code loads data into the 'DsProjects.projects' table. You can move, or remove it, as needed.
+            Me.ProjectsTableAdapter.Fill(Me.DsProjects.projects)
+        Catch ex As Exception
+            If DebugFlag = True Then MessageBox.Show(ex.ToString)
+        End Try
 
         Try
 
@@ -31,7 +36,7 @@
             Me.btcPlanFree.Visible = False
 
         Catch ex As Exception
-
+            If DebugFlag = True Then MessageBox.Show(ex.ToString)
         End Try
 
     End Sub
