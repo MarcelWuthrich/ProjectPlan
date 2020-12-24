@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class frmResourcesTable
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class frmResourcesTable
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmResourcesTable))
         Me.grpManageResources = New System.Windows.Forms.GroupBox()
@@ -42,12 +42,10 @@ Partial Class frmResourcesTable
         Me.labDateFrom = New System.Windows.Forms.Label()
         Me.dtpDateFrom = New System.Windows.Forms.DateTimePicker()
         Me.dgvPlanning = New System.Windows.Forms.DataGridView()
-        Me.dgvtest1 = New System.Windows.Forms.DataGridView()
         Me.grpManageResources.SuspendLayout()
         Me.grpResourcesPlan.SuspendLayout()
         Me.grpFilters.SuspendLayout()
         CType(Me.dgvPlanning, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.dgvtest1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'grpManageResources
@@ -226,29 +224,21 @@ Partial Class frmResourcesTable
         '
         Me.dgvPlanning.AllowUserToAddRows = False
         Me.dgvPlanning.AllowUserToDeleteRows = False
+        Me.dgvPlanning.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
         Me.dgvPlanning.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgvPlanning.Location = New System.Drawing.Point(12, 129)
+        Me.dgvPlanning.Location = New System.Drawing.Point(67, 122)
         Me.dgvPlanning.Name = "dgvPlanning"
         Me.dgvPlanning.ReadOnly = True
-        Me.dgvPlanning.RowHeadersVisible = False
+        Me.dgvPlanning.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders
         Me.dgvPlanning.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.dgvPlanning.Size = New System.Drawing.Size(1042, 405)
         Me.dgvPlanning.TabIndex = 31
-        '
-        'dgvtest1
-        '
-        Me.dgvtest1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgvtest1.Location = New System.Drawing.Point(235, 572)
-        Me.dgvtest1.Name = "dgvtest1"
-        Me.dgvtest1.Size = New System.Drawing.Size(240, 150)
-        Me.dgvtest1.TabIndex = 32
         '
         'frmResourcesTable
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1557, 896)
-        Me.Controls.Add(Me.dgvtest1)
         Me.Controls.Add(Me.dgvPlanning)
         Me.Controls.Add(Me.grpManageResources)
         Me.Controls.Add(Me.btcFermer)
@@ -263,7 +253,6 @@ Partial Class frmResourcesTable
         Me.grpFilters.ResumeLayout(False)
         Me.grpFilters.PerformLayout()
         CType(Me.dgvPlanning, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.dgvtest1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -287,5 +276,4 @@ Partial Class frmResourcesTable
     Friend WithEvents labDateFrom As Label
     Friend WithEvents dtpDateFrom As DateTimePicker
     Friend WithEvents dgvPlanning As DataGridView
-    Friend WithEvents dgvtest1 As DataGridView
 End Class
