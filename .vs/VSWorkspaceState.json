@@ -1,6 +1,9 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\ProjectPlan\\bin",
+    "\\ProjectPlan\\bin\\Debug"
   ],
+  "SelectedNode": "\\ProjectPlan",
   "PreviewInSolutionExplorer": true
 }

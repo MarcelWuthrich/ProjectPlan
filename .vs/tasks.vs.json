@@ -5,6 +5,11 @@
       "taskLabel": "task-ProjectPlan",
       "appliesTo": "ProjectPlan/",
       "type": "launch"
+    },
+    {
+      "taskLabel": "task-bin",
+      "appliesTo": "ProjectPlan/bin/",
+      "type": "launch"
     }
   ]
 }
