@@ -5,21 +5,56 @@
             Me.dtpDateFrom.Value = DateSerial(Year(Today), Month(Today), 1)
             Me.dtpDateTo.Value = DateSerial(Year(Today), Month(Today) + 1, 0)
 
-
-            pTestDisplay1()
-
-
-
+            Me.dgvPlanning.Columns.Clear()
+            Me.dgvPlanning.Rows.Clear()
 
             Dim thisDGV As DataGridView = Me.dgvPlanning
 
+            thisDGV.Columns.Add("Col1", "Header Col1")
 
-            'thisDGV.Rows.Add()
-            'thisDGV.Rows.Add()
-            'thisDGV.Rows.Add()
+            dgvPlanning.Rows.Add(10)
+            dgvPlanning.Rows.Add()
+            dgvPlanning.Rows.Add()
+
+            thisDGV.Rows(0).HeaderCell.Value = Format(Today, "D") & " " & "08h00"
+            thisDGV.Rows(1).HeaderCell.Value = Format(Today, "D") & " " & "09h00"
+            thisDGV.Rows(2).HeaderCell.Value = Format(Today, "D") & " " & "10h00"
+
+            'Dim StartHours() As Integer = {8, 9, 10, 11, 13, 14, 15, 16}
+
+            'Me.dgvPlanning.Columns.Clear()
+
+            'Dim col As New DataGridViewColumn
+
+            'Dim thisDay As Date = Today
+            'Dim MaxDay As Date = DateAdd(DateInterval.Day, 4, thisDay)
+
+            'While thisDay < MaxDay
+            '    For Each thisHour In StartHours
+            '        col = New DataGridViewColumn
+            '        col.HeaderText = Format(thisDay, "dd") & vbCrLf & Format(thisHour, "00") & "h00"
+            '        dgvPlanning.Columns.Add(col)
+            '    Next thisHour
+            '    thisDay = DateAdd(DateInterval.Day, 1, thisDay)
+            'End While
 
 
-            'Dim thisDGVTest1 As DataGridView = Me.dgvtest1
+            'Dim myRow As New DataGridViewRow
+            'Dim myID As Integer = dgvPlanning.Rows.Add()
+
+            'myRow = dgvPlanning.Rows(myID)
+            'myRow.Cells(0).Value = "valeur 0"
+            'myRow.Cells(1).Value = "valeur 1"
+
+
+            'Dim myRow As String() = {"1", "2", "3"}
+            'dgvPlanning.Rows.Add(myRow)
+
+
+
+
+
+            'Dim thisDGVTest1 As DataGridView = Me.dgvPlanning
 
             'thisDGV.Item(0, 0).Value = "0.0"
             'thisDGV.Item(0, 1).Value = "0.1"
@@ -41,48 +76,11 @@
         End Try
     End Sub
 
-    Public Sub pTestDisplay1()
-
+    Private Sub btcFermer_Click(sender As Object, e As EventArgs) Handles btcFermer.Click
         Try
-
-            Me.dgvPlanning.Rows.Clear()
-
-            Dim thisDay As Date = Today
-            Dim lastDay = DateAdd(DateInterval.Day, 7, thisDay)
-
-
-            While thisDay < lastDay
-                Debug.Print(thisDay)
-
-                Dim col As New DataGridViewTextBoxColumn
-                col.HeaderText = Format(thisDay, "d") & vbCrLf & "08h00"
-                dgvPlanning.Columns.Add(col)
-
-                col = New DataGridViewTextBoxColumn
-                col.HeaderText = Format(thisDay, "d") & vbCrLf & "09h00"
-                dgvPlanning.Columns.Add(col)
-
-                col = New DataGridViewTextBoxColumn
-                col.HeaderText = Format(thisDay, "d") & vbCrLf & "10h00"
-                dgvPlanning.Columns.Add(col)
-
-                col = New DataGridViewTextBoxColumn
-                col.HeaderText = Format(thisDay, "d") & vbCrLf & "11h00"
-                dgvPlanning.Columns.Add(col)
-
-                thisDay = DateAdd(DateInterval.Day, 1, thisDay)
-            End While
-
-            dgvPlanning.Rows.Add("test")
-            dgvPlanning.Rows.Add()
-            dgvPlanning.Rows.Add()
-
-            dgvPlanning.Rows(1).HeaderCell.Value = "test"
-
+            Me.Close()
         Catch ex As Exception
             If DebugFlag = True Then MessageBox.Show(ex.ToString)
         End Try
-
     End Sub
-
 End Class

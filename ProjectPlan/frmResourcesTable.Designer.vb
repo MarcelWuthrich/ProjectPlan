@@ -222,17 +222,23 @@ Partial Class frmResourcesTable
         '
         'dgvPlanning
         '
+        Me.dgvPlanning.AllowUserToAddRows = False
+        Me.dgvPlanning.AllowUserToDeleteRows = False
+        Me.dgvPlanning.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
         Me.dgvPlanning.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgvPlanning.Location = New System.Drawing.Point(12, 118)
+        Me.dgvPlanning.Location = New System.Drawing.Point(67, 122)
         Me.dgvPlanning.Name = "dgvPlanning"
-        Me.dgvPlanning.Size = New System.Drawing.Size(1050, 578)
+        Me.dgvPlanning.ReadOnly = True
+        Me.dgvPlanning.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders
+        Me.dgvPlanning.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.dgvPlanning.Size = New System.Drawing.Size(1042, 405)
         Me.dgvPlanning.TabIndex = 31
         '
         'frmResourcesTable
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1557, 766)
+        Me.ClientSize = New System.Drawing.Size(1557, 896)
         Me.Controls.Add(Me.dgvPlanning)
         Me.Controls.Add(Me.grpManageResources)
         Me.Controls.Add(Me.btcFermer)
