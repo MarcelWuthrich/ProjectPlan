@@ -6,12 +6,13 @@
             Me.dtpDateTo.Value = DateSerial(Year(Today), Month(Today) + 1, 0)
 
 
+            pTestDisplay1()
 
 
 
 
+            Dim thisDGV As DataGridView = Me.dgvPlanning
 
-            'Dim thisDGV As DataGridView = Me.dgvPlanning
 
             'thisDGV.Rows.Add()
             'thisDGV.Rows.Add()
@@ -39,4 +40,49 @@
             If DebugFlag = True Then MessageBox.Show(ex.ToString)
         End Try
     End Sub
+
+    Public Sub pTestDisplay1()
+
+        Try
+
+            Me.dgvPlanning.Rows.Clear()
+
+            Dim thisDay As Date = Today
+            Dim lastDay = DateAdd(DateInterval.Day, 7, thisDay)
+
+
+            While thisDay < lastDay
+                Debug.Print(thisDay)
+
+                Dim col As New DataGridViewTextBoxColumn
+                col.HeaderText = Format(thisDay, "d") & vbCrLf & "08h00"
+                dgvPlanning.Columns.Add(col)
+
+                col = New DataGridViewTextBoxColumn
+                col.HeaderText = Format(thisDay, "d") & vbCrLf & "09h00"
+                dgvPlanning.Columns.Add(col)
+
+                col = New DataGridViewTextBoxColumn
+                col.HeaderText = Format(thisDay, "d") & vbCrLf & "10h00"
+                dgvPlanning.Columns.Add(col)
+
+                col = New DataGridViewTextBoxColumn
+                col.HeaderText = Format(thisDay, "d") & vbCrLf & "11h00"
+                dgvPlanning.Columns.Add(col)
+
+                thisDay = DateAdd(DateInterval.Day, 1, thisDay)
+            End While
+
+            dgvPlanning.Rows.Add("test")
+            dgvPlanning.Rows.Add()
+            dgvPlanning.Rows.Add()
+
+            dgvPlanning.Rows(1).HeaderCell.Value = "test"
+
+        Catch ex As Exception
+            If DebugFlag = True Then MessageBox.Show(ex.ToString)
+        End Try
+
+    End Sub
+
 End Class
