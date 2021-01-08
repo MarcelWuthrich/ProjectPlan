@@ -582,13 +582,6 @@
         End Try
     End Sub
 
-    Private Sub pPlanDaily()
-        Try
-
-        Catch ex As Exception
-
-        End Try
-    End Sub
 
 
 End Class

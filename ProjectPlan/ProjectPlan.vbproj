@@ -218,6 +218,12 @@
     <Compile Include="frmTasks.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="frmTest.Designer.vb">
+      <DependentUpon>frmTest.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmTest.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="GlobalProjectPlan.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
@@ -253,6 +259,11 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>projectplanDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="projectplanDataSet11.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>projectplanDataSet11.xsd</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -303,6 +314,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmTasks.resx">
       <DependentUpon>frmTasks.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmTest.resx">
+      <DependentUpon>frmTest.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
@@ -431,6 +445,17 @@
     </None>
     <None Include="projectplanDataSet.xss">
       <DependentUpon>projectplanDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="projectplanDataSet11.xsc">
+      <DependentUpon>projectplanDataSet11.xsd</DependentUpon>
+    </None>
+    <None Include="projectplanDataSet11.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>projectplanDataSet11.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="projectplanDataSet11.xss">
+      <DependentUpon>projectplanDataSet11.xsd</DependentUpon>
     </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
