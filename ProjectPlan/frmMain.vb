@@ -195,4 +195,14 @@ Public Class frmMain
             If DebugFlag = True Then MessageBox.Show(ex.ToString)
         End Try
     End Sub
+
+    Private Sub PlanifierAdministratifToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles PlanifierAdministratifToolStripMenuItem.Click
+        Try
+            Dim myForm As Form = frmResourcesAdmin
+            myForm.MdiParent = Me
+            myForm.Show()
+        Catch ex As Exception
+            If DebugFlag = True Then MessageBox.Show(ex.ToString)
+        End Try
+    End Sub
 End Class

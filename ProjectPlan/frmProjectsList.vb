@@ -8,8 +8,6 @@ Public Class frmProjectsList
 
     Private Sub frmProjectsList_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
-
-
         Try
 
             'Polulate des statuts
@@ -313,6 +311,7 @@ Public Class frmProjectsList
             dgvProjets.Rows(dgvProjets.CurrentCell.RowIndex).Selected = True
             ID_Project_Current = dgvProjets.Rows(dgvProjets.CurrentRow.Index).Cells(0).Value
 
+
         Catch ex As Exception
             If DebugFlag = True Then MessageBox.Show(ex.ToString)
         End Try
@@ -321,7 +320,10 @@ Public Class frmProjectsList
 
     Private Sub pRefreshDisplay()
         Try
-            Me.VprojectlistTableAdapter.Fill(Me.DataSetVProjectList.vprojectlist)
+            Me.VprojectlistTableAdapter.Fill(Me.DsProjectsList.vprojectlist)
+            dgvProjets.Rows(0).Selected = True
+            ID_Project_Current = dgvProjets.Rows(dgvProjets.CurrentRow.Index).Cells(0).Value
+
             pFilterDGV()
         Catch ex As Exception
             If DebugFlag = True Then MessageBox.Show(ex.ToString)

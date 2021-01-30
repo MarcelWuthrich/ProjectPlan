@@ -93,6 +93,7 @@ Partial Class frmProjectManagers
         Me.dgvProjectsManagers.MultiSelect = False
         Me.dgvProjectsManagers.Name = "dgvProjectsManagers"
         Me.dgvProjectsManagers.ReadOnly = True
+        Me.dgvProjectsManagers.RowHeadersVisible = False
         Me.dgvProjectsManagers.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.dgvProjectsManagers.Size = New System.Drawing.Size(463, 266)
         Me.dgvProjectsManagers.TabIndex = 6

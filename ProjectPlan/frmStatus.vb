@@ -18,6 +18,7 @@
             'TODO: This line of code loads data into the 'DsStatus.vstatus' table. You can move, or remove it, as needed.
             Me.VstatusTableAdapter.Fill(Me.DsStatus.vstatus)
             Me.dgvStatus.Rows(0).Selected = True
+            ID_Status_Current = dgvStatus.Rows(dgvStatus.CurrentRow.Index).Cells(0).Value
 
         Catch ex As Exception
             If DebugFlag = True Then MessageBox.Show(ex.ToString)

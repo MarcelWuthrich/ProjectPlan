@@ -97,6 +97,7 @@ Partial Class frmMain
         Me.StatusStrip = New System.Windows.Forms.StatusStrip()
         Me.ToolStripStatusLabel = New System.Windows.Forms.ToolStripStatusLabel()
         Me.ToolTip = New System.Windows.Forms.ToolTip(Me.components)
+        Me.PlanifierAdministratifToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip.SuspendLayout()
         Me.ToolStrip.SuspendLayout()
         Me.StatusStrip.SuspendLayout()
@@ -276,19 +277,19 @@ Partial Class frmMain
         'mniDataCustomer
         '
         Me.mniDataCustomer.Name = "mniDataCustomer"
-        Me.mniDataCustomer.Size = New System.Drawing.Size(180, 22)
+        Me.mniDataCustomer.Size = New System.Drawing.Size(173, 22)
         Me.mniDataCustomer.Text = "Commanditaires"
         '
         'mniDataStatus
         '
         Me.mniDataStatus.Name = "mniDataStatus"
-        Me.mniDataStatus.Size = New System.Drawing.Size(180, 22)
+        Me.mniDataStatus.Size = New System.Drawing.Size(173, 22)
         Me.mniDataStatus.Text = "Statuts"
         '
         'mniDataActivityDomain
         '
         Me.mniDataActivityDomain.Name = "mniDataActivityDomain"
-        Me.mniDataActivityDomain.Size = New System.Drawing.Size(180, 22)
+        Me.mniDataActivityDomain.Size = New System.Drawing.Size(173, 22)
         Me.mniDataActivityDomain.Text = "Domaine d'activité"
         '
         'mniProjet
@@ -318,7 +319,7 @@ Partial Class frmMain
         '
         'mniResource
         '
-        Me.mniResource.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.mniResourcePlaning, Me.mniResourceVisualization, Me.mniResourcePlaned, Me.mniResourceValidate})
+        Me.mniResource.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.PlanifierAdministratifToolStripMenuItem, Me.mniResourcePlaning, Me.mniResourceVisualization, Me.mniResourcePlaned, Me.mniResourceValidate})
         Me.mniResource.Name = "mniResource"
         Me.mniResource.Size = New System.Drawing.Size(77, 23)
         Me.mniResource.Text = "Ressources"
@@ -326,25 +327,25 @@ Partial Class frmMain
         'mniResourcePlaning
         '
         Me.mniResourcePlaning.Name = "mniResourcePlaning"
-        Me.mniResourcePlaning.Size = New System.Drawing.Size(185, 22)
+        Me.mniResourcePlaning.Size = New System.Drawing.Size(187, 22)
         Me.mniResourcePlaning.Text = "Planification"
         '
         'mniResourceVisualization
         '
         Me.mniResourceVisualization.Name = "mniResourceVisualization"
-        Me.mniResourceVisualization.Size = New System.Drawing.Size(185, 22)
+        Me.mniResourceVisualization.Size = New System.Drawing.Size(187, 22)
         Me.mniResourceVisualization.Text = "Visualisation"
         '
         'mniResourcePlaned
         '
         Me.mniResourcePlaned.Name = "mniResourcePlaned"
-        Me.mniResourcePlaned.Size = New System.Drawing.Size(185, 22)
+        Me.mniResourcePlaned.Size = New System.Drawing.Size(187, 22)
         Me.mniResourcePlaned.Text = "Ressources planifiées"
         '
         'mniResourceValidate
         '
         Me.mniResourceValidate.Name = "mniResourceValidate"
-        Me.mniResourceValidate.Size = New System.Drawing.Size(185, 22)
+        Me.mniResourceValidate.Size = New System.Drawing.Size(187, 22)
         Me.mniResourceValidate.Text = "Validation"
         '
         'mniReporting
@@ -601,6 +602,12 @@ Partial Class frmMain
         Me.ToolStripStatusLabel.Size = New System.Drawing.Size(27, 17)
         Me.ToolStripStatusLabel.Text = "État"
         '
+        'PlanifierAdministratifToolStripMenuItem
+        '
+        Me.PlanifierAdministratifToolStripMenuItem.Name = "PlanifierAdministratifToolStripMenuItem"
+        Me.PlanifierAdministratifToolStripMenuItem.Size = New System.Drawing.Size(187, 22)
+        Me.PlanifierAdministratifToolStripMenuItem.Text = "Planifier administratif"
+        '
         'frmMain
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -697,4 +704,5 @@ Partial Class frmMain
     Friend WithEvents mniReportingDashboard As ToolStripMenuItem
     Friend WithEvents mniReportingProjectStatistic As ToolStripMenuItem
     Friend WithEvents mniReportingPersonStatistic As ToolStripMenuItem
+    Friend WithEvents PlanifierAdministratifToolStripMenuItem As ToolStripMenuItem
 End Class

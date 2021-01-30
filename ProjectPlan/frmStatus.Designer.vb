@@ -92,6 +92,7 @@ Partial Class frmStatus
         Me.dgvStatus.Location = New System.Drawing.Point(23, 22)
         Me.dgvStatus.Name = "dgvStatus"
         Me.dgvStatus.ReadOnly = True
+        Me.dgvStatus.RowHeadersVisible = False
         Me.dgvStatus.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.dgvStatus.Size = New System.Drawing.Size(463, 266)
         Me.dgvStatus.TabIndex = 6

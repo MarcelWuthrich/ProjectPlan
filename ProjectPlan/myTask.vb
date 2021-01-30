@@ -214,12 +214,13 @@ Public Class myTask
             End If
 
 
-            Return Me
-
 
         Catch ex As Exception
             If DebugFlag = True Then MessageBox.Show(ex.ToString)
         End Try
+
+        Return Me
+
     End Function
 
 

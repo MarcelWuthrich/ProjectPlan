@@ -55,6 +55,7 @@ Partial Class frmProjectMembers
         Me.dgvProjectsMembers.Location = New System.Drawing.Point(12, 35)
         Me.dgvProjectsMembers.Name = "dgvProjectsMembers"
         Me.dgvProjectsMembers.ReadOnly = True
+        Me.dgvProjectsMembers.RowHeadersVisible = False
         Me.dgvProjectsMembers.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.dgvProjectsMembers.Size = New System.Drawing.Size(463, 266)
         Me.dgvProjectsMembers.TabIndex = 0

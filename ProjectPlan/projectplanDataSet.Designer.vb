@@ -25,7 +25,7 @@ Option Explicit On
 Partial Public Class projectplanDataSet
     Inherits Global.System.Data.DataSet
     
-    Private tablevprojectlist As vprojectlistDataTable
+    Private tablevprojectmembers As vprojectmembersDataTable
     
     Private _schemaSerializationMode As Global.System.Data.SchemaSerializationMode = Global.System.Data.SchemaSerializationMode.IncludeSchema
     
@@ -56,8 +56,8 @@ Partial Public Class projectplanDataSet
         If (Me.DetermineSchemaSerializationMode(info, context) = Global.System.Data.SchemaSerializationMode.IncludeSchema) Then
             Dim ds As Global.System.Data.DataSet = New Global.System.Data.DataSet()
             ds.ReadXmlSchema(New Global.System.Xml.XmlTextReader(New Global.System.IO.StringReader(strSchema)))
-            If (Not (ds.Tables("vprojectlist")) Is Nothing) Then
-                MyBase.Tables.Add(New vprojectlistDataTable(ds.Tables("vprojectlist")))
+            If (Not (ds.Tables("vprojectmembers")) Is Nothing) Then
+                MyBase.Tables.Add(New vprojectmembersDataTable(ds.Tables("vprojectmembers")))
             End If
             Me.DataSetName = ds.DataSetName
             Me.Prefix = ds.Prefix
@@ -80,9 +80,9 @@ Partial Public Class projectplanDataSet
      Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
      Global.System.ComponentModel.Browsable(false),  _
      Global.System.ComponentModel.DesignerSerializationVisibility(Global.System.ComponentModel.DesignerSerializationVisibility.Content)>  _
-    Public ReadOnly Property vprojectlist() As vprojectlistDataTable
+    Public ReadOnly Property vprojectmembers() As vprojectmembersDataTable
         Get
-            Return Me.tablevprojectlist
+            Return Me.tablevprojectmembers
         End Get
     End Property
     
@@ -153,8 +153,8 @@ Partial Public Class projectplanDataSet
             Me.Reset
             Dim ds As Global.System.Data.DataSet = New Global.System.Data.DataSet()
             ds.ReadXml(reader)
-            If (Not (ds.Tables("vprojectlist")) Is Nothing) Then
-                MyBase.Tables.Add(New vprojectlistDataTable(ds.Tables("vprojectlist")))
+            If (Not (ds.Tables("vprojectmembers")) Is Nothing) Then
+                MyBase.Tables.Add(New vprojectmembersDataTable(ds.Tables("vprojectmembers")))
             End If
             Me.DataSetName = ds.DataSetName
             Me.Prefix = ds.Prefix
@@ -188,10 +188,10 @@ Partial Public Class projectplanDataSet
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
      Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
     Friend Overloads Sub InitVars(ByVal initTable As Boolean)
-        Me.tablevprojectlist = CType(MyBase.Tables("vprojectlist"),vprojectlistDataTable)
+        Me.tablevprojectmembers = CType(MyBase.Tables("vprojectmembers"),vprojectmembersDataTable)
         If (initTable = true) Then
-            If (Not (Me.tablevprojectlist) Is Nothing) Then
-                Me.tablevprojectlist.InitVars
+            If (Not (Me.tablevprojectmembers) Is Nothing) Then
+                Me.tablevprojectmembers.InitVars
             End If
         End If
     End Sub
@@ -204,13 +204,13 @@ Partial Public Class projectplanDataSet
         Me.Namespace = "http://tempuri.org/projectplanDataSet.xsd"
         Me.EnforceConstraints = true
         Me.SchemaSerializationMode = Global.System.Data.SchemaSerializationMode.IncludeSchema
-        Me.tablevprojectlist = New vprojectlistDataTable()
-        MyBase.Tables.Add(Me.tablevprojectlist)
+        Me.tablevprojectmembers = New vprojectmembersDataTable()
+        MyBase.Tables.Add(Me.tablevprojectmembers)
     End Sub
     
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
      Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-    Private Function ShouldSerializevprojectlist() As Boolean
+    Private Function ShouldSerializevprojectmembers() As Boolean
         Return false
     End Function
     
@@ -273,71 +273,33 @@ Partial Public Class projectplanDataSet
     End Function
     
     <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-    Public Delegate Sub vprojectlistRowChangeEventHandler(ByVal sender As Object, ByVal e As vprojectlistRowChangeEvent)
+    Public Delegate Sub vprojectmembersRowChangeEventHandler(ByVal sender As Object, ByVal e As vprojectmembersRowChangeEvent)
     
     '''<summary>
     '''Represents the strongly named DataTable class.
     '''</summary>
     <Global.System.Serializable(),  _
      Global.System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")>  _
-    Partial Public Class vprojectlistDataTable
-        Inherits Global.System.Data.TypedTableBase(Of vprojectlistRow)
+    Partial Public Class vprojectmembersDataTable
+        Inherits Global.System.Data.TypedTableBase(Of vprojectmembersRow)
         
-        Private columnID_Project As Global.System.Data.DataColumn
+        Private columnID_ProjectMember As Global.System.Data.DataColumn
         
-        Private columnCE_ID_Status As Global.System.Data.DataColumn
+        Private columnCE_ID_Task As Global.System.Data.DataColumn
         
-        Private columnCE_ID_ProjectManager As Global.System.Data.DataColumn
-        
-        Private columnCE_ID_Priority As Global.System.Data.DataColumn
-        
-        Private columnCE_ID_Category As Global.System.Data.DataColumn
-        
-        Private columnCE_ID_Customer As Global.System.Data.DataColumn
-        
-        Private columnCE_ID_Urgency As Global.System.Data.DataColumn
-        
-        Private columnTitle As Global.System.Data.DataColumn
-        
-        Private columnDescription As Global.System.Data.DataColumn
-        
-        Private columnBeginDate As Global.System.Data.DataColumn
-        
-        Private columnDeadline As Global.System.Data.DataColumn
-        
-        Private columnEstimatedResources As Global.System.Data.DataColumn
-        
-        Private columnImplementationRate As Global.System.Data.DataColumn
-        
-        Private columnStatus As Global.System.Data.DataColumn
-        
-        Private columnEstimatedResources1 As Global.System.Data.DataColumn
-        
-        Private columnEffectiveResources As Global.System.Data.DataColumn
-        
-        Private columnUrgency As Global.System.Data.DataColumn
-        
-        Private columnCategory As Global.System.Data.DataColumn
-        
-        Private columnPriority As Global.System.Data.DataColumn
+        Private columnTask As Global.System.Data.DataColumn
         
         Private columnFirstName As Global.System.Data.DataColumn
         
         Private columnLastName As Global.System.Data.DataColumn
         
-        Private columnManagerFirstName As Global.System.Data.DataColumn
-        
-        Private columnManagerLastName As Global.System.Data.DataColumn
-        
-        Private columnCustomerFirstName As Global.System.Data.DataColumn
-        
-        Private columnCustomerLastName As Global.System.Data.DataColumn
+        Private columnEnable As Global.System.Data.DataColumn
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Sub New()
             MyBase.New
-            Me.TableName = "vprojectlist"
+            Me.TableName = "vprojectmembers"
             Me.BeginInit
             Me.InitClass
             Me.EndInit
@@ -370,153 +332,25 @@ Partial Public Class projectplanDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public ReadOnly Property ID_ProjectColumn() As Global.System.Data.DataColumn
+        Public ReadOnly Property ID_ProjectMemberColumn() As Global.System.Data.DataColumn
             Get
-                Return Me.columnID_Project
+                Return Me.columnID_ProjectMember
             End Get
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public ReadOnly Property CE_ID_StatusColumn() As Global.System.Data.DataColumn
+        Public ReadOnly Property CE_ID_TaskColumn() As Global.System.Data.DataColumn
             Get
-                Return Me.columnCE_ID_Status
+                Return Me.columnCE_ID_Task
             End Get
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public ReadOnly Property CE_ID_ProjectManagerColumn() As Global.System.Data.DataColumn
+        Public ReadOnly Property TaskColumn() As Global.System.Data.DataColumn
             Get
-                Return Me.columnCE_ID_ProjectManager
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public ReadOnly Property CE_ID_PriorityColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnCE_ID_Priority
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public ReadOnly Property CE_ID_CategoryColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnCE_ID_Category
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public ReadOnly Property CE_ID_CustomerColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnCE_ID_Customer
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public ReadOnly Property CE_ID_UrgencyColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnCE_ID_Urgency
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public ReadOnly Property TitleColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnTitle
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public ReadOnly Property DescriptionColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnDescription
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public ReadOnly Property BeginDateColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnBeginDate
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public ReadOnly Property DeadlineColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnDeadline
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public ReadOnly Property EstimatedResourcesColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnEstimatedResources
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public ReadOnly Property ImplementationRateColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnImplementationRate
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public ReadOnly Property StatusColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnStatus
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public ReadOnly Property EstimatedResources1Column() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnEstimatedResources1
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public ReadOnly Property EffectiveResourcesColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnEffectiveResources
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public ReadOnly Property UrgencyColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnUrgency
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public ReadOnly Property CategoryColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnCategory
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public ReadOnly Property PriorityColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnPriority
+                Return Me.columnTask
             End Get
         End Property
         
@@ -538,33 +372,9 @@ Partial Public Class projectplanDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public ReadOnly Property ManagerFirstNameColumn() As Global.System.Data.DataColumn
+        Public ReadOnly Property EnableColumn() As Global.System.Data.DataColumn
             Get
-                Return Me.columnManagerFirstName
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public ReadOnly Property ManagerLastNameColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnManagerLastName
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public ReadOnly Property CustomerFirstNameColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnCustomerFirstName
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public ReadOnly Property CustomerLastNameColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnCustomerLastName
+                Return Me.columnEnable
             End Get
         End Property
         
@@ -579,69 +389,44 @@ Partial Public Class projectplanDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Default ReadOnly Property Item(ByVal index As Integer) As vprojectlistRow
+        Public Default ReadOnly Property Item(ByVal index As Integer) As vprojectmembersRow
             Get
-                Return CType(Me.Rows(index),vprojectlistRow)
+                Return CType(Me.Rows(index),vprojectmembersRow)
             End Get
         End Property
         
         <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Event vprojectlistRowChanging As vprojectlistRowChangeEventHandler
+        Public Event vprojectmembersRowChanging As vprojectmembersRowChangeEventHandler
         
         <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Event vprojectlistRowChanged As vprojectlistRowChangeEventHandler
+        Public Event vprojectmembersRowChanged As vprojectmembersRowChangeEventHandler
         
         <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Event vprojectlistRowDeleting As vprojectlistRowChangeEventHandler
+        Public Event vprojectmembersRowDeleting As vprojectmembersRowChangeEventHandler
         
         <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Event vprojectlistRowDeleted As vprojectlistRowChangeEventHandler
+        Public Event vprojectmembersRowDeleted As vprojectmembersRowChangeEventHandler
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Overloads Sub AddvprojectlistRow(ByVal row As vprojectlistRow)
+        Public Overloads Sub AddvprojectmembersRow(ByVal row As vprojectmembersRow)
             Me.Rows.Add(row)
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Overloads Function AddvprojectlistRow( _
-                    ByVal ID_Project As Integer,  _
-                    ByVal CE_ID_Status As Integer,  _
-                    ByVal CE_ID_ProjectManager As Integer,  _
-                    ByVal CE_ID_Priority As Integer,  _
-                    ByVal CE_ID_Category As Integer,  _
-                    ByVal CE_ID_Customer As Integer,  _
-                    ByVal CE_ID_Urgency As Integer,  _
-                    ByVal Title As String,  _
-                    ByVal Description As String,  _
-                    ByVal BeginDate As Date,  _
-                    ByVal Deadline As Date,  _
-                    ByVal EstimatedResources As Integer,  _
-                    ByVal ImplementationRate As Decimal,  _
-                    ByVal Status As String,  _
-                    ByVal EstimatedResources1 As Decimal,  _
-                    ByVal EffectiveResources As Decimal,  _
-                    ByVal Urgency As String,  _
-                    ByVal Category As String,  _
-                    ByVal Priority As String,  _
-                    ByVal FirstName As String,  _
-                    ByVal LastName As String,  _
-                    ByVal ManagerFirstName As String,  _
-                    ByVal ManagerLastName As String,  _
-                    ByVal CustomerFirstName As String,  _
-                    ByVal CustomerLastName As String) As vprojectlistRow
-            Dim rowvprojectlistRow As vprojectlistRow = CType(Me.NewRow,vprojectlistRow)
-            Dim columnValuesArray() As Object = New Object() {ID_Project, CE_ID_Status, CE_ID_ProjectManager, CE_ID_Priority, CE_ID_Category, CE_ID_Customer, CE_ID_Urgency, Title, Description, BeginDate, Deadline, EstimatedResources, ImplementationRate, Status, EstimatedResources1, EffectiveResources, Urgency, Category, Priority, FirstName, LastName, ManagerFirstName, ManagerLastName, CustomerFirstName, CustomerLastName}
-            rowvprojectlistRow.ItemArray = columnValuesArray
-            Me.Rows.Add(rowvprojectlistRow)
-            Return rowvprojectlistRow
+        Public Overloads Function AddvprojectmembersRow(ByVal ID_ProjectMember As Integer, ByVal CE_ID_Task As Integer, ByVal Task As String, ByVal FirstName As String, ByVal LastName As String, ByVal Enable As ULong) As vprojectmembersRow
+            Dim rowvprojectmembersRow As vprojectmembersRow = CType(Me.NewRow,vprojectmembersRow)
+            Dim columnValuesArray() As Object = New Object() {ID_ProjectMember, CE_ID_Task, Task, FirstName, LastName, Enable}
+            rowvprojectmembersRow.ItemArray = columnValuesArray
+            Me.Rows.Add(rowvprojectmembersRow)
+            Return rowvprojectmembersRow
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Overrides Function Clone() As Global.System.Data.DataTable
-            Dim cln As vprojectlistDataTable = CType(MyBase.Clone,vprojectlistDataTable)
+            Dim cln As vprojectmembersDataTable = CType(MyBase.Clone,vprojectmembersDataTable)
             cln.InitVars
             Return cln
         End Function
@@ -649,132 +434,65 @@ Partial Public Class projectplanDataSet
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Protected Overrides Function CreateInstance() As Global.System.Data.DataTable
-            Return New vprojectlistDataTable()
+            Return New vprojectmembersDataTable()
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Friend Sub InitVars()
-            Me.columnID_Project = MyBase.Columns("ID_Project")
-            Me.columnCE_ID_Status = MyBase.Columns("CE_ID_Status")
-            Me.columnCE_ID_ProjectManager = MyBase.Columns("CE_ID_ProjectManager")
-            Me.columnCE_ID_Priority = MyBase.Columns("CE_ID_Priority")
-            Me.columnCE_ID_Category = MyBase.Columns("CE_ID_Category")
-            Me.columnCE_ID_Customer = MyBase.Columns("CE_ID_Customer")
-            Me.columnCE_ID_Urgency = MyBase.Columns("CE_ID_Urgency")
-            Me.columnTitle = MyBase.Columns("Title")
-            Me.columnDescription = MyBase.Columns("Description")
-            Me.columnBeginDate = MyBase.Columns("BeginDate")
-            Me.columnDeadline = MyBase.Columns("Deadline")
-            Me.columnEstimatedResources = MyBase.Columns("EstimatedResources")
-            Me.columnImplementationRate = MyBase.Columns("ImplementationRate")
-            Me.columnStatus = MyBase.Columns("Status")
-            Me.columnEstimatedResources1 = MyBase.Columns("EstimatedResources1")
-            Me.columnEffectiveResources = MyBase.Columns("EffectiveResources")
-            Me.columnUrgency = MyBase.Columns("Urgency")
-            Me.columnCategory = MyBase.Columns("Category")
-            Me.columnPriority = MyBase.Columns("Priority")
+            Me.columnID_ProjectMember = MyBase.Columns("ID_ProjectMember")
+            Me.columnCE_ID_Task = MyBase.Columns("CE_ID_Task")
+            Me.columnTask = MyBase.Columns("Task")
             Me.columnFirstName = MyBase.Columns("FirstName")
             Me.columnLastName = MyBase.Columns("LastName")
-            Me.columnManagerFirstName = MyBase.Columns("ManagerFirstName")
-            Me.columnManagerLastName = MyBase.Columns("ManagerLastName")
-            Me.columnCustomerFirstName = MyBase.Columns("CustomerFirstName")
-            Me.columnCustomerLastName = MyBase.Columns("CustomerLastName")
+            Me.columnEnable = MyBase.Columns("Enable")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Private Sub InitClass()
-            Me.columnID_Project = New Global.System.Data.DataColumn("ID_Project", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnID_Project)
-            Me.columnCE_ID_Status = New Global.System.Data.DataColumn("CE_ID_Status", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnCE_ID_Status)
-            Me.columnCE_ID_ProjectManager = New Global.System.Data.DataColumn("CE_ID_ProjectManager", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnCE_ID_ProjectManager)
-            Me.columnCE_ID_Priority = New Global.System.Data.DataColumn("CE_ID_Priority", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnCE_ID_Priority)
-            Me.columnCE_ID_Category = New Global.System.Data.DataColumn("CE_ID_Category", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnCE_ID_Category)
-            Me.columnCE_ID_Customer = New Global.System.Data.DataColumn("CE_ID_Customer", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnCE_ID_Customer)
-            Me.columnCE_ID_Urgency = New Global.System.Data.DataColumn("CE_ID_Urgency", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnCE_ID_Urgency)
-            Me.columnTitle = New Global.System.Data.DataColumn("Title", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnTitle)
-            Me.columnDescription = New Global.System.Data.DataColumn("Description", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnDescription)
-            Me.columnBeginDate = New Global.System.Data.DataColumn("BeginDate", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnBeginDate)
-            Me.columnDeadline = New Global.System.Data.DataColumn("Deadline", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnDeadline)
-            Me.columnEstimatedResources = New Global.System.Data.DataColumn("EstimatedResources", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnEstimatedResources)
-            Me.columnImplementationRate = New Global.System.Data.DataColumn("ImplementationRate", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnImplementationRate)
-            Me.columnStatus = New Global.System.Data.DataColumn("Status", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnStatus)
-            Me.columnEstimatedResources1 = New Global.System.Data.DataColumn("EstimatedResources1", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnEstimatedResources1)
-            Me.columnEffectiveResources = New Global.System.Data.DataColumn("EffectiveResources", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnEffectiveResources)
-            Me.columnUrgency = New Global.System.Data.DataColumn("Urgency", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnUrgency)
-            Me.columnCategory = New Global.System.Data.DataColumn("Category", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnCategory)
-            Me.columnPriority = New Global.System.Data.DataColumn("Priority", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnPriority)
+            Me.columnID_ProjectMember = New Global.System.Data.DataColumn("ID_ProjectMember", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnID_ProjectMember)
+            Me.columnCE_ID_Task = New Global.System.Data.DataColumn("CE_ID_Task", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnCE_ID_Task)
+            Me.columnTask = New Global.System.Data.DataColumn("Task", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnTask)
             Me.columnFirstName = New Global.System.Data.DataColumn("FirstName", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnFirstName)
             Me.columnLastName = New Global.System.Data.DataColumn("LastName", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnLastName)
-            Me.columnManagerFirstName = New Global.System.Data.DataColumn("ManagerFirstName", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnManagerFirstName)
-            Me.columnManagerLastName = New Global.System.Data.DataColumn("ManagerLastName", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnManagerLastName)
-            Me.columnCustomerFirstName = New Global.System.Data.DataColumn("CustomerFirstName", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnCustomerFirstName)
-            Me.columnCustomerLastName = New Global.System.Data.DataColumn("CustomerLastName", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnCustomerLastName)
-            Me.columnID_Project.AllowDBNull = false
-            Me.columnTitle.MaxLength = 65535
-            Me.columnDescription.MaxLength = 65535
-            Me.columnStatus.MaxLength = 65535
-            Me.columnEstimatedResources1.Caption = "EstimatedResources"
-            Me.columnUrgency.MaxLength = 65535
-            Me.columnCategory.MaxLength = 65535
-            Me.columnPriority.MaxLength = 65535
+            Me.columnEnable = New Global.System.Data.DataColumn("Enable", GetType(ULong), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnEnable)
+            Me.columnID_ProjectMember.AllowDBNull = false
+            Me.columnTask.MaxLength = 100
             Me.columnFirstName.MaxLength = 65535
             Me.columnLastName.MaxLength = 65535
-            Me.columnManagerFirstName.MaxLength = 65535
-            Me.columnManagerLastName.MaxLength = 65535
-            Me.columnCustomerFirstName.MaxLength = 65535
-            Me.columnCustomerLastName.MaxLength = 65535
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Function NewvprojectlistRow() As vprojectlistRow
-            Return CType(Me.NewRow,vprojectlistRow)
+        Public Function NewvprojectmembersRow() As vprojectmembersRow
+            Return CType(Me.NewRow,vprojectmembersRow)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Protected Overrides Function NewRowFromBuilder(ByVal builder As Global.System.Data.DataRowBuilder) As Global.System.Data.DataRow
-            Return New vprojectlistRow(builder)
+            Return New vprojectmembersRow(builder)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Protected Overrides Function GetRowType() As Global.System.Type
-            Return GetType(vprojectlistRow)
+            Return GetType(vprojectmembersRow)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Protected Overrides Sub OnRowChanged(ByVal e As Global.System.Data.DataRowChangeEventArgs)
             MyBase.OnRowChanged(e)
-            If (Not (Me.vprojectlistRowChangedEvent) Is Nothing) Then
-                RaiseEvent vprojectlistRowChanged(Me, New vprojectlistRowChangeEvent(CType(e.Row,vprojectlistRow), e.Action))
+            If (Not (Me.vprojectmembersRowChangedEvent) Is Nothing) Then
+                RaiseEvent vprojectmembersRowChanged(Me, New vprojectmembersRowChangeEvent(CType(e.Row,vprojectmembersRow), e.Action))
             End If
         End Sub
         
@@ -782,8 +500,8 @@ Partial Public Class projectplanDataSet
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Protected Overrides Sub OnRowChanging(ByVal e As Global.System.Data.DataRowChangeEventArgs)
             MyBase.OnRowChanging(e)
-            If (Not (Me.vprojectlistRowChangingEvent) Is Nothing) Then
-                RaiseEvent vprojectlistRowChanging(Me, New vprojectlistRowChangeEvent(CType(e.Row,vprojectlistRow), e.Action))
+            If (Not (Me.vprojectmembersRowChangingEvent) Is Nothing) Then
+                RaiseEvent vprojectmembersRowChanging(Me, New vprojectmembersRowChangeEvent(CType(e.Row,vprojectmembersRow), e.Action))
             End If
         End Sub
         
@@ -791,8 +509,8 @@ Partial Public Class projectplanDataSet
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Protected Overrides Sub OnRowDeleted(ByVal e As Global.System.Data.DataRowChangeEventArgs)
             MyBase.OnRowDeleted(e)
-            If (Not (Me.vprojectlistRowDeletedEvent) Is Nothing) Then
-                RaiseEvent vprojectlistRowDeleted(Me, New vprojectlistRowChangeEvent(CType(e.Row,vprojectlistRow), e.Action))
+            If (Not (Me.vprojectmembersRowDeletedEvent) Is Nothing) Then
+                RaiseEvent vprojectmembersRowDeleted(Me, New vprojectmembersRowChangeEvent(CType(e.Row,vprojectmembersRow), e.Action))
             End If
         End Sub
         
@@ -800,14 +518,14 @@ Partial Public Class projectplanDataSet
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Protected Overrides Sub OnRowDeleting(ByVal e As Global.System.Data.DataRowChangeEventArgs)
             MyBase.OnRowDeleting(e)
-            If (Not (Me.vprojectlistRowDeletingEvent) Is Nothing) Then
-                RaiseEvent vprojectlistRowDeleting(Me, New vprojectlistRowChangeEvent(CType(e.Row,vprojectlistRow), e.Action))
+            If (Not (Me.vprojectmembersRowDeletingEvent) Is Nothing) Then
+                RaiseEvent vprojectmembersRowDeleting(Me, New vprojectmembersRowChangeEvent(CType(e.Row,vprojectmembersRow), e.Action))
             End If
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Sub RemovevprojectlistRow(ByVal row As vprojectlistRow)
+        Public Sub RemovevprojectmembersRow(ByVal row As vprojectmembersRow)
             Me.Rows.Remove(row)
         End Sub
         
@@ -834,7 +552,7 @@ Partial Public Class projectplanDataSet
             type.Attributes.Add(attribute1)
             Dim attribute2 As Global.System.Xml.Schema.XmlSchemaAttribute = New Global.System.Xml.Schema.XmlSchemaAttribute()
             attribute2.Name = "tableTypeName"
-            attribute2.FixedValue = "vprojectlistDataTable"
+            attribute2.FixedValue = "vprojectmembersDataTable"
             type.Attributes.Add(attribute2)
             type.Particle = sequence
             Dim dsSchema As Global.System.Xml.Schema.XmlSchema = ds.GetSchemaSerializable
@@ -881,296 +599,56 @@ Partial Public Class projectplanDataSet
     '''<summary>
     '''Represents strongly named DataRow class.
     '''</summary>
-    Partial Public Class vprojectlistRow
+    Partial Public Class vprojectmembersRow
         Inherits Global.System.Data.DataRow
         
-        Private tablevprojectlist As vprojectlistDataTable
+        Private tablevprojectmembers As vprojectmembersDataTable
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Friend Sub New(ByVal rb As Global.System.Data.DataRowBuilder)
             MyBase.New(rb)
-            Me.tablevprojectlist = CType(Me.Table,vprojectlistDataTable)
+            Me.tablevprojectmembers = CType(Me.Table,vprojectmembersDataTable)
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Property ID_Project() As Integer
+        Public Property ID_ProjectMember() As Integer
             Get
-                Return CType(Me(Me.tablevprojectlist.ID_ProjectColumn),Integer)
+                Return CType(Me(Me.tablevprojectmembers.ID_ProjectMemberColumn),Integer)
             End Get
             Set
-                Me(Me.tablevprojectlist.ID_ProjectColumn) = value
+                Me(Me.tablevprojectmembers.ID_ProjectMemberColumn) = value
             End Set
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Property CE_ID_Status() As Integer
+        Public Property CE_ID_Task() As Integer
             Get
                 Try 
-                    Return CType(Me(Me.tablevprojectlist.CE_ID_StatusColumn),Integer)
+                    Return CType(Me(Me.tablevprojectmembers.CE_ID_TaskColumn),Integer)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'CE_ID_Status' in table 'vprojectlist' is DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'CE_ID_Task' in table 'vprojectmembers' is DBNull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tablevprojectlist.CE_ID_StatusColumn) = value
+                Me(Me.tablevprojectmembers.CE_ID_TaskColumn) = value
             End Set
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Property CE_ID_ProjectManager() As Integer
+        Public Property Task() As String
             Get
                 Try 
-                    Return CType(Me(Me.tablevprojectlist.CE_ID_ProjectManagerColumn),Integer)
+                    Return CType(Me(Me.tablevprojectmembers.TaskColumn),String)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'CE_ID_ProjectManager' in table 'vprojectlist' is DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'Task' in table 'vprojectmembers' is DBNull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tablevprojectlist.CE_ID_ProjectManagerColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Property CE_ID_Priority() As Integer
-            Get
-                Try 
-                    Return CType(Me(Me.tablevprojectlist.CE_ID_PriorityColumn),Integer)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'CE_ID_Priority' in table 'vprojectlist' is DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tablevprojectlist.CE_ID_PriorityColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Property CE_ID_Category() As Integer
-            Get
-                Try 
-                    Return CType(Me(Me.tablevprojectlist.CE_ID_CategoryColumn),Integer)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'CE_ID_Category' in table 'vprojectlist' is DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tablevprojectlist.CE_ID_CategoryColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Property CE_ID_Customer() As Integer
-            Get
-                Try 
-                    Return CType(Me(Me.tablevprojectlist.CE_ID_CustomerColumn),Integer)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'CE_ID_Customer' in table 'vprojectlist' is DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tablevprojectlist.CE_ID_CustomerColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Property CE_ID_Urgency() As Integer
-            Get
-                Try 
-                    Return CType(Me(Me.tablevprojectlist.CE_ID_UrgencyColumn),Integer)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'CE_ID_Urgency' in table 'vprojectlist' is DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tablevprojectlist.CE_ID_UrgencyColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Property Title() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tablevprojectlist.TitleColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'Title' in table 'vprojectlist' is DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tablevprojectlist.TitleColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Property Description() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tablevprojectlist.DescriptionColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'Description' in table 'vprojectlist' is DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tablevprojectlist.DescriptionColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Property BeginDate() As Date
-            Get
-                Try 
-                    Return CType(Me(Me.tablevprojectlist.BeginDateColumn),Date)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'BeginDate' in table 'vprojectlist' is DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tablevprojectlist.BeginDateColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Property Deadline() As Date
-            Get
-                Try 
-                    Return CType(Me(Me.tablevprojectlist.DeadlineColumn),Date)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'Deadline' in table 'vprojectlist' is DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tablevprojectlist.DeadlineColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Property EstimatedResources() As Integer
-            Get
-                Try 
-                    Return CType(Me(Me.tablevprojectlist.EstimatedResourcesColumn),Integer)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'EstimatedResources' in table 'vprojectlist' is DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tablevprojectlist.EstimatedResourcesColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Property ImplementationRate() As Decimal
-            Get
-                Try 
-                    Return CType(Me(Me.tablevprojectlist.ImplementationRateColumn),Decimal)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'ImplementationRate' in table 'vprojectlist' is DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tablevprojectlist.ImplementationRateColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Property Status() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tablevprojectlist.StatusColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'Status' in table 'vprojectlist' is DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tablevprojectlist.StatusColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Property EstimatedResources1() As Decimal
-            Get
-                Try 
-                    Return CType(Me(Me.tablevprojectlist.EstimatedResources1Column),Decimal)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'EstimatedResources1' in table 'vprojectlist' is DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tablevprojectlist.EstimatedResources1Column) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Property EffectiveResources() As Decimal
-            Get
-                Try 
-                    Return CType(Me(Me.tablevprojectlist.EffectiveResourcesColumn),Decimal)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'EffectiveResources' in table 'vprojectlist' is DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tablevprojectlist.EffectiveResourcesColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Property Urgency() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tablevprojectlist.UrgencyColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'Urgency' in table 'vprojectlist' is DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tablevprojectlist.UrgencyColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Property Category() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tablevprojectlist.CategoryColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'Category' in table 'vprojectlist' is DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tablevprojectlist.CategoryColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Property Priority() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tablevprojectlist.PriorityColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'Priority' in table 'vprojectlist' is DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tablevprojectlist.PriorityColumn) = value
+                Me(Me.tablevprojectmembers.TaskColumn) = value
             End Set
         End Property
         
@@ -1179,13 +657,13 @@ Partial Public Class projectplanDataSet
         Public Property FirstName() As String
             Get
                 Try 
-                    Return CType(Me(Me.tablevprojectlist.FirstNameColumn),String)
+                    Return CType(Me(Me.tablevprojectmembers.FirstNameColumn),String)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'FirstName' in table 'vprojectlist' is DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'FirstName' in table 'vprojectmembers' is DBNull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tablevprojectlist.FirstNameColumn) = value
+                Me(Me.tablevprojectmembers.FirstNameColumn) = value
             End Set
         End Property
         
@@ -1194,362 +672,89 @@ Partial Public Class projectplanDataSet
         Public Property LastName() As String
             Get
                 Try 
-                    Return CType(Me(Me.tablevprojectlist.LastNameColumn),String)
+                    Return CType(Me(Me.tablevprojectmembers.LastNameColumn),String)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'LastName' in table 'vprojectlist' is DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'LastName' in table 'vprojectmembers' is DBNull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tablevprojectlist.LastNameColumn) = value
+                Me(Me.tablevprojectmembers.LastNameColumn) = value
             End Set
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Property ManagerFirstName() As String
+        Public Property Enable() As ULong
             Get
                 Try 
-                    Return CType(Me(Me.tablevprojectlist.ManagerFirstNameColumn),String)
+                    Return CType(Me(Me.tablevprojectmembers.EnableColumn),ULong)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'ManagerFirstName' in table 'vprojectlist' is DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'Enable' in table 'vprojectmembers' is DBNull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tablevprojectlist.ManagerFirstNameColumn) = value
+                Me(Me.tablevprojectmembers.EnableColumn) = value
             End Set
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Property ManagerLastName() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tablevprojectlist.ManagerLastNameColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'ManagerLastName' in table 'vprojectlist' is DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tablevprojectlist.ManagerLastNameColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Property CustomerFirstName() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tablevprojectlist.CustomerFirstNameColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'CustomerFirstName' in table 'vprojectlist' is DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tablevprojectlist.CustomerFirstNameColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Property CustomerLastName() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tablevprojectlist.CustomerLastNameColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'CustomerLastName' in table 'vprojectlist' is DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tablevprojectlist.CustomerLastNameColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Function IsCE_ID_StatusNull() As Boolean
-            Return Me.IsNull(Me.tablevprojectlist.CE_ID_StatusColumn)
+        Public Function IsCE_ID_TaskNull() As Boolean
+            Return Me.IsNull(Me.tablevprojectmembers.CE_ID_TaskColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Sub SetCE_ID_StatusNull()
-            Me(Me.tablevprojectlist.CE_ID_StatusColumn) = Global.System.Convert.DBNull
+        Public Sub SetCE_ID_TaskNull()
+            Me(Me.tablevprojectmembers.CE_ID_TaskColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Function IsCE_ID_ProjectManagerNull() As Boolean
-            Return Me.IsNull(Me.tablevprojectlist.CE_ID_ProjectManagerColumn)
+        Public Function IsTaskNull() As Boolean
+            Return Me.IsNull(Me.tablevprojectmembers.TaskColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Sub SetCE_ID_ProjectManagerNull()
-            Me(Me.tablevprojectlist.CE_ID_ProjectManagerColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Function IsCE_ID_PriorityNull() As Boolean
-            Return Me.IsNull(Me.tablevprojectlist.CE_ID_PriorityColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Sub SetCE_ID_PriorityNull()
-            Me(Me.tablevprojectlist.CE_ID_PriorityColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Function IsCE_ID_CategoryNull() As Boolean
-            Return Me.IsNull(Me.tablevprojectlist.CE_ID_CategoryColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Sub SetCE_ID_CategoryNull()
-            Me(Me.tablevprojectlist.CE_ID_CategoryColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Function IsCE_ID_CustomerNull() As Boolean
-            Return Me.IsNull(Me.tablevprojectlist.CE_ID_CustomerColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Sub SetCE_ID_CustomerNull()
-            Me(Me.tablevprojectlist.CE_ID_CustomerColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Function IsCE_ID_UrgencyNull() As Boolean
-            Return Me.IsNull(Me.tablevprojectlist.CE_ID_UrgencyColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Sub SetCE_ID_UrgencyNull()
-            Me(Me.tablevprojectlist.CE_ID_UrgencyColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Function IsTitleNull() As Boolean
-            Return Me.IsNull(Me.tablevprojectlist.TitleColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Sub SetTitleNull()
-            Me(Me.tablevprojectlist.TitleColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Function IsDescriptionNull() As Boolean
-            Return Me.IsNull(Me.tablevprojectlist.DescriptionColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Sub SetDescriptionNull()
-            Me(Me.tablevprojectlist.DescriptionColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Function IsBeginDateNull() As Boolean
-            Return Me.IsNull(Me.tablevprojectlist.BeginDateColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Sub SetBeginDateNull()
-            Me(Me.tablevprojectlist.BeginDateColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Function IsDeadlineNull() As Boolean
-            Return Me.IsNull(Me.tablevprojectlist.DeadlineColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Sub SetDeadlineNull()
-            Me(Me.tablevprojectlist.DeadlineColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Function IsEstimatedResourcesNull() As Boolean
-            Return Me.IsNull(Me.tablevprojectlist.EstimatedResourcesColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Sub SetEstimatedResourcesNull()
-            Me(Me.tablevprojectlist.EstimatedResourcesColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Function IsImplementationRateNull() As Boolean
-            Return Me.IsNull(Me.tablevprojectlist.ImplementationRateColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Sub SetImplementationRateNull()
-            Me(Me.tablevprojectlist.ImplementationRateColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Function IsStatusNull() As Boolean
-            Return Me.IsNull(Me.tablevprojectlist.StatusColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Sub SetStatusNull()
-            Me(Me.tablevprojectlist.StatusColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Function IsEstimatedResources1Null() As Boolean
-            Return Me.IsNull(Me.tablevprojectlist.EstimatedResources1Column)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Sub SetEstimatedResources1Null()
-            Me(Me.tablevprojectlist.EstimatedResources1Column) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Function IsEffectiveResourcesNull() As Boolean
-            Return Me.IsNull(Me.tablevprojectlist.EffectiveResourcesColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Sub SetEffectiveResourcesNull()
-            Me(Me.tablevprojectlist.EffectiveResourcesColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Function IsUrgencyNull() As Boolean
-            Return Me.IsNull(Me.tablevprojectlist.UrgencyColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Sub SetUrgencyNull()
-            Me(Me.tablevprojectlist.UrgencyColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Function IsCategoryNull() As Boolean
-            Return Me.IsNull(Me.tablevprojectlist.CategoryColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Sub SetCategoryNull()
-            Me(Me.tablevprojectlist.CategoryColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Function IsPriorityNull() As Boolean
-            Return Me.IsNull(Me.tablevprojectlist.PriorityColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Sub SetPriorityNull()
-            Me(Me.tablevprojectlist.PriorityColumn) = Global.System.Convert.DBNull
+        Public Sub SetTaskNull()
+            Me(Me.tablevprojectmembers.TaskColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Function IsFirstNameNull() As Boolean
-            Return Me.IsNull(Me.tablevprojectlist.FirstNameColumn)
+            Return Me.IsNull(Me.tablevprojectmembers.FirstNameColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Sub SetFirstNameNull()
-            Me(Me.tablevprojectlist.FirstNameColumn) = Global.System.Convert.DBNull
+            Me(Me.tablevprojectmembers.FirstNameColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Function IsLastNameNull() As Boolean
-            Return Me.IsNull(Me.tablevprojectlist.LastNameColumn)
+            Return Me.IsNull(Me.tablevprojectmembers.LastNameColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Sub SetLastNameNull()
-            Me(Me.tablevprojectlist.LastNameColumn) = Global.System.Convert.DBNull
+            Me(Me.tablevprojectmembers.LastNameColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Function IsManagerFirstNameNull() As Boolean
-            Return Me.IsNull(Me.tablevprojectlist.ManagerFirstNameColumn)
+        Public Function IsEnableNull() As Boolean
+            Return Me.IsNull(Me.tablevprojectmembers.EnableColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Sub SetManagerFirstNameNull()
-            Me(Me.tablevprojectlist.ManagerFirstNameColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Function IsManagerLastNameNull() As Boolean
-            Return Me.IsNull(Me.tablevprojectlist.ManagerLastNameColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Sub SetManagerLastNameNull()
-            Me(Me.tablevprojectlist.ManagerLastNameColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Function IsCustomerFirstNameNull() As Boolean
-            Return Me.IsNull(Me.tablevprojectlist.CustomerFirstNameColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Sub SetCustomerFirstNameNull()
-            Me(Me.tablevprojectlist.CustomerFirstNameColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Function IsCustomerLastNameNull() As Boolean
-            Return Me.IsNull(Me.tablevprojectlist.CustomerLastNameColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Sub SetCustomerLastNameNull()
-            Me(Me.tablevprojectlist.CustomerLastNameColumn) = Global.System.Convert.DBNull
+        Public Sub SetEnableNull()
+            Me(Me.tablevprojectmembers.EnableColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     
@@ -1557,16 +762,16 @@ Partial Public Class projectplanDataSet
     '''Row event argument class
     '''</summary>
     <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-    Public Class vprojectlistRowChangeEvent
+    Public Class vprojectmembersRowChangeEvent
         Inherits Global.System.EventArgs
         
-        Private eventRow As vprojectlistRow
+        Private eventRow As vprojectmembersRow
         
         Private eventAction As Global.System.Data.DataRowAction
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Sub New(ByVal row As vprojectlistRow, ByVal action As Global.System.Data.DataRowAction)
+        Public Sub New(ByVal row As vprojectmembersRow, ByVal action As Global.System.Data.DataRowAction)
             MyBase.New
             Me.eventRow = row
             Me.eventAction = action
@@ -1574,7 +779,7 @@ Partial Public Class projectplanDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public ReadOnly Property Row() As vprojectlistRow
+        Public ReadOnly Property Row() As vprojectmembersRow
             Get
                 Return Me.eventRow
             End Get
@@ -1601,7 +806,7 @@ Namespace projectplanDataSetTableAdapters
      Global.System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner"& _ 
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"),  _
      Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
-    Partial Public Class vprojectlistTableAdapter
+    Partial Public Class vprojectmembersTableAdapter
         Inherits Global.System.ComponentModel.Component
         
         Private WithEvents _adapter As Global.MySql.Data.MySqlClient.MySqlDataAdapter
@@ -1718,193 +923,14 @@ Namespace projectplanDataSetTableAdapters
             Me._adapter = New Global.MySql.Data.MySqlClient.MySqlDataAdapter()
             Dim tableMapping As Global.System.Data.Common.DataTableMapping = New Global.System.Data.Common.DataTableMapping()
             tableMapping.SourceTable = "Table"
-            tableMapping.DataSetTable = "vprojectlist"
-            tableMapping.ColumnMappings.Add("ID_Project", "ID_Project")
-            tableMapping.ColumnMappings.Add("CE_ID_Status", "CE_ID_Status")
-            tableMapping.ColumnMappings.Add("CE_ID_ProjectManager", "CE_ID_ProjectManager")
-            tableMapping.ColumnMappings.Add("CE_ID_Priority", "CE_ID_Priority")
-            tableMapping.ColumnMappings.Add("CE_ID_Category", "CE_ID_Category")
-            tableMapping.ColumnMappings.Add("CE_ID_Customer", "CE_ID_Customer")
-            tableMapping.ColumnMappings.Add("CE_ID_Urgency", "CE_ID_Urgency")
-            tableMapping.ColumnMappings.Add("Title", "Title")
-            tableMapping.ColumnMappings.Add("Description", "Description")
-            tableMapping.ColumnMappings.Add("BeginDate", "BeginDate")
-            tableMapping.ColumnMappings.Add("Deadline", "Deadline")
-            tableMapping.ColumnMappings.Add("ImplementationRate", "ImplementationRate")
-            tableMapping.ColumnMappings.Add("Status", "Status")
-            tableMapping.ColumnMappings.Add("EstimatedResources", "EstimatedResources1")
-            tableMapping.ColumnMappings.Add("EffectiveResources", "EffectiveResources")
-            tableMapping.ColumnMappings.Add("Urgency", "Urgency")
-            tableMapping.ColumnMappings.Add("Category", "Category")
-            tableMapping.ColumnMappings.Add("Priority", "Priority")
+            tableMapping.DataSetTable = "vprojectmembers"
+            tableMapping.ColumnMappings.Add("ID_ProjectMember", "ID_ProjectMember")
+            tableMapping.ColumnMappings.Add("CE_ID_Task", "CE_ID_Task")
+            tableMapping.ColumnMappings.Add("Task", "Task")
             tableMapping.ColumnMappings.Add("FirstName", "FirstName")
             tableMapping.ColumnMappings.Add("LastName", "LastName")
-            tableMapping.ColumnMappings.Add("ManagerFirstName", "ManagerFirstName")
-            tableMapping.ColumnMappings.Add("ManagerLastName", "ManagerLastName")
-            tableMapping.ColumnMappings.Add("CustomerFirstName", "CustomerFirstName")
-            tableMapping.ColumnMappings.Add("CustomerLastName", "CustomerLastName")
+            tableMapping.ColumnMappings.Add("Enable", "Enable")
             Me._adapter.TableMappings.Add(tableMapping)
-            Me._adapter.InsertCommand = New Global.MySql.Data.MySqlClient.MySqlCommand()
-            Me._adapter.InsertCommand.Connection = Me.Connection
-            Me._adapter.InsertCommand.CommandText = "INSERT INTO `vprojectlist` (`ID_Project`, `CE_ID_Status`, `Status`, `CE_ID_Projec"& _ 
-                "tManager`, `CE_ID_Priority`, `CE_ID_Category`, `CE_ID_Customer`, `CE_ID_Urgency`"& _ 
-                ", `Title`, `Description`, `BeginDate`, `Deadline`, `EstimatedResources`, `Implem"& _ 
-                "entationRate`, `EffectiveResources`, `Urgency`, `Category`, `Priority`, `FirstNa"& _ 
-                "me`, `LastName`) VALUES (@p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11"& _ 
-                ", @p12, @p13, @p14, @p15, @p16, @p17, @p18, @p19, @p20)"
-            Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
-            Dim param As Global.MySql.Data.MySqlClient.MySqlParameter = New Global.MySql.Data.MySqlClient.MySqlParameter()
-            param.ParameterName = "@p1"
-            param.DbType = Global.System.Data.DbType.Int32
-            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
-            param.IsNullable = true
-            param.SourceColumn = "ID_Project"
-            param.SourceVersion = Global.System.Data.DataRowVersion.Current
-            Me._adapter.InsertCommand.Parameters.Add(param)
-            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
-            param.ParameterName = "@p2"
-            param.DbType = Global.System.Data.DbType.Int32
-            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
-            param.IsNullable = true
-            param.SourceColumn = "CE_ID_Status"
-            param.SourceVersion = Global.System.Data.DataRowVersion.Current
-            Me._adapter.InsertCommand.Parameters.Add(param)
-            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
-            param.ParameterName = "@p3"
-            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Text
-            param.IsNullable = true
-            param.SourceColumn = "Status"
-            param.SourceVersion = Global.System.Data.DataRowVersion.Current
-            Me._adapter.InsertCommand.Parameters.Add(param)
-            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
-            param.ParameterName = "@p4"
-            param.DbType = Global.System.Data.DbType.Int32
-            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
-            param.IsNullable = true
-            param.SourceColumn = "CE_ID_ProjectManager"
-            param.SourceVersion = Global.System.Data.DataRowVersion.Current
-            Me._adapter.InsertCommand.Parameters.Add(param)
-            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
-            param.ParameterName = "@p5"
-            param.DbType = Global.System.Data.DbType.Int32
-            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
-            param.IsNullable = true
-            param.SourceColumn = "CE_ID_Priority"
-            param.SourceVersion = Global.System.Data.DataRowVersion.Current
-            Me._adapter.InsertCommand.Parameters.Add(param)
-            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
-            param.ParameterName = "@p6"
-            param.DbType = Global.System.Data.DbType.Int32
-            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
-            param.IsNullable = true
-            param.SourceColumn = "CE_ID_Category"
-            param.SourceVersion = Global.System.Data.DataRowVersion.Current
-            Me._adapter.InsertCommand.Parameters.Add(param)
-            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
-            param.ParameterName = "@p7"
-            param.DbType = Global.System.Data.DbType.Int32
-            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
-            param.IsNullable = true
-            param.SourceColumn = "CE_ID_Customer"
-            param.SourceVersion = Global.System.Data.DataRowVersion.Current
-            Me._adapter.InsertCommand.Parameters.Add(param)
-            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
-            param.ParameterName = "@p8"
-            param.DbType = Global.System.Data.DbType.Int32
-            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
-            param.IsNullable = true
-            param.SourceColumn = "CE_ID_Urgency"
-            param.SourceVersion = Global.System.Data.DataRowVersion.Current
-            Me._adapter.InsertCommand.Parameters.Add(param)
-            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
-            param.ParameterName = "@p9"
-            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Text
-            param.IsNullable = true
-            param.SourceColumn = "Title"
-            param.SourceVersion = Global.System.Data.DataRowVersion.Current
-            Me._adapter.InsertCommand.Parameters.Add(param)
-            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
-            param.ParameterName = "@p10"
-            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Text
-            param.IsNullable = true
-            param.SourceColumn = "Description"
-            param.SourceVersion = Global.System.Data.DataRowVersion.Current
-            Me._adapter.InsertCommand.Parameters.Add(param)
-            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
-            param.ParameterName = "@p11"
-            param.DbType = Global.System.Data.DbType.DateTime
-            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.DateTime
-            param.IsNullable = true
-            param.SourceColumn = "BeginDate"
-            param.SourceVersion = Global.System.Data.DataRowVersion.Current
-            Me._adapter.InsertCommand.Parameters.Add(param)
-            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
-            param.ParameterName = "@p12"
-            param.DbType = Global.System.Data.DbType.DateTime
-            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.DateTime
-            param.IsNullable = true
-            param.SourceColumn = "Deadline"
-            param.SourceVersion = Global.System.Data.DataRowVersion.Current
-            Me._adapter.InsertCommand.Parameters.Add(param)
-            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
-            param.ParameterName = "@p13"
-            param.DbType = Global.System.Data.DbType.[Decimal]
-            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.NewDecimal
-            param.IsNullable = true
-            param.SourceColumn = "EstimatedResources"
-            param.SourceVersion = Global.System.Data.DataRowVersion.Current
-            Me._adapter.InsertCommand.Parameters.Add(param)
-            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
-            param.ParameterName = "@p14"
-            param.DbType = Global.System.Data.DbType.[Decimal]
-            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.NewDecimal
-            param.IsNullable = true
-            param.SourceColumn = "ImplementationRate"
-            param.SourceVersion = Global.System.Data.DataRowVersion.Current
-            Me._adapter.InsertCommand.Parameters.Add(param)
-            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
-            param.ParameterName = "@p15"
-            param.DbType = Global.System.Data.DbType.[Decimal]
-            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.NewDecimal
-            param.IsNullable = true
-            param.SourceColumn = "EffectiveResources"
-            param.SourceVersion = Global.System.Data.DataRowVersion.Current
-            Me._adapter.InsertCommand.Parameters.Add(param)
-            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
-            param.ParameterName = "@p16"
-            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Text
-            param.IsNullable = true
-            param.SourceColumn = "Urgency"
-            param.SourceVersion = Global.System.Data.DataRowVersion.Current
-            Me._adapter.InsertCommand.Parameters.Add(param)
-            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
-            param.ParameterName = "@p17"
-            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Text
-            param.IsNullable = true
-            param.SourceColumn = "Category"
-            param.SourceVersion = Global.System.Data.DataRowVersion.Current
-            Me._adapter.InsertCommand.Parameters.Add(param)
-            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
-            param.ParameterName = "@p18"
-            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Text
-            param.IsNullable = true
-            param.SourceColumn = "Priority"
-            param.SourceVersion = Global.System.Data.DataRowVersion.Current
-            Me._adapter.InsertCommand.Parameters.Add(param)
-            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
-            param.ParameterName = "@p19"
-            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Text
-            param.IsNullable = true
-            param.SourceColumn = "FirstName"
-            param.SourceVersion = Global.System.Data.DataRowVersion.Current
-            Me._adapter.InsertCommand.Parameters.Add(param)
-            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
-            param.ParameterName = "@p20"
-            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Text
-            param.IsNullable = true
-            param.SourceColumn = "LastName"
-            param.SourceVersion = Global.System.Data.DataRowVersion.Current
-            Me._adapter.InsertCommand.Parameters.Add(param)
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -1920,11 +946,8 @@ Namespace projectplanDataSetTableAdapters
             Me._commandCollection = New Global.MySql.Data.MySqlClient.MySqlCommand(0) {}
             Me._commandCollection(0) = New Global.MySql.Data.MySqlClient.MySqlCommand()
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT        ID_Project, CE_ID_Status, Status, CE_ID_ProjectManager, ManagerFirs"& _ 
-                "tName, ManagerLastName, CE_ID_Priority, Priority, CE_ID_Category, Category, CE_I"& _ 
-                "D_Customer, CustomerFirstName, CustomerLastName, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         CE_I"& _ 
-                "D_Urgency, Urgency, Title, Description, BeginDate, Deadline, EstimatedResources,"& _ 
-                " ImplementationRate, EffectiveResources"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            vprojectlist"
+            Me._commandCollection(0).CommandText = "SELECT `ID_ProjectMember`, `CE_ID_Task`, `Task`, `FirstName`, `LastName`, `Enable"& _ 
+                "` FROM `projectplan`.`vprojectmembers`"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
         End Sub
         
@@ -1932,7 +955,7 @@ Namespace projectplanDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, true)>  _
-        Public Overloads Overridable Function Fill(ByVal dataTable As projectplanDataSet.vprojectlistDataTable) As Integer
+        Public Overloads Overridable Function Fill(ByVal dataTable As projectplanDataSet.vprojectmembersDataTable) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
             If (Me.ClearBeforeFill = true) Then
                 dataTable.Clear
@@ -1945,175 +968,11 @@ Namespace projectplanDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], true)>  _
-        Public Overloads Overridable Function GetData() As projectplanDataSet.vprojectlistDataTable
+        Public Overloads Overridable Function GetData() As projectplanDataSet.vprojectmembersDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
-            Dim dataTable As projectplanDataSet.vprojectlistDataTable = New projectplanDataSet.vprojectlistDataTable()
+            Dim dataTable As projectplanDataSet.vprojectmembersDataTable = New projectplanDataSet.vprojectmembersDataTable()
             Me.Adapter.Fill(dataTable)
             Return dataTable
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
-        Public Overloads Overridable Function Update(ByVal dataTable As projectplanDataSet.vprojectlistDataTable) As Integer
-            Return Me.Adapter.Update(dataTable)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
-        Public Overloads Overridable Function Update(ByVal dataSet As projectplanDataSet) As Integer
-            Return Me.Adapter.Update(dataSet, "vprojectlist")
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
-        Public Overloads Overridable Function Update(ByVal dataRow As Global.System.Data.DataRow) As Integer
-            Return Me.Adapter.Update(New Global.System.Data.DataRow() {dataRow})
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
-        Public Overloads Overridable Function Update(ByVal dataRows() As Global.System.Data.DataRow) As Integer
-            Return Me.Adapter.Update(dataRows)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Insert, true)>  _
-        Public Overloads Overridable Function Insert( _
-                    ByVal p1 As Integer,  _
-                    ByVal p2 As Global.System.Nullable(Of Integer),  _
-                    ByVal p3 As String,  _
-                    ByVal p4 As Global.System.Nullable(Of Integer),  _
-                    ByVal p5 As Global.System.Nullable(Of Integer),  _
-                    ByVal p6 As Global.System.Nullable(Of Integer),  _
-                    ByVal p7 As Global.System.Nullable(Of Integer),  _
-                    ByVal p8 As Global.System.Nullable(Of Integer),  _
-                    ByVal p9 As String,  _
-                    ByVal p10 As String,  _
-                    ByVal p11 As Global.System.Nullable(Of Date),  _
-                    ByVal p12 As Global.System.Nullable(Of Date),  _
-                    ByVal p13 As Global.System.Nullable(Of Decimal),  _
-                    ByVal p14 As Global.System.Nullable(Of Decimal),  _
-                    ByVal p15 As Global.System.Nullable(Of Decimal),  _
-                    ByVal p16 As String,  _
-                    ByVal p17 As String,  _
-                    ByVal p18 As String,  _
-                    ByVal p19 As String,  _
-                    ByVal p20 As String) As Integer
-            Me.Adapter.InsertCommand.Parameters(0).Value = CType(p1,Integer)
-            If (p2.HasValue = true) Then
-                Me.Adapter.InsertCommand.Parameters(1).Value = CType(p2.Value,Integer)
-            Else
-                Me.Adapter.InsertCommand.Parameters(1).Value = Global.System.DBNull.Value
-            End If
-            If (p3 Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(2).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(2).Value = CType(p3,String)
-            End If
-            If (p4.HasValue = true) Then
-                Me.Adapter.InsertCommand.Parameters(3).Value = CType(p4.Value,Integer)
-            Else
-                Me.Adapter.InsertCommand.Parameters(3).Value = Global.System.DBNull.Value
-            End If
-            If (p5.HasValue = true) Then
-                Me.Adapter.InsertCommand.Parameters(4).Value = CType(p5.Value,Integer)
-            Else
-                Me.Adapter.InsertCommand.Parameters(4).Value = Global.System.DBNull.Value
-            End If
-            If (p6.HasValue = true) Then
-                Me.Adapter.InsertCommand.Parameters(5).Value = CType(p6.Value,Integer)
-            Else
-                Me.Adapter.InsertCommand.Parameters(5).Value = Global.System.DBNull.Value
-            End If
-            If (p7.HasValue = true) Then
-                Me.Adapter.InsertCommand.Parameters(6).Value = CType(p7.Value,Integer)
-            Else
-                Me.Adapter.InsertCommand.Parameters(6).Value = Global.System.DBNull.Value
-            End If
-            If (p8.HasValue = true) Then
-                Me.Adapter.InsertCommand.Parameters(7).Value = CType(p8.Value,Integer)
-            Else
-                Me.Adapter.InsertCommand.Parameters(7).Value = Global.System.DBNull.Value
-            End If
-            If (p9 Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(8).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(8).Value = CType(p9,String)
-            End If
-            If (p10 Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(9).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(9).Value = CType(p10,String)
-            End If
-            If (p11.HasValue = true) Then
-                Me.Adapter.InsertCommand.Parameters(10).Value = CType(p11.Value,Date)
-            Else
-                Me.Adapter.InsertCommand.Parameters(10).Value = Global.System.DBNull.Value
-            End If
-            If (p12.HasValue = true) Then
-                Me.Adapter.InsertCommand.Parameters(11).Value = CType(p12.Value,Date)
-            Else
-                Me.Adapter.InsertCommand.Parameters(11).Value = Global.System.DBNull.Value
-            End If
-            If (p13.HasValue = true) Then
-                Me.Adapter.InsertCommand.Parameters(12).Value = CType(p13.Value,Decimal)
-            Else
-                Me.Adapter.InsertCommand.Parameters(12).Value = Global.System.DBNull.Value
-            End If
-            If (p14.HasValue = true) Then
-                Me.Adapter.InsertCommand.Parameters(13).Value = CType(p14.Value,Decimal)
-            Else
-                Me.Adapter.InsertCommand.Parameters(13).Value = Global.System.DBNull.Value
-            End If
-            If (p15.HasValue = true) Then
-                Me.Adapter.InsertCommand.Parameters(14).Value = CType(p15.Value,Decimal)
-            Else
-                Me.Adapter.InsertCommand.Parameters(14).Value = Global.System.DBNull.Value
-            End If
-            If (p16 Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(15).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(15).Value = CType(p16,String)
-            End If
-            If (p17 Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(16).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(16).Value = CType(p17,String)
-            End If
-            If (p18 Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(17).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(17).Value = CType(p18,String)
-            End If
-            If (p19 Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(18).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(18).Value = CType(p19,String)
-            End If
-            If (p20 Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(19).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(19).Value = CType(p20,String)
-            End If
-            Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.InsertCommand.Connection.State
-            If ((Me.Adapter.InsertCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
-                        <> Global.System.Data.ConnectionState.Open) Then
-                Me.Adapter.InsertCommand.Connection.Open
-            End If
-            Try 
-                Dim returnValue As Integer = Me.Adapter.InsertCommand.ExecuteNonQuery
-                Return returnValue
-            Finally
-                If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
-                    Me.Adapter.InsertCommand.Connection.Close
-                End If
-            End Try
         End Function
     End Class
     
@@ -2130,8 +989,6 @@ Namespace projectplanDataSetTableAdapters
         
         Private _updateOrder As UpdateOrderOption
         
-        Private _vprojectlistTableAdapter As vprojectlistTableAdapter
-        
         Private _backupDataSetBeforeUpdate As Boolean
         
         Private _connection As Global.System.Data.IDbConnection
@@ -2144,20 +1001,6 @@ Namespace projectplanDataSetTableAdapters
             End Get
             Set
                 Me._updateOrder = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
-         Global.System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso"& _ 
-            "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3"& _ 
-            "a", "System.Drawing.Design.UITypeEditor")>  _
-        Public Property vprojectlistTableAdapter() As vprojectlistTableAdapter
-            Get
-                Return Me._vprojectlistTableAdapter
-            End Get
-            Set
-                Me._vprojectlistTableAdapter = value
             End Set
         End Property
         
@@ -2180,10 +1023,6 @@ Namespace projectplanDataSetTableAdapters
                 If (Not (Me._connection) Is Nothing) Then
                     Return Me._connection
                 End If
-                If ((Not (Me._vprojectlistTableAdapter) Is Nothing)  _
-                            AndAlso (Not (Me._vprojectlistTableAdapter.Connection) Is Nothing)) Then
-                    Return Me._vprojectlistTableAdapter.Connection
-                End If
                 Return Nothing
             End Get
             Set
@@ -2197,9 +1036,6 @@ Namespace projectplanDataSetTableAdapters
         Public ReadOnly Property TableAdapterInstanceCount() As Integer
             Get
                 Dim count As Integer = 0
-                If (Not (Me._vprojectlistTableAdapter) Is Nothing) Then
-                    count = (count + 1)
-                End If
                 Return count
             End Get
         End Property
@@ -2211,15 +1047,6 @@ Namespace projectplanDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Private Function UpdateUpdatedRows(ByVal dataSet As projectplanDataSet, ByVal allChangedRows As Global.System.Collections.Generic.List(Of Global.System.Data.DataRow), ByVal allAddedRows As Global.System.Collections.Generic.List(Of Global.System.Data.DataRow)) As Integer
             Dim result As Integer = 0
-            If (Not (Me._vprojectlistTableAdapter) Is Nothing) Then
-                Dim updatedRows() As Global.System.Data.DataRow = dataSet.vprojectlist.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.ModifiedCurrent)
-                updatedRows = Me.GetRealUpdatedRows(updatedRows, allAddedRows)
-                If ((Not (updatedRows) Is Nothing)  _
-                            AndAlso (0 < updatedRows.Length)) Then
-                    result = (result + Me._vprojectlistTableAdapter.Update(updatedRows))
-                    allChangedRows.AddRange(updatedRows)
-                End If
-            End If
             Return result
         End Function
         
@@ -2230,14 +1057,6 @@ Namespace projectplanDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Private Function UpdateInsertedRows(ByVal dataSet As projectplanDataSet, ByVal allAddedRows As Global.System.Collections.Generic.List(Of Global.System.Data.DataRow)) As Integer
             Dim result As Integer = 0
-            If (Not (Me._vprojectlistTableAdapter) Is Nothing) Then
-                Dim addedRows() As Global.System.Data.DataRow = dataSet.vprojectlist.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Added)
-                If ((Not (addedRows) Is Nothing)  _
-                            AndAlso (0 < addedRows.Length)) Then
-                    result = (result + Me._vprojectlistTableAdapter.Update(addedRows))
-                    allAddedRows.AddRange(addedRows)
-                End If
-            End If
             Return result
         End Function
         
@@ -2248,14 +1067,6 @@ Namespace projectplanDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Private Function UpdateDeletedRows(ByVal dataSet As projectplanDataSet, ByVal allChangedRows As Global.System.Collections.Generic.List(Of Global.System.Data.DataRow)) As Integer
             Dim result As Integer = 0
-            If (Not (Me._vprojectlistTableAdapter) Is Nothing) Then
-                Dim deletedRows() As Global.System.Data.DataRow = dataSet.vprojectlist.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Deleted)
-                If ((Not (deletedRows) Is Nothing)  _
-                            AndAlso (0 < deletedRows.Length)) Then
-                    result = (result + Me._vprojectlistTableAdapter.Update(deletedRows))
-                    allChangedRows.AddRange(deletedRows)
-                End If
-            End If
             Return result
         End Function
         
@@ -2297,11 +1108,6 @@ Namespace projectplanDataSetTableAdapters
             If (dataSet.HasChanges = false) Then
                 Return 0
             End If
-            If ((Not (Me._vprojectlistTableAdapter) Is Nothing)  _
-                        AndAlso (Me.MatchTableAdapterConnection(Me._vprojectlistTableAdapter.Connection) = false)) Then
-                Throw New Global.System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s"& _ 
-                        "tring.")
-            End If
             Dim workConnection As Global.System.Data.IDbConnection = Me.Connection
             If (workConnection Is Nothing) Then
                 Throw New Global.System.ApplicationException("TableAdapterManager contains no connection information. Set each TableAdapterMana"& _ 
@@ -2334,15 +1140,6 @@ Namespace projectplanDataSetTableAdapters
             Try 
                 '---- Prepare for update -----------
                 '
-                If (Not (Me._vprojectlistTableAdapter) Is Nothing) Then
-                    revertConnections.Add(Me._vprojectlistTableAdapter, Me._vprojectlistTableAdapter.Connection)
-                    Me._vprojectlistTableAdapter.Connection = CType(workConnection,Global.MySql.Data.MySqlClient.MySqlConnection)
-                    Me._vprojectlistTableAdapter.Transaction = CType(workTransaction,Global.MySql.Data.MySqlClient.MySqlTransaction)
-                    If Me._vprojectlistTableAdapter.Adapter.AcceptChangesDuringUpdate Then
-                        Me._vprojectlistTableAdapter.Adapter.AcceptChangesDuringUpdate = false
-                        adaptersWithAcceptChangesDuringUpdate.Add(Me._vprojectlistTableAdapter.Adapter)
-                    End If
-                End If
                 '
                 '---- Perform updates -----------
                 '
@@ -2402,10 +1199,6 @@ Namespace projectplanDataSetTableAdapters
             Finally
                 If workConnOpened Then
                     workConnection.Close
-                End If
-                If (Not (Me._vprojectlistTableAdapter) Is Nothing) Then
-                    Me._vprojectlistTableAdapter.Connection = CType(revertConnections(Me._vprojectlistTableAdapter),Global.MySql.Data.MySqlClient.MySqlConnection)
-                    Me._vprojectlistTableAdapter.Transaction = Nothing
                 End If
                 If (0 < adaptersWithAcceptChangesDuringUpdate.Count) Then
                     Dim adapters((adaptersWithAcceptChangesDuringUpdate.Count) - 1) As Global.System.Data.Common.DataAdapter
