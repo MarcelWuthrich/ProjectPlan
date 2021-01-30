@@ -196,9 +196,25 @@ Public Class frmMain
         End Try
     End Sub
 
+<<<<<<< HEAD
     Private Sub PlanifierAdministratifToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles PlanifierAdministratifToolStripMenuItem.Click
         Try
             Dim myForm As Form = frmResourcesAdmin
+=======
+    Private Sub mniResourcePlanSeries_Click(sender As Object, e As EventArgs) Handles mniResourcePlanSeries.Click
+        Try
+            Dim myForm As Form = frmResourcesPlanSeries
+            myForm.MdiParent = Me
+            myForm.Show()
+        Catch ex As Exception
+            If DebugFlag = True Then MessageBox.Show(ex.ToString)
+        End Try
+    End Sub
+
+    Private Sub mniResourcePlaningTable_Click(sender As Object, e As EventArgs) Handles mniResourcePlaningTable.Click
+        Try
+            Dim myForm As Form = frmResourcesTable
+>>>>>>> master
             myForm.MdiParent = Me
             myForm.Show()
         Catch ex As Exception

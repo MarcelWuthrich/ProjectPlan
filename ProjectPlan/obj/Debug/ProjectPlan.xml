@@ -282,6 +282,122 @@ Update Order Option
 Used to sort self-referenced table's rows
 </summary>
 </member>
+<<<<<<< HEAD
+<member name="T:ProjectPlan.dsProjectsList">
+=======
+<member name="T:ProjectPlan.dsProjects">
+>>>>>>> master
+<summary>
+Represents a strongly typed in-memory cache of data.
+</summary>
+</member>
+<<<<<<< HEAD
+<member name="T:ProjectPlan.dsProjectsList.vprojectlistDataTable">
+=======
+<member name="T:ProjectPlan.dsProjects.projectsDataTable">
+>>>>>>> master
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<<<<<<< HEAD
+<member name="T:ProjectPlan.dsProjectsList.vprojectlistRow">
+=======
+<member name="T:ProjectPlan.dsProjects.projectsRow">
+>>>>>>> master
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<<<<<<< HEAD
+<member name="T:ProjectPlan.dsProjectsList.vprojectlistRowChangeEvent">
+=======
+<member name="T:ProjectPlan.dsProjects.projectsRowChangeEvent">
+>>>>>>> master
+<summary>
+Row event argument class
+</summary>
+</member>
+<<<<<<< HEAD
+<member name="T:ProjectPlan.dsProjectsListTableAdapters.vprojectlistTableAdapter">
+=======
+<member name="T:ProjectPlan.dsProjectsTableAdapters.projectsTableAdapter">
+>>>>>>> master
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<<<<<<< HEAD
+<member name="T:ProjectPlan.dsProjectsListTableAdapters.TableAdapterManager">
+=======
+<member name="T:ProjectPlan.dsProjectsTableAdapters.TableAdapterManager">
+>>>>>>> master
+<summary>
+TableAdapterManager is used to coordinate TableAdapters in the dataset to enable Hierarchical Update scenarios
+</summary>
+</member>
+<<<<<<< HEAD
+<member name="M:ProjectPlan.dsProjectsListTableAdapters.TableAdapterManager.UpdateUpdatedRows(ProjectPlan.dsProjectsList,System.Collections.Generic.List{System.Data.DataRow},System.Collections.Generic.List{System.Data.DataRow})">
+=======
+<member name="M:ProjectPlan.dsProjectsTableAdapters.TableAdapterManager.UpdateUpdatedRows(ProjectPlan.dsProjects,System.Collections.Generic.List{System.Data.DataRow},System.Collections.Generic.List{System.Data.DataRow})">
+>>>>>>> master
+<summary>
+Update rows in top-down order.
+</summary>
+</member>
+<<<<<<< HEAD
+<member name="M:ProjectPlan.dsProjectsListTableAdapters.TableAdapterManager.UpdateInsertedRows(ProjectPlan.dsProjectsList,System.Collections.Generic.List{System.Data.DataRow})">
+=======
+<member name="M:ProjectPlan.dsProjectsTableAdapters.TableAdapterManager.UpdateInsertedRows(ProjectPlan.dsProjects,System.Collections.Generic.List{System.Data.DataRow})">
+>>>>>>> master
+<summary>
+Insert rows in top-down order.
+</summary>
+</member>
+<<<<<<< HEAD
+<member name="M:ProjectPlan.dsProjectsListTableAdapters.TableAdapterManager.UpdateDeletedRows(ProjectPlan.dsProjectsList,System.Collections.Generic.List{System.Data.DataRow})">
+=======
+<member name="M:ProjectPlan.dsProjectsTableAdapters.TableAdapterManager.UpdateDeletedRows(ProjectPlan.dsProjects,System.Collections.Generic.List{System.Data.DataRow})">
+>>>>>>> master
+<summary>
+Delete rows in bottom-up order.
+</summary>
+</member>
+<<<<<<< HEAD
+<member name="M:ProjectPlan.dsProjectsListTableAdapters.TableAdapterManager.GetRealUpdatedRows(System.Data.DataRow[],System.Collections.Generic.List{System.Data.DataRow})">
+=======
+<member name="M:ProjectPlan.dsProjectsTableAdapters.TableAdapterManager.GetRealUpdatedRows(System.Data.DataRow[],System.Collections.Generic.List{System.Data.DataRow})">
+>>>>>>> master
+<summary>
+Remove inserted rows that become updated rows after calling TableAdapter.Update(inserted rows) first
+</summary>
+</member>
+<<<<<<< HEAD
+<member name="M:ProjectPlan.dsProjectsListTableAdapters.TableAdapterManager.UpdateAll(ProjectPlan.dsProjectsList)">
+=======
+<member name="M:ProjectPlan.dsProjectsTableAdapters.TableAdapterManager.UpdateAll(ProjectPlan.dsProjects)">
+>>>>>>> master
+<summary>
+Update all changes to the dataset.
+</summary>
+</member>
+<<<<<<< HEAD
+<member name="T:ProjectPlan.dsProjectsListTableAdapters.TableAdapterManager.UpdateOrderOption">
+=======
+<member name="T:ProjectPlan.dsProjectsTableAdapters.TableAdapterManager.UpdateOrderOption">
+>>>>>>> master
+<summary>
+Update Order Option
+</summary>
+</member>
+<<<<<<< HEAD
+<member name="T:ProjectPlan.dsProjectsListTableAdapters.TableAdapterManager.SelfReferenceComparer">
+=======
+<member name="T:ProjectPlan.dsProjectsTableAdapters.TableAdapterManager.SelfReferenceComparer">
+<summary>
+Used to sort self-referenced table's rows
+</summary>
+</member>
 <member name="T:ProjectPlan.dsProjectsList">
 <summary>
 Represents a strongly typed in-memory cache of data.
@@ -343,6 +459,72 @@ Update Order Option
 </summary>
 </member>
 <member name="T:ProjectPlan.dsProjectsListTableAdapters.TableAdapterManager.SelfReferenceComparer">
+<summary>
+Used to sort self-referenced table's rows
+</summary>
+</member>
+<member name="T:ProjectPlan.dsResoucesAdmin">
+<summary>
+Represents a strongly typed in-memory cache of data.
+</summary>
+</member>
+<member name="T:ProjectPlan.dsResoucesAdmin.vresourcesadminDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:ProjectPlan.dsResoucesAdmin.vresourcesadminRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:ProjectPlan.dsResoucesAdmin.vresourcesadminRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:ProjectPlan.dsResoucesAdminTableAdapters.vresourcesadminTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:ProjectPlan.dsResoucesAdminTableAdapters.TableAdapterManager">
+<summary>
+TableAdapterManager is used to coordinate TableAdapters in the dataset to enable Hierarchical Update scenarios
+</summary>
+</member>
+<member name="M:ProjectPlan.dsResoucesAdminTableAdapters.TableAdapterManager.UpdateUpdatedRows(ProjectPlan.dsResoucesAdmin,System.Collections.Generic.List{System.Data.DataRow},System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Update rows in top-down order.
+</summary>
+</member>
+<member name="M:ProjectPlan.dsResoucesAdminTableAdapters.TableAdapterManager.UpdateInsertedRows(ProjectPlan.dsResoucesAdmin,System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Insert rows in top-down order.
+</summary>
+</member>
+<member name="M:ProjectPlan.dsResoucesAdminTableAdapters.TableAdapterManager.UpdateDeletedRows(ProjectPlan.dsResoucesAdmin,System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Delete rows in bottom-up order.
+</summary>
+</member>
+<member name="M:ProjectPlan.dsResoucesAdminTableAdapters.TableAdapterManager.GetRealUpdatedRows(System.Data.DataRow[],System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Remove inserted rows that become updated rows after calling TableAdapter.Update(inserted rows) first
+</summary>
+</member>
+<member name="M:ProjectPlan.dsResoucesAdminTableAdapters.TableAdapterManager.UpdateAll(ProjectPlan.dsResoucesAdmin)">
+<summary>
+Update all changes to the dataset.
+</summary>
+</member>
+<member name="T:ProjectPlan.dsResoucesAdminTableAdapters.TableAdapterManager.UpdateOrderOption">
+<summary>
+Update Order Option
+</summary>
+</member>
+<member name="T:ProjectPlan.dsResoucesAdminTableAdapters.TableAdapterManager.SelfReferenceComparer">
+>>>>>>> master
 <summary>
 Used to sort self-referenced table's rows
 </summary>
@@ -482,22 +664,38 @@ Used to sort self-referenced table's rows
 Represents a strongly typed in-memory cache of data.
 </summary>
 </member>
+<<<<<<< HEAD
 <member name="T:ProjectPlan.dsTasks.vtasksDataTable">
+=======
+<member name="T:ProjectPlan.projectplanDataSet.vprojectmembersDataTable">
+>>>>>>> master
 <summary>
 Represents the strongly named DataTable class.
 </summary>
 </member>
+<<<<<<< HEAD
 <member name="T:ProjectPlan.dsTasks.vtasksRow">
+=======
+<member name="T:ProjectPlan.projectplanDataSet.vprojectmembersRow">
+>>>>>>> master
 <summary>
 Represents strongly named DataRow class.
 </summary>
 </member>
+<<<<<<< HEAD
 <member name="T:ProjectPlan.dsTasks.vtasksRowChangeEvent">
+=======
+<member name="T:ProjectPlan.projectplanDataSet.vprojectmembersRowChangeEvent">
+>>>>>>> master
 <summary>
 Row event argument class
 </summary>
 </member>
+<<<<<<< HEAD
 <member name="T:ProjectPlan.dsTasksTableAdapters.vtasksTableAdapter">
+=======
+<member name="T:ProjectPlan.projectplanDataSetTableAdapters.vprojectmembersTableAdapter">
+>>>>>>> master
 <summary>
 Represents the connection and commands used to retrieve and save data.
 </summary>
@@ -547,22 +745,38 @@ Used to sort self-referenced table's rows
 Represents a strongly typed in-memory cache of data.
 </summary>
 </member>
+<<<<<<< HEAD
 <member name="T:ProjectPlan.projectplanDataSet.vprojectmembersDataTable">
+=======
+<member name="T:ProjectPlan.projectplanDataSet1.vstatusDataTable">
+>>>>>>> master
 <summary>
 Represents the strongly named DataTable class.
 </summary>
 </member>
+<<<<<<< HEAD
 <member name="T:ProjectPlan.projectplanDataSet.vprojectmembersRow">
+=======
+<member name="T:ProjectPlan.projectplanDataSet1.vstatusRow">
+>>>>>>> master
 <summary>
 Represents strongly named DataRow class.
 </summary>
 </member>
+<<<<<<< HEAD
 <member name="T:ProjectPlan.projectplanDataSet.vprojectmembersRowChangeEvent">
+=======
+<member name="T:ProjectPlan.projectplanDataSet1.vstatusRowChangeEvent">
+>>>>>>> master
 <summary>
 Row event argument class
 </summary>
 </member>
+<<<<<<< HEAD
 <member name="T:ProjectPlan.projectplanDataSetTableAdapters.vprojectmembersTableAdapter">
+=======
+<member name="T:ProjectPlan.projectplanDataSet1TableAdapters.vstatusTableAdapter">
+>>>>>>> master
 <summary>
 Represents the connection and commands used to retrieve and save data.
 </summary>

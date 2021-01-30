@@ -7,13 +7,19 @@ Public Class frmResourcesTable
             Me.dtpDateFrom.Value = DateSerial(Year(Today), Month(Today), 1)
             Me.dtpDateTo.Value = DateSerial(Year(Today), Month(Today) + 1, 0)
 
+<<<<<<< HEAD
             Me.dtpDateFrom.Value = DateSerial(2020, 1, 1)
             Me.dtpDateTo.Value = DateSerial(2020, 1, 10)
+=======
+            Me.dtpDateFrom.Value = DateSerial(2021, 1, 1)
+            Me.dtpDateTo.Value = DateSerial(2021, 1, 10)
+>>>>>>> master
 
             Me.dgvPlanning.Columns.Clear()
 
             Me.Cursor = Cursors.WaitCursor
 
+<<<<<<< HEAD
 
             Dim FilterStartDate As Date = Me.dtpDateFrom.Value
             Dim FilterEndDate As Date = Me.dtpDateTo.Value
@@ -44,6 +50,15 @@ Public Class frmResourcesTable
 
             'Me.Cursor = Cursors.Default
             'Dim EndTime As DateTime = Now
+=======
+            Dim StartTime As DateTime = Now
+
+            pCreateDGVColumns()
+            pDisplayDGVContent()
+
+            Me.Cursor = Cursors.Default
+            Dim EndTime As DateTime = Now
+>>>>>>> master
 
             'MessageBox.Show(StartTime & vbCrLf & EndTime)
             'Dim StartHours() As Integer = {8, 9, 10, 11, 13, 14, 15, 16}
@@ -109,6 +124,7 @@ Public Class frmResourcesTable
             If DebugFlag = True Then MessageBox.Show(ex.ToString)
         End Try
     End Sub
+<<<<<<< HEAD
     Private Function fGetProjectMemberForDateFilter(FromDate As Date, ToDate As Date) As String
 
         Dim ProjectPlanResultString As String = ""
@@ -176,6 +192,8 @@ Public Class frmResourcesTable
         fGetProjectMemberForDateFilter = ProjectPlanResultString
 
     End Function
+=======
+>>>>>>> master
 
     Private Sub pCreateDGVColumns()
 

@@ -38,5 +38,12 @@ D:\Users\Marcel\OneDrive\ProjectPlan\ProjectPlan\ProjectPlan\obj\Debug\ProjectPl
 D:\Users\Marcel\OneDrive\ProjectPlan\ProjectPlan\ProjectPlan\obj\Debug\ProjectPlan.frmStatusDetails.resources
 D:\Users\Marcel\OneDrive\ProjectPlan\ProjectPlan\ProjectPlan\obj\Debug\ProjectPlan.frmCustomers.resources
 D:\Users\Marcel\OneDrive\ProjectPlan\ProjectPlan\ProjectPlan\obj\Debug\ProjectPlan.frmCustomerDetails.resources
+<<<<<<< HEAD
 D:\Users\Marcel\OneDrive\ProjectPlan\ProjectPlan\ProjectPlan\obj\Debug\ProjectPlan.frmResourcesAdmin.resources
 D:\Users\Marcel\OneDrive\ProjectPlan\ProjectPlan\ProjectPlan\obj\Debug\ProjectPlan.vbprojAssemblyReference.cache
+=======
+D:\Users\Marcel\OneDrive\ProjectPlan\ProjectPlan\ProjectPlan\obj\Debug\ProjectPlan.vbprojAssemblyReference.cache
+D:\Users\Marcel\OneDrive\ProjectPlan\ProjectPlan\ProjectPlan\obj\Debug\ProjectPlan.frmResourcesTable.resources
+D:\Users\Marcel\OneDrive\ProjectPlan\ProjectPlan\ProjectPlan\obj\Debug\ProjectPlan.frmResourcesPlanSeries.resources
+D:\Users\Marcel\OneDrive\ProjectPlan\ProjectPlan\ProjectPlan\obj\Debug\ProjectPlan.frmTest.resources
+>>>>>>> master

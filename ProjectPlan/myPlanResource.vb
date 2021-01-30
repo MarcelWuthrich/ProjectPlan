@@ -22,7 +22,18 @@ Public Class myPlanResource
     Private _MinPlanDate As Date
     Private _MaxPlanDate As Date
     Private _PlanProjectResourcesPerTaskAndProject As Single
+    Private _Hour As Integer
 
+
+
+    Public Property Hour As Integer
+        Get
+            Return _Hour
+        End Get
+        Set(ByVal value As Integer)
+            _Hour = value
+        End Set
+    End Property
 
     Public Property CE_ID_Task As Integer
         Get
@@ -426,27 +437,34 @@ Public Class myPlanResource
 
             Dim SQL As String = ""
 
-            'Si l'ID de la ressource administrative et celle du projet sont nulles, c'est qu'il y a une erreur et qu'il ne faut rien sauver
-            'WUM / 08.05.2019
-            If CE_ID_AdminResource = 0 And CE_ID_Project = 0 Then
-                Return Me
-                Exit Function
+            'Si le champs remark contient la valeur "InitializeResourcesToHorizon", on sauvegarde un enregistremetn vide
+            'On ne fait donc aucune validation
+
+            If Me.Remark <> "InitializeResourcesToHorizon" Then
+
+                'Si l'ID de la ressource administrative et celle du projet sont nulles, c'est qu'il y a une erreur et qu'il ne faut rien sauver
+                'WUM / 08.05.2019
+                If CE_ID_AdminResource = 0 And CE_ID_Project = 0 Then
+                    Return Me
+                    Exit Function
+                End If
+
+                'Si l'ID du membre de projet est nulle, c'est qu'il y a une erreur et qu'il ne faut rien sauver
+                'WUM / 10.05.2019
+                If CE_ID_ProjectMember = 0 Then
+                    Return Me
+                    Exit Function
+                End If
+
+                'On regarde si on a déjà une ressource pour la personne et la date prévues
+                If Me.ID_Resource = 0 Then
+                    'Return Me
+                    Me.GetIDResourceFromDateAndMember()
+                End If
+
             End If
 
-            'Si l'ID du membre de projet est nulle, c'est qu'il y a une erreur et qu'il ne faut rien sauver
-            'WUM / 10.05.2019
-            If CE_ID_ProjectMember = 0 Then
-                Return Me
-                Exit Function
-            End If
-
-            'On regarde si on a déjà une ressource pour la personne et la date prévues
-            If Me.ID_Resource = 0 Then
-                'Return Me
-                Me.GetIDResourceFromDateAndMember()
-            End If
-
-            If Me.Exists = True Then
+            If Me.Exists = True And Me.ID_Resource <> 0 Then
 
 
 
@@ -456,13 +474,14 @@ Public Class myPlanResource
                 SQL &= "CE_ID_Project =" & Me._CE_ID_Project & ", "
                 SQL &= "CE_ID_AdminResource =" & Me.CE_ID_AdminResource & ", "
                 SQL &= "PlanDate ='" & fConvertDateTimeMySQL(Me.PlanDate) & "', "
-                SQL &= "HalfDay =" & Me.HalfDay & ",  "
+                'SQL &= "HalfDay =" & Me.HalfDay & ",  "
                 If Me.Blocked = True Then
                     SQL &= "Blocked = 1, "
                 Else
                     SQL &= "Blocked = 0, "
                 End If
-                SQL &= "Remark = '" & Replace(Me.Remark, "'", "''") & "' "
+                SQL &= "Remark = '" & Replace(Me.Remark, "'", "''") & "',"
+                SQL &= "Hour = " & Me.Hour & " "
 
                 SQL &= "WHERE ID_Resource=" & Me.ID_Resource & ";"
 
@@ -473,21 +492,29 @@ Public Class myPlanResource
 
                 Me.NewID()
 
+
                 'L'enregistrement n'existe pas encore, il faut faire un insert
                 SQL = "INSERT INTO PlanResources "
-                SQL &= "(ID_Resource, CE_ID_ProjectMember, CE_ID_Project, CE_ID_AdminResource, PlanDate, HalfDay, Blocked, Remark) VALUES ("
+                SQL &= "(ID_Resource, CE_ID_ProjectMember, CE_ID_Project, CE_ID_AdminResource, PlanDate, Blocked, Remark, Hour) VALUES ("
                 SQL &= Me.ID_Resource & ","
                 SQL &= Me.CE_ID_ProjectMember & ","
                 SQL &= Me.CE_ID_Project & ","
                 SQL &= Me.CE_ID_AdminResource & ","
                 SQL &= "'" & fConvertDateOnlyMySQL(Me.PlanDate) & "',"
-                SQL &= Me.HalfDay & ","
+                'SQL &= Me.HalfDay & ","
                 If Me.Blocked = True Then
                     SQL &= "1, "
                 Else
                     SQL &= "0, "
                 End If
-                SQL &= "'" & Replace(Me.Remark, "'", "''") & "')"
+                'Si on a la remark = "", on initialise l'enregistrement mais on ne veut pas enregistrer la remarque
+                If Me.Remark = "InitializeResourcesToHorizon" Then
+                    SQL &= "'',"
+                Else
+                    SQL &= "'" & Replace(Me.Remark, "'", "''") & "',"
+                End If
+
+                SQL &= Me.Hour & ")"
 
             End If
 
@@ -708,13 +735,13 @@ Public Class myPlanResource
             'Recherche le ID_Resource en fonction du CE_ID_Membre, d'une date PlanDate et d'une HalfDay
             'INPUT : CE_ID_ProjectMember
             'INPUT : PlanDate
-            'INPUT : HalfDay
+            'INPUT : Hour
             'OUTPUT : ID_Resource
 
             Dim MyDBConnection As New MySqlConnection
 
             Dim myDBDataReader As MySqlDataReader
-            Dim Sql As String = "SELECT ID_Resource FROM PlanResources WHERE CE_ID_ProjectMember = " & Me.CE_ID_ProjectMember & " AND PlanDate = '" & fConvertDateOnlyMySQL(Me.PlanDate) & "' AND HalfDay = " & Me.HalfDay & ";"
+            Dim Sql As String = "SELECT ID_Resource FROM PlanResources WHERE CE_ID_ProjectMember = " & Me.CE_ID_ProjectMember & " AND PlanDate = '" & fConvertDateOnlyMySQL(Me.PlanDate) & "' AND Hour = " & Me.Hour & ";"
 
             MyDBConnection.ConnectionString = cnProjectPlan
 
@@ -1015,6 +1042,55 @@ Public Class myPlanResource
         End Try
 
         Me.PlanProjectResourcesPerTaskAndProject = ProjectResources
+        Return Me
+
+    End Function
+
+
+    Public Function InitializePlanningToHorizon() As myPlanResource
+
+        Try
+            Dim DateOffsetDays As Integer = 365
+            Dim StartHours() As Integer = {8, 9, 10, 11, 13, 14, 15, 16}
+            Dim thisResource As New myPlanResource
+
+            Dim DateHorizon As Date = DateAdd(DateInterval.Day, DateOffsetDays, Today)
+
+            Dim OldestPlanDate As Date = Nothing
+            thisResource.GetMaxPlanDate()
+            OldestPlanDate = thisResource.MaxPlanDate
+
+            's'il n'y a pas d'enregistrements, on a une date dans le passé
+            'Si on a une date avant le 01.01.2000, on considère qu'il n'y a pas d'enregistrements dans la table et on part depuis aujourd'hui
+            Dim zeroDate As Date = New Date(2000, 1, 1)
+            If OldestPlanDate < zeroDate Then OldestPlanDate = Today
+
+            Dim OldestPlanDatePlus1Day As Date
+            OldestPlanDatePlus1Day = DateAdd(DateInterval.Day, 1, OldestPlanDate)
+
+            Dim thisDate As Date = OldestPlanDatePlus1Day
+
+
+            'On insère des planifications vides entre la plus grande date planifiée et l'horizon
+            thisResource.Remark = "InitializeResourcesToHorizon"
+            While thisDate <= DateHorizon
+
+                thisResource.PlanDate = thisDate
+                For Each thisHour In StartHours
+                    thisResource.ID_Resource = 0
+                    thisResource.Hour = thisHour
+                    thisResource.Save()
+                Next thisHour
+
+                thisDate = DateAdd(DateInterval.Day, 1, thisDate)
+            End While
+
+            Me.MaxPlanDate = DateHorizon
+
+        Catch ex As Exception
+            If DebugFlag = True Then MessageBox.Show(ex.ToString)
+        End Try
+
         Return Me
 
     End Function
